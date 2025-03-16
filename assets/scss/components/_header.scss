@@ -1,0 +1,214 @@
+@use "sass:color";
+@use "../variables" as *;
+
+// Стили хедера
+.header {
+  background-color: $dark-bg;
+  color: $white;
+  padding: 15px 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  // Логотип
+  &__logo {
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: $white;
+    }
+
+    img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    span {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+
+  // Меню
+  &__menu {
+    display: flex;
+    list-style: none;
+
+    li {
+      margin: 0 15px;
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+
+      &:hover,
+      &.active {
+        color: $primary-color;
+      }
+    }
+  }
+
+  // Действия в хедере
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  &__phone {
+    display: flex;
+    align-items: center;
+    color: $white;
+    text-decoration: none;
+    margin-right: 20px;
+
+    i {
+      margin-right: 5px;
+      color: $primary-color;
+    }
+  }
+
+  &__lang {
+    margin-right: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    i {
+      margin-left: 5px;
+      font-size: 12px;
+    }
+  }
+
+  &__button {
+    background-color: $primary-color;
+    color: $white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: color.adjust($primary-color, $lightness: -10%);
+    }
+  }
+
+  // Мобильное меню
+  &__mobile-menu {
+    display: none;
+  }
+}
+
+// Гамбургер-меню
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+  padding: 0;
+
+  span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: $white;
+    border-radius: 3px;
+    transition: all 0.3s;
+  }
+
+  &.active {
+    span {
+      &:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+// Мобильная навигация
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $dark-bg;
+  z-index: 100;
+  padding: 80px 20px 30px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  .header__menu {
+    flex-direction: column;
+    margin-bottom: 30px;
+
+    li {
+      margin: 15px 0;
+    }
+
+    a {
+      font-size: 20px;
+    }
+  }
+
+  .header__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header__phone,
+  .header__lang {
+    margin: 10px 0;
+  }
+
+  .header__button {
+    margin-top: 15px;
+  }
+}
+
+// Запрет прокрутки страницы при открытом мобильном меню
+body.no-scroll {
+  overflow: hidden;
+}
+
+// Медиа-запросы
+@media (max-width: 992px) {
+  .header {
+    &__nav,
+    &__actions {
+      display: none;
+    }
+
+    &__mobile-menu {
+      display: block;
+    }
+
+    .container {
+      justify-content: space-between;
+    }
+  }
+}
