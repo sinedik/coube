@@ -487,11 +487,13 @@ onUnmounted(() => {
   width: 100%;
   display: flex;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 .main-container {
   width: 100%;
   max-width: 1440px;
+  overflow-x: hidden;
 }
 
 .banner-section {
@@ -500,6 +502,7 @@ onUnmounted(() => {
   overflow: hidden;
   border-radius: 24px;
   margin-top: 40px;
+  box-sizing: border-box;
 }
 
 .banner-image-container {
@@ -537,6 +540,7 @@ onUnmounted(() => {
   flex-direction: column;
   justify-content: flex-end;
   padding: 40px;
+  box-sizing: border-box;
 }
 
 .container {
@@ -544,6 +548,7 @@ onUnmounted(() => {
   max-width: none;
   margin: 0 auto;
   padding: 0 40px;
+  box-sizing: border-box;
 }
 
 .banner-content {
@@ -553,6 +558,8 @@ onUnmounted(() => {
   flex-direction: column;
   height: 100%;
   justify-content: flex-end;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .banner-title {
@@ -561,6 +568,7 @@ onUnmounted(() => {
   margin-bottom: 24px;
   line-height: 1.2;
   white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .banner-description {
@@ -569,6 +577,7 @@ onUnmounted(() => {
   margin-bottom: 40px;
   line-height: 1.5;
   opacity: 0.9;
+  word-break: break-word;
 }
 
 .banner-button {
@@ -597,6 +606,7 @@ onUnmounted(() => {
     display: flex;
     flex-direction: column;
     border-radius: 0 0 24px 24px;
+    margin-top: 0;
   }
 
   .banner-image-container {
@@ -646,20 +656,24 @@ onUnmounted(() => {
     margin-top: 0;
   }
 
+  .container {
+    padding: 0 16px;
+  }
+
   .about-section {
-    padding: 40px 16px;
+    padding: 40px 0;
   }
 
   .about-section .container {
-    padding: 0;
+    padding: 0 16px;
   }
 
   .steps-section {
-    padding: 40px 16px;
+    padding: 40px 0;
   }
 
   .steps-section .container {
-    padding: 0;
+    padding: 0 16px;
   }
 
   .driver-section {
@@ -675,12 +689,15 @@ onUnmounted(() => {
 
 // Стили для секции "О нас"
 .about-section {
-  padding: 80px 0px;
+  padding: 80px 0;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .about-section .container {
-  padding: 0;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
 .about-header {
@@ -691,6 +708,8 @@ onUnmounted(() => {
   width: 100%;
   gap: 40px;
   justify-content: space-between;
+  flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
 .about-title-block {
@@ -701,6 +720,7 @@ onUnmounted(() => {
   font-size: 48px;
   font-weight: 700;
   margin: 0;
+  word-break: break-word;
 }
 
 .about-image-block {
@@ -712,6 +732,7 @@ onUnmounted(() => {
   height: 80px;
   overflow: hidden;
   border-radius: 25px;
+  max-width: 100%;
 }
 
 .about-image {
@@ -722,6 +743,7 @@ onUnmounted(() => {
 
 .about-description-block {
   /* flex: 0.5; */
+  width: 100%;
 }
 
 .about-description {
@@ -731,6 +753,7 @@ onUnmounted(() => {
   p {
     margin: 0;
     white-space: pre-wrap;
+    word-break: break-word;
   }
 }
 
@@ -738,6 +761,8 @@ onUnmounted(() => {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .feature-item {
@@ -748,6 +773,7 @@ onUnmounted(() => {
   min-height: 80px;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 
   &::before {
     content: "";
@@ -771,6 +797,7 @@ onUnmounted(() => {
   padding-left: 16px;
   font-size: 24px;
   font-weight: 400;
+  word-break: break-word;
 }
 
 // Адаптивность для секции "О нас"
@@ -793,15 +820,19 @@ onUnmounted(() => {
     width: 100%;
     margin-top: 20px;
   }
+
+  .about-image-container {
+    width: 250px;
+  }
 }
 
 @media (max-width: 768px) {
   .about-section {
-    padding: 40px 16px;
+    padding: 40px 0;
   }
 
   .about-section .container {
-    padding: 0;
+    padding: 0 16px;
     width: 100%;
   }
 
@@ -870,13 +901,22 @@ onUnmounted(() => {
   }
 }
 
+@media (max-width: 480px) {
+  .about-image-container {
+    width: 100px;
+  }
+}
+
 // Стили для секции "Простые шаги платформы"
 .steps-section {
-  padding: 40px 0px;
+  padding: 40px 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .steps-section .container {
-  padding: 0;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
 .steps-header {
@@ -884,12 +924,16 @@ onUnmounted(() => {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 60px;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .steps-title {
   font-size: 48px;
   font-weight: 700;
   margin: 0;
+  word-break: break-word;
 }
 
 .role-switcher {
@@ -899,6 +943,8 @@ onUnmounted(() => {
   border-radius: 100px;
   width: 360px;
   overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .role-button {
@@ -912,6 +958,7 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
   color: #333;
+  white-space: nowrap;
 
   &.active {
     background-color: #ffa500;
@@ -927,11 +974,15 @@ onUnmounted(() => {
   padding: 60px 40px;
   position: relative;
   min-height: 600px;
+  width: 100%;
+  box-sizing: border-box;
 
   &.mobile-steps {
-    padding: 0 !important;
+    padding: 35px !important;
     min-height: auto !important;
     margin: 0 !important;
+    border-radius: 32px !important;
+    box-sizing: border-box;
 
     .steps-column {
       width: 100%;
@@ -952,6 +1003,7 @@ onUnmounted(() => {
   flex: 1;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 
   &.left {
     padding-right: 20px;
@@ -972,6 +1024,8 @@ onUnmounted(() => {
   margin-bottom: 0;
   position: relative;
   display: flex;
+  width: 100%;
+  box-sizing: border-box;
 
   &.left {
     justify-content: flex-end;
@@ -991,10 +1045,12 @@ onUnmounted(() => {
   position: relative;
   width: auto;
   min-width: 320px;
+  max-width: 100%;
   height: 64px; /* Фиксированная высота для точного позиционирования */
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 
   &::after {
     display: none;
@@ -1019,6 +1075,9 @@ onUnmounted(() => {
     line-height: 1.4;
     text-align: center;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
   }
 }
 
@@ -1055,29 +1114,59 @@ onUnmounted(() => {
 }
 
 // Адаптивность для секции "Простые шаги платформы"
+@media (max-width: 1200px) {
+  .step-content {
+    min-width: 280px;
+
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
 @media (max-width: 1024px) {
   .steps-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 20px;
   }
 
   .steps-title {
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 
   .role-switcher {
     width: 100%;
     max-width: 360px;
   }
+
+  .step-content {
+    min-width: 240px;
+
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .step-content {
+    min-width: 200px;
+    padding: 15px 20px;
+
+    p {
+      font-size: 16px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
   .steps-section {
-    padding: 40px 16px;
+    padding: 40px 0;
   }
 
   .steps-section .container {
-    padding: 0;
+    padding: 0 16px;
   }
 
   .steps-header {
@@ -1114,6 +1203,7 @@ onUnmounted(() => {
   margin: 0 !important;
   padding: 35px !important;
   border-radius: 32px !important;
+  box-sizing: border-box;
 
   .mobile-steps-container {
     display: flex;
@@ -1121,12 +1211,15 @@ onUnmounted(() => {
     width: 100%;
     position: relative;
     gap: 0;
-    padding: 35px;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .step-item {
     margin-bottom: 0;
     position: relative;
+    width: 100%;
+    box-sizing: border-box;
 
     &:not(:last-child)::after {
       content: "";
@@ -1157,6 +1250,7 @@ onUnmounted(() => {
     margin: 0;
     height: auto;
     margin-bottom: 27px;
+    box-sizing: border-box;
 
     p {
       text-align: center;
@@ -1165,6 +1259,7 @@ onUnmounted(() => {
       font-size: 16px;
       font-weight: 500;
       white-space: normal;
+      word-break: break-word;
     }
   }
 }
@@ -1172,10 +1267,17 @@ onUnmounted(() => {
 // Адаптивность для мобильных устройств с маленьким экраном
 @media (max-width: 480px) {
   .mobile-steps {
+    padding: 20px !important;
+
+    .mobile-steps-container {
+      padding: 0;
+    }
+
     .step-content {
+      padding: 12px;
+
       p {
-        font-size: 16px;
-        white-space: normal;
+        font-size: 14px;
       }
     }
   }
@@ -1187,16 +1289,21 @@ onUnmounted(() => {
   background-color: #f5f5f5;
   border-radius: 24px;
   margin-bottom: 80px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .driver-section .container {
   padding: 0;
+  box-sizing: border-box;
 }
 
 .driver-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .driver-info {
@@ -1205,6 +1312,7 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .driver-logo {
@@ -1226,6 +1334,7 @@ onUnmounted(() => {
   font-weight: 700;
   margin: 0 0 20px 0;
   text-align: center;
+  word-break: break-word;
 }
 
 .driver-description {
@@ -1233,17 +1342,21 @@ onUnmounted(() => {
   line-height: 1.5;
   margin-bottom: 30px;
   text-align: center;
+  word-break: break-word;
 }
 
 .app-links {
   display: flex;
   flex-direction: row;
   gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .app-link {
   display: block;
   min-width: 180px;
+  max-width: 100%;
 }
 
 .app-badge {
@@ -1287,6 +1400,14 @@ onUnmounted(() => {
     margin-top: 0;
     justify-content: center;
   }
+
+  .driver-title {
+    font-size: 36px;
+  }
+
+  .driver-description {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1313,10 +1434,19 @@ onUnmounted(() => {
 
   .app-link {
     max-width: 140px;
+    min-width: 140px;
   }
 
   .app-links {
     justify-content: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-link {
+    max-width: 120px;
+    min-width: 120px;
   }
 }
 
@@ -1327,6 +1457,6 @@ onUnmounted(() => {
   width: 100%;
   max-width: none;
   margin: 0 auto;
-  padding: 0;
+  box-sizing: border-box;
 }
 </style>
