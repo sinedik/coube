@@ -32,13 +32,24 @@ export default defineNuxtConfig({
   },
 
   css: ["~/assets/scss/main.scss"],
+  devtools: { enabled: true },
   vite: {
+    resolve: {
+      alias: {
+        "@": ".",
+      },
+    },
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "~/assets/scss/variables.scss" as *;',
+          additionalData: `@use "~/assets/scss/variables.scss" as *;`,
         },
       },
+    },
+    server: {
+      allowedHosts: ["coube.kz", ".coube.kz"],
+      host: true,
+      port: 3000,
     },
   },
 });
