@@ -153,6 +153,7 @@ const scrollToTop = () => {
   padding: 30px 0;
   width: 100%;
   position: relative;
+  border-radius: 24px;
 
   .container {
     max-width: 1200px;

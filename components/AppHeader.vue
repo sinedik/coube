@@ -43,19 +43,17 @@
             <span class="header__lang-arrow"></span>
           </div>
 
-          <a href="#" class="header__button">Войти</a>
-        </div>
-
-        <div class="header__mobile-menu">
-          <button
-            class="hamburger"
-            @click="toggleMobileMenu"
-            :class="{ active: mobileMenuOpen }"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          <div class="header__mobile-menu">
+            <button
+              class="hamburger"
+              @click="toggleMobileMenu"
+              :class="{ active: mobileMenuOpen }"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -105,8 +103,6 @@
           </select>
           <span class="header__lang-arrow"></span>
         </div>
-
-        <a href="#" class="header__button">Войти</a>
       </div>
     </div>
   </header>
@@ -169,13 +165,14 @@ onUnmounted(() => {
 .header {
   background-color: $dark-bg;
   color: $white;
+  border-radius: 24px;
   padding: 15px 0;
 
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1280px;
+    max-width: 1440px;
     padding: 0 20px;
     margin: 0 auto;
   }
@@ -262,7 +259,7 @@ onUnmounted(() => {
     position: relative;
     display: flex;
     align-items: center;
-    margin-right: 57px; // Сохраняем отступ от кнопки
+    margin-right: 0; // Убираем отступ справа, так как кнопка удалена
 
     select {
       appearance: none;
@@ -271,7 +268,7 @@ onUnmounted(() => {
       color: $white;
       cursor: pointer;
       font-size: 16px;
-      padding-right: 20px; /* Уменьшаем отступ для стрелки */
+      padding-right: 20px;
 
       &:focus {
         outline: none;
@@ -286,35 +283,25 @@ onUnmounted(() => {
     &-arrow {
       content: "";
       position: absolute;
-      right: 0px; /* Подвигаем стрелку ближе к селекту, как в футере */
+      right: 0;
       top: 50%;
       transform: translateY(-50%);
       width: 0;
       height: 0;
       border-left: 6px solid transparent;
       border-right: 6px solid transparent;
-      border-top: 8px solid $primary-color; /* Желтая стрелка */
+      border-top: 8px solid $primary-color;
       pointer-events: none;
     }
   }
 
   &__button {
-    background-color: $primary-color;
-    color: $white;
-    padding: 10px 20px;
-    border-radius: 100px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    white-space: nowrap;
-
-    &:hover {
-      background-color: color.adjust($primary-color, $lightness: -10%);
-    }
+    display: none; // Скрываем кнопку
   }
 
   &__mobile-menu {
     display: none;
+    margin-left: 15px;
   }
 }
 
@@ -327,10 +314,11 @@ onUnmounted(() => {
   justify-content: space-between;
   height: 20px;
   padding: 0;
+  width: 25px;
 
   span {
     display: block;
-    width: 25px;
+    width: 100%;
     height: 3px;
     background-color: $white;
     border-radius: 3px;
@@ -542,35 +530,37 @@ body.no-scroll {
         margin-right: 12px;
 
         a {
-          font-size: 14px; // Уменьшаем размер шрифта в меню
+          font-size: 14px;
         }
       }
     }
 
     &__lang {
-      margin-right: 20px;
+      margin-right: 0; // Убираем отступ справа
 
       select {
-        font-size: 14px; // Уменьшаем размер шрифта в селекторе
+        font-size: 14px;
       }
-    }
-
-    &__button {
-      padding: 8px 15px; // Уменьшаем размер кнопки
-      font-size: 14px; // Уменьшаем размер шрифта в кнопке
     }
   }
 }
 
 @media (max-width: 820px) {
   .header {
-    &__nav,
-    &__top-actions {
+    &__nav {
       display: none;
+    }
+
+    &__top-actions {
+      .header__phone,
+      .header__lang {
+        display: none;
+      }
     }
 
     &__mobile-menu {
       display: block;
+      margin-left: auto; // Сдвигаем к правому краю
     }
 
     &__right {
@@ -580,6 +570,10 @@ body.no-scroll {
 
   .mobile-nav {
     display: block;
+  }
+
+  .hamburger {
+    display: flex;
   }
 }
 

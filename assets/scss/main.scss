@@ -11,6 +11,11 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  padding: 40px;
+
+  @media (max-width: 992px) {
+    padding: 20px;
+  }
 }
 
 .container {

@@ -19,7 +19,7 @@
                 "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
               }}
             </p>
-            <button class="banner-button">Регистрация</button>
+            <button class="banner-button">Подключиться</button>
           </div>
         </div>
       </section>
@@ -42,9 +42,8 @@
             <div class="about-description-block">
               <div class="about-description">
                 <p>
-                  {{
-                    "Coube это цифровой агрегатор грузовых перевозок,\nсочетающий в себе ряд важных функций, таких как:"
-                  }}
+                  Coube это цифровой агрегатор грузовых перевозок, сочетающий в
+                  себе ряд важных функций, таких как:
                 </p>
               </div>
             </div>
@@ -696,54 +695,52 @@ onUnmounted(() => {
 }
 
 .about-section .container {
-  padding: 0 40px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
 .about-header {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 60px;
   width: 100%;
-  gap: 40px;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  gap: 90px;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   box-sizing: border-box;
 }
 
 .about-title-block {
-  /* flex-shrink: 0; */
+  flex-shrink: 0;
+  width: auto;
+  padding-top: 8px;
 }
 
 .about-title {
   font-size: 48px;
   font-weight: 700;
   margin: 0;
-  word-break: break-word;
+  white-space: nowrap;
 }
 
 .about-image-block {
-  /* flex-shrink: 0; */
+  flex-shrink: 0;
+  margin-left: 0;
+  padding-top: 8px;
 }
 
 .about-image-container {
   width: 330px;
   height: 80px;
   overflow: hidden;
-  border-radius: 25px;
+  border-radius: 50px;
   max-width: 100%;
 }
 
-.about-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .about-description-block {
-  /* flex: 0.5; */
-  width: 100%;
+  flex: 1;
+  margin-left: 40px;
 }
 
 .about-description {
@@ -752,8 +749,8 @@ onUnmounted(() => {
 
   p {
     margin: 0;
-    white-space: pre-wrap;
-    word-break: break-word;
+    white-space: normal;
+    word-break: normal;
   }
 }
 
@@ -774,6 +771,19 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+
+    .feature-text {
+      /* color: $primary-color; */
+    }
+
+    &::before {
+      background-color: $primary-color;
+    }
+  }
 
   &::before {
     content: "";
@@ -782,13 +792,10 @@ onUnmounted(() => {
     top: 50%;
     transform: translateY(-50%);
     width: 12px;
-    height: 40px;
+    height: 4em;
     background-color: #333;
     border-radius: 12px;
-  }
-
-  &.highlight::before {
-    background-color: #ffa500;
+    transition: background-color 0.3s ease;
   }
 }
 
@@ -798,6 +805,8 @@ onUnmounted(() => {
   font-size: 24px;
   font-weight: 400;
   word-break: break-word;
+  line-height: 1.4;
+  transition: color 0.3s ease;
 }
 
 // Адаптивность для секции "О нас"
@@ -819,6 +828,7 @@ onUnmounted(() => {
   .about-description-block {
     width: 100%;
     margin-top: 20px;
+    margin-left: 0;
   }
 
   .about-image-container {
@@ -909,13 +919,13 @@ onUnmounted(() => {
 
 // Стили для секции "Простые шаги платформы"
 .steps-section {
-  padding: 40px 0;
+  padding: 0;
   width: 100%;
   box-sizing: border-box;
 }
 
 .steps-section .container {
-  padding: 0 40px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -1043,10 +1053,9 @@ onUnmounted(() => {
   margin: 16px 0;
   padding: 20px 24px;
   position: relative;
-  width: auto;
-  min-width: 320px;
-  max-width: 100%;
-  height: 64px; /* Фиксированная высота для точного позиционирования */
+  width: 455px;
+  height: auto;
+  min-height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1074,9 +1083,8 @@ onUnmounted(() => {
     font-weight: 500;
     line-height: 1.4;
     text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: normal;
     max-width: 100%;
   }
 }
@@ -1116,7 +1124,7 @@ onUnmounted(() => {
 // Адаптивность для секции "Простые шаги платформы"
 @media (max-width: 1200px) {
   .step-content {
-    min-width: 280px;
+    width: 280px;
 
     p {
       font-size: 20px;
@@ -1141,7 +1149,7 @@ onUnmounted(() => {
   }
 
   .step-content {
-    min-width: 240px;
+    width: 240px;
 
     p {
       font-size: 18px;
@@ -1151,7 +1159,7 @@ onUnmounted(() => {
 
 @media (max-width: 900px) {
   .step-content {
-    min-width: 200px;
+    width: 200px;
     padding: 15px 20px;
 
     p {
@@ -1285,7 +1293,7 @@ onUnmounted(() => {
 
 // Стили для секции "Для водителя"
 .driver-section {
-  padding: 40px 40px;
+  padding: 40px 0px;
   background-color: #f5f5f5;
   border-radius: 24px;
   margin-bottom: 80px;
