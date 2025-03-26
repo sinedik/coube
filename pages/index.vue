@@ -3,11 +3,9 @@
     <div class="main-container">
       <section class="banner-section">
         <div class="banner-image-container">
-          <img
-            src="~/assets/banner.png"
-            alt="COUBE - грузоперевозки"
-            class="banner-image"
-          />
+          <video class="banner-video" autoplay muted loop playsinline>
+            <source src="~/assets/banner-trucks.mp4" type="video/mp4" />
+          </video>
         </div>
         <div class="banner-content-wrapper">
           <div class="banner-content">
@@ -511,6 +509,7 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   z-index: 1;
+  overflow: hidden;
 
   &::after {
     content: "";
@@ -520,14 +519,17 @@ onUnmounted(() => {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
+    z-index: 2;
   }
 }
 
-.banner-image {
+.banner-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .banner-content-wrapper {
