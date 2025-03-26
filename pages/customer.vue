@@ -175,7 +175,7 @@
       <section class="laptop-section">
         <div class="container">
           <img
-            src="~/assets/laptop-carrier.png"
+            src="~/assets/laptop-customer.png"
             alt="Интерфейс COUBE для заказчиков"
             class="laptop-image"
           />
