@@ -5,7 +5,9 @@
         <!-- Логотип и платформа -->
         <div class="footer__logo-container">
           <div class="footer__logo-wrapper">
-            <img src="~/assets/logo.svg" alt="Coube" class="footer__logo" />
+            <NuxtLink to="/">
+              <img src="~/assets/logo.svg" alt="Coube" class="footer__logo" />
+            </NuxtLink>
             <span class="footer__platform">Logistic platform</span>
           </div>
         </div>
@@ -15,11 +17,15 @@
       </div>
 
       <div class="footer__nav">
-        <a href="#" class="footer__nav-link">Главная</a>
-        <a href="#" class="footer__nav-link">Заказчик</a>
-        <a href="#" class="footer__nav-link">Перевозчик</a>
-        <a href="#" class="footer__nav-link">О нас</a>
-        <a href="#" class="footer__nav-link">Новости</a>
+        <NuxtLink
+          v-for="(item, index) in menuItems"
+          :key="index"
+          :to="item.link"
+          class="footer__nav-link"
+          :class="{ active: item.active }"
+        >
+          {{ item.text }}
+        </NuxtLink>
         <div class="footer__lang">
           <select v-model="langStore.currentLang" @change="changeLang">
             <option
@@ -128,8 +134,31 @@
 
 <script setup>
 import { useLangStore } from "../stores/langStore";
+import { useRoute } from "vue-router";
+import { computed } from "vue";
 
+const route = useRoute();
 const langStore = useLangStore();
+
+// Вычисляем текущий путь для определения активной ссылки
+const currentPath = computed(() => route.path);
+
+// Данные меню с правильными путями
+const menuItems = computed(() => [
+  { text: "Главная", link: "/", active: currentPath.value === "/" },
+  {
+    text: "Заказчик",
+    link: "/customer",
+    active: currentPath.value === "/customer",
+  },
+  {
+    text: "Перевозчик",
+    link: "/carrier",
+    active: currentPath.value === "/carrier",
+  },
+  { text: "О нас", link: "/about", active: currentPath.value === "/about" },
+  { text: "Новости", link: "/news", active: currentPath.value === "/news" },
+]);
 
 const changeLang = () => {
   // Ничего не делаем, так как v-model автоматически обновляет значение
@@ -211,6 +240,10 @@ const scrollToTop = () => {
       font-size: 16px;
 
       &:hover {
+        color: $primary-color;
+      }
+
+      &.active {
         color: $primary-color;
       }
     }

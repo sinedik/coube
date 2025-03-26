@@ -2,18 +2,18 @@
   <header class="header">
     <div class="container">
       <div class="header__logo">
-        <a href="/">
+        <NuxtLink to="/">
           <img src="~/assets/logo.svg" alt="Coube" />
-        </a>
+        </NuxtLink>
       </div>
 
       <!-- Навигационное меню для десктопа -->
       <nav class="header__nav">
         <ul class="header__menu">
           <li v-for="(item, index) in menuItems" :key="index">
-            <a :href="item.link" :class="{ active: item.active }">
+            <NuxtLink :to="item.link" :class="{ active: item.active }">
               {{ item.text }}
-            </a>
+            </NuxtLink>
           </li>
         </ul>
       </nav>
@@ -61,9 +61,9 @@
     <div class="mobile-nav" :class="{ active: mobileMenuOpen }">
       <div class="mobile-nav__header">
         <div class="header__logo">
-          <a href="/">
+          <NuxtLink to="/">
             <img src="~/assets/logo.svg" alt="Coube" />
-          </a>
+          </NuxtLink>
         </div>
 
         <button class="mobile-nav__close" @click="toggleMobileMenu">
@@ -74,9 +74,9 @@
 
       <ul class="header__menu">
         <li v-for="(item, index) in menuItems" :key="index">
-          <a :href="item.link" :class="{ active: item.active }">
+          <NuxtLink :to="item.link" :class="{ active: item.active }">
             {{ item.text }}
-          </a>
+          </NuxtLink>
         </li>
       </ul>
 
@@ -109,8 +109,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, computed } from "vue";
 import { useLangStore } from "../stores/langStore";
+import { useRoute } from "vue-router";
+
+// Используем Vue Router для определения текущего маршрута
+const route = useRoute();
 
 // Используем Pinia
 const langStore = useLangStore();
@@ -119,13 +123,24 @@ const langStore = useLangStore();
 const mobileMenuOpen = ref(false);
 const isMobile = ref(false);
 
-// Данные меню
-const menuItems = ref([
-  { text: "Главная", link: "#", active: true },
-  { text: "Заказчик", link: "#", active: false },
-  { text: "Перевозчик", link: "#", active: false },
-  { text: "О нас", link: "#", active: false },
-  { text: "Новости", link: "#", active: false },
+// Вычисляем текущий путь для определения активной ссылки
+const currentPath = computed(() => route.path);
+
+// Данные меню с правильными путями
+const menuItems = computed(() => [
+  { text: "Главная", link: "/", active: currentPath.value === "/" },
+  {
+    text: "Заказчик",
+    link: "/customer",
+    active: currentPath.value === "/customer",
+  },
+  {
+    text: "Перевозчик",
+    link: "/carrier",
+    active: currentPath.value === "/carrier",
+  },
+  { text: "О нас", link: "/about", active: currentPath.value === "/about" },
+  { text: "Новости", link: "/news", active: currentPath.value === "/news" },
 ]);
 
 // Метод для обработки изменения языка
