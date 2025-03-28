@@ -26,9 +26,12 @@
 
       <section class="mission-section">
         <div class="container">
+          <div class="mission-header">
+            <h2 class="mission-title">Миссия компании COUBE</h2>
+            <button class="demo-button">Запросить демо</button>
+          </div>
           <div class="mission-content">
             <div class="mission-info">
-              <h2 class="mission-title">Миссия компании COUBE</h2>
               <p class="mission-description">
                 Наша миссия — «Обеспечить прозрачность, эффективность и удобство
                 грузоперевозок за счет цифровых технологий, объединяя
@@ -51,20 +54,18 @@
 
       <section class="values-section">
         <div class="container">
-          <div class="values-content">
-            <div class="values-header">
-              <div class="values-header-content">
-                <h2 class="values-title">Наши ценности</h2>
-                <p class="values-description">
-                  Наши ценности помогают платформе быть не просто помощником, а
-                  полноценным цифровым логистическим партнером, который делает
-                  перевозки удобными, экономичными и безопасными.
-                </p>
-              </div>
-              <div class="values-image">
-                <img src="~/assets/trucks.png" alt="Грузовики COUBE" />
-              </div>
+          <div class="values-header">
+            <h2 class="values-title">Наши ценности</h2>
+            <div class="values-image">
+              <img src="~/assets/trucks.png" alt="Грузовики COUBE" />
             </div>
+          </div>
+          <div class="values-content">
+            <p class="values-description">
+              {{
+                "Наши ценности помогают платформе быть не просто помощником, а полноценным\nцифровым логистическим партнером, который делаетперевозки удобными\n,экономичными и безопасными."
+              }}
+            </p>
             <div class="values-grid">
               <div class="value-item">
                 <div class="value-number">1.</div>
@@ -152,67 +153,91 @@
       <section class="social-section">
         <div class="container">
           <div class="social-content">
-            <div class="social-header">
-              <h2 class="social-title">Мы в соц.сетях</h2>
-              <div class="scroll-buttons">
-                <button
-                  class="scroll-button prev"
-                  @click="swiperRef?.slidePrev()"
-                >
-                  <img src="~/assets/arrow-left.svg" alt="Предыдущие" />
-                </button>
-                <button
-                  class="scroll-button next"
-                  @click="swiperRef?.slideNext()"
-                >
-                  <img src="~/assets/arrow-right.svg" alt="Следующие" />
-                </button>
+            <h2 class="social-title">Мы в соц.сетях</h2>
+            <div class="social-links-container">
+              <div class="social-links-wrapper">
+                <div class="social-links-row">
+                  <a
+                    :href="contacts.social.tiktok"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <img src="~/assets/tiktok.png" alt="TikTok" />
+                    <span>TikTok</span>
+                  </a>
+                  <a
+                    :href="contacts.social.facebook"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <img src="~/assets/facebook.png" alt="Facebook" />
+                    <span>Facebook</span>
+                  </a>
+                  <a
+                    :href="contacts.social.twitter"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <img src="~/assets/x.png" alt="X-COM" />
+                    <span>X-COM</span>
+                  </a>
+                </div>
+                <div class="social-links-row">
+                  <a
+                    :href="contacts.location.yandex"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <img src="~/assets/yandex.png" alt="Яндекс карты" />
+                    <span>Яндекс карты</span>
+                  </a>
+                  <a
+                    :href="contacts.location._2gis"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <img src="~/assets/2gis.png" alt="2ГИС" />
+                    <span>2ГИС</span>
+                  </a>
+                </div>
+                <div class="social-links-row">
+                  <a
+                    :href="contacts.social.telegram.channel"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <img src="~/assets/telegram.png" alt="Telegram канал" />
+                    <span>Telegram канал</span>
+                  </a>
+                  <a
+                    :href="contacts.social.youtube"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <img src="~/assets/youtube.png" alt="Youtube" />
+                    <span>Youtube</span>
+                  </a>
+                </div>
+                <div class="social-links-row">
+                  <a
+                    :href="contacts.social.linkedin"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <img src="~/assets/linkedin.png" alt="LinkedIn" />
+                    <span>LinkedIn</span>
+                  </a>
+                  <a
+                    :href="contacts.social.instagram"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <img src="~/assets/instagram.png" alt="Instagram" />
+                    <span>Instagram</span>
+                  </a>
+                </div>
               </div>
             </div>
-            <Swiper
-              :modules="[Navigation]"
-              :slides-per-view="'auto'"
-              :space-between="24"
-              @swiper="onSwiper"
-              class="social-links"
-            >
-              <SwiperSlide class="social-item">
-                <img src="~/assets/telegram.png" alt="Telegram" />
-                <span>Telegram<br />канал</span>
-              </SwiperSlide>
-              <SwiperSlide class="social-item">
-                <img src="~/assets/youtube.png" alt="Youtube" />
-                <span>Youtube</span>
-              </SwiperSlide>
-              <SwiperSlide class="social-item">
-                <img src="~/assets/tiktok.png" alt="TikTok" />
-                <span>TikTok</span>
-              </SwiperSlide>
-              <SwiperSlide class="social-item">
-                <img src="~/assets/instagram.png" alt="Instagram" />
-                <span>Instagram</span>
-              </SwiperSlide>
-              <SwiperSlide class="social-item">
-                <img src="~/assets/facebook.png" alt="Facebook" />
-                <span>Facebook</span>
-              </SwiperSlide>
-              <SwiperSlide class="social-item">
-                <img src="~/assets/x.png" alt="X-COM" />
-                <span>X-COM</span>
-              </SwiperSlide>
-              <SwiperSlide class="social-item">
-                <img src="~/assets/linkedin.png" alt="LinkedIn" />
-                <span>LinkedIn</span>
-              </SwiperSlide>
-              <SwiperSlide class="social-item">
-                <img src="~/assets/2gis.png" alt="2ГИС" />
-                <span>2ГИС</span>
-              </SwiperSlide>
-              <SwiperSlide class="social-item">
-                <img src="~/assets/yandex.png" alt="Яндекс Карты" />
-                <span>Карта</span>
-              </SwiperSlide>
-            </Swiper>
           </div>
         </div>
       </section>
@@ -221,15 +246,26 @@
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation } from "swiper/modules";
+import { useContactsStore } from "../stores/contactsStore";
 import "swiper/css";
 
-const swiperRef = ref(null);
+const contacts = useContactsStore();
 
-const onSwiper = (swiper) => {
-  swiperRef.value = swiper;
-};
+const socialLinks = [
+  {
+    icon: "telegram.png",
+    text: "Telegram\nканал",
+    link: contacts.social.telegram.channel,
+  },
+  { icon: "youtube.png", text: "Youtube", link: contacts.social.youtube },
+  { icon: "tiktok.png", text: "TikTok", link: contacts.social.tiktok },
+  { icon: "instagram.png", text: "Instagram", link: contacts.social.instagram },
+  { icon: "facebook.png", text: "Facebook", link: contacts.social.facebook },
+  { icon: "x.png", text: "X-COM", link: contacts.social.twitter },
+  { icon: "linkedin.png", text: "LinkedIn", link: contacts.social.linkedin },
+  { icon: "2gis.png", text: "2ГИС", link: contacts.location._2gis },
+  { icon: "yandex.png", text: "Карта", link: contacts.location.yandex },
+];
 </script>
 
 <style lang="scss" scoped>
@@ -323,7 +359,7 @@ const onSwiper = (swiper) => {
 }
 
 .banner-button {
-  background-color: #ffa500;
+  background-color: #f19e22;
   color: #000;
   border: none;
   border-radius: 100px;
@@ -337,8 +373,14 @@ const onSwiper = (swiper) => {
   margin-top: 160px;
 
   &:hover {
-    background-color: darken(#ffa500, 10%);
+    background-color: darken(#f19e22, 10%);
   }
+}
+
+.demo-button {
+  padding: 16px 51px !important;
+  margin-top: 0;
+  width: auto !important;
 }
 
 // Адаптивность для мобильных устройств
@@ -413,9 +455,18 @@ const onSwiper = (swiper) => {
   box-sizing: border-box;
 }
 
+.mission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 68px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .mission-content {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 80px;
   width: 100%;
@@ -429,12 +480,12 @@ const onSwiper = (swiper) => {
 .mission-title {
   font-size: 48px;
   font-weight: 700;
-  margin: 0 0 40px 0;
+  margin: 0;
   line-height: 1.2;
 }
 
 .mission-description {
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1.5;
   margin: 0;
   color: #333;
@@ -449,6 +500,28 @@ const onSwiper = (swiper) => {
   width: 100%;
   height: auto;
   object-fit: contain;
+}
+
+.demo-button {
+  background-color: #f19e22;
+  color: #000;
+  border: none;
+  border-radius: 100px;
+  padding: 16px 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 16px 0;
+  margin-top: 0;
+  &:hover {
+    background-color: darken(#f19e22, 10%);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -472,13 +545,25 @@ const onSwiper = (swiper) => {
     padding: 0 16px;
   }
 
+  .mission-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
   .mission-title {
     font-size: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 
   .mission-description {
     font-size: 14px;
+  }
+
+  .demo-button {
+    padding: 16px 24px;
+    font-size: 16px;
   }
 
   .mission-content {
@@ -493,27 +578,23 @@ const onSwiper = (swiper) => {
   background-color: #fff;
 }
 
-.values-content {
-  width: 100%;
-}
-
 .values-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 80px;
-  margin-bottom: 60px;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.values-header-content {
-  flex: 1;
-  max-width: 600px;
+.values-content {
+  width: 100%;
 }
 
 .values-title {
   font-size: 48px;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin: 0;
   line-height: 1.2;
 }
 
@@ -521,6 +602,9 @@ const onSwiper = (swiper) => {
   font-size: 20px;
   line-height: 1.5;
   color: #333;
+  margin-bottom: 50px;
+  white-space: pre-wrap;
+  margin-top: 30px;
 }
 
 .values-image {
@@ -547,47 +631,35 @@ const onSwiper = (swiper) => {
 
 .value-item {
   background: #f5f5f5;
-  padding: 24px;
+  padding: 32px 0;
   border-radius: 16px;
 }
 
 .value-number {
-  font-size: 24px;
-  font-weight: 700;
-  color: #ffa500;
+  font-size: 36px;
+  font-weight: 800;
+  color: #f19e22;
   margin-bottom: 16px;
 }
 
 .value-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
   line-height: 1.3;
 }
 
 .value-list {
-  list-style: none;
-  padding: 0;
+  list-style-type: disc;
+  padding-left: 20px;
   margin: 0;
 
   li {
-    font-size: 16px;
+    font-size: 22px;
     line-height: 1.5;
     color: #333;
     margin-bottom: 8px;
-    position: relative;
-    padding-left: 16px;
-
-    &:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 8px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: #ffa500;
-    }
+    padding-left: 0;
 
     &:last-child {
       margin-bottom: 0;
@@ -615,36 +687,28 @@ const onSwiper = (swiper) => {
   }
 
   .values-header {
-    flex-direction: column;
-    gap: 24px;
-    margin-bottom: 32px;
-  }
-
-  .values-header-content {
-    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
   }
 
   .values-title {
-    font-size: 32px;
-    margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-size: 24px;
+    margin-bottom: 0;
   }
 
   .values-description {
     font-size: 14px;
     line-height: 1.4;
+    margin-bottom: 30px;
   }
 
   .values-image {
     width: 130px;
     height: 30px;
     margin-left: auto;
-    order: -1;
-    position: absolute;
-    right: 0;
-    top: 0;
   }
 
   .values-grid {
@@ -667,15 +731,70 @@ const onSwiper = (swiper) => {
     margin-bottom: 16px;
   }
 
-  .value-list li {
-    font-size: 14px;
-    line-height: 1.4;
-    padding-left: 12px;
+  .value-list {
+    li {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  }
 
-    &:before {
-      top: 6px;
-      width: 4px;
-      height: 4px;
+  .social-section {
+    padding: 24px 16px;
+    background-color: #f5f5f5;
+    border-radius: 16px;
+    margin: 16px;
+  }
+
+  .social-title {
+    font-size: 24px !important;
+    margin-bottom: 20px;
+  }
+
+  .social-links-container {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  .social-links-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .social-links-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #eaeaea;
+    padding: 7.5px 14px;
+    border-radius: 100px;
+    text-decoration: none;
+    color: #000;
+    flex: 1;
+    min-width: 0;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    span {
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }
@@ -687,7 +806,7 @@ const onSwiper = (swiper) => {
 }
 
 .social-section {
-  padding: 80px 0;
+  padding: 54px 0;
   background-color: #fff;
 }
 
@@ -695,133 +814,139 @@ const onSwiper = (swiper) => {
   width: 100%;
 }
 
-.social-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
 .social-title {
   font-size: 48px;
   font-weight: 700;
-  margin: 0;
+  margin: 0 0 40px 0;
 }
 
-.scroll-buttons {
+.social-links-container {
+  width: 100%;
+  background-color: #f5f5f5;
+  border-radius: 24px;
+  padding: 40px;
+}
+
+.social-links-wrapper {
   display: flex;
-  gap: 16px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
-.scroll-button {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: #fff;
-  border: none;
+.social-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 16px;
+}
+
+.social-link {
   display: flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  background-color: #e3e3e3;
+  padding: 12px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  color: #000;
   transition: all 0.3s ease;
 
   &:hover {
-    /* border-color: #ffa500;
-    background: #ffa500; */
-
-    img {
-      /* filter: brightness(0) invert(1);
-      opacity: 1; */
-    }
-  }
-
-  &.prev {
-    img {
-      opacity: 0.5;
-    }
-
-    &:hover img {
-      opacity: 1;
-    }
-  }
-
-  &.next {
-    /* background: #ffa500;
-    border-color: #ffa500; */
-
-    img {
-      /* filter: brightness(0) invert(1); */
-    }
+    background-color: rgba(241, 158, 34, 0.1);
   }
 
   img {
-    width: 54px;
-    height: 54px;
-    transition: all 0.3s ease;
-  }
-}
-
-.social-links {
-  width: 100%;
-  padding: 8px 0;
-}
-
-:deep(.swiper-slide) {
-  width: auto;
-}
-
-.social-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #000;
-  text-align: center;
-  width: auto;
-  cursor: pointer;
-
-  img {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 12px;
-    border-radius: 16px;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
   }
 
   span {
-    font-size: 14px;
-    line-height: 1.2;
-    white-space: pre-line;
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 1024px) {
+  .social-title {
+    font-size: 36px;
+  }
+
+  .social-link {
+    padding: 10px 20px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    span {
+      font-size: 14px;
+    }
   }
 }
 
 @media (max-width: 768px) {
   .social-section {
-    padding: 40px 0;
-  }
-
-  .social-header {
-    margin-bottom: 24px;
+    padding: 24px 16px;
+    background-color: #f5f5f5;
+    border-radius: 16px;
+    margin: 16px;
   }
 
   .social-title {
-    font-size: 32px;
+    font-size: 24px;
+    margin-bottom: 20px;
   }
 
-  .scroll-button {
-    width: 40px;
-    height: 40px;
+  .social-links-container {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
   }
 
-  .social-item {
+  .social-links-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .social-links-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #eaeaea;
+    padding: 7.5px 14px;
+    border-radius: 100px;
+    text-decoration: none;
+    color: #000;
+    flex: 1;
+    min-width: 0;
+
     img {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 8px;
-      border-radius: 12px;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      flex-shrink: 0;
     }
 
     span {
       font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }

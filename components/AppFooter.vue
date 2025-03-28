@@ -41,16 +41,16 @@
       </div>
 
       <div class="footer__contacts">
-        <a href="tel:+77074678336" class="footer__contact-link">
+        <a :href="`tel:${contacts.phone.raw}`" class="footer__contact-link">
           <img
             src="~/assets/phone.svg"
             alt="Телефон"
             class="footer__contact-icon"
           />
-          <span>+7 707 467 83-36</span>
+          <span>{{ contacts.phone.display }}</span>
         </a>
         <a
-          href="https://wa.me/77074678336"
+          :href="contacts.social.whatsapp.direct"
           class="footer__contact-link"
           target="_blank"
         >
@@ -61,23 +61,34 @@
           />
           <span>WhatsApp</span>
         </a>
-        <a href="mailto:info@coube.kz" class="footer__contact-link">
+        <a
+          :href="contacts.social.telegram.contact"
+          class="footer__contact-link"
+          target="_blank"
+        >
           <img
             src="~/assets/telegram.svg"
             alt="Telegram"
             class="footer__contact-icon"
           />
-          <span>info@coube.kz</span>
+          <span>Telegram</span>
         </a>
-        <a href="mailto:office@coube.kz" class="footer__contact-link">
+        <a
+          :href="`mailto:${contacts.email.office}`"
+          class="footer__contact-link"
+        >
           <img
             src="~/assets/mail.svg"
             alt="Email"
             class="footer__contact-icon"
           />
-          <span>office@coube.kz</span>
+          <span>{{ contacts.email.office }}</span>
         </a>
-        <a href="https://coube.kz" class="footer__contact-link" target="_blank">
+        <a
+          :href="contacts.social.instagram"
+          class="footer__contact-link"
+          target="_blank"
+        >
           <img
             src="~/assets/instagram.svg"
             alt="Instagram"
@@ -92,11 +103,13 @@
           <a href="#" class="footer__doc-link">Пользовательское соглашение</a>
           <a href="#" class="footer__doc-link">Политика конфиденциальности</a>
           <p class="footer__app-title">Ознакомьтесь с платформой</p>
-          <img
-            src="~/assets/movie.svg"
-            alt="Видео"
-            class="footer__movie-icon"
-          />
+          <a :href="contacts.social.youtube" target="_blank">
+            <img
+              src="~/assets/movie.svg"
+              alt="Видео"
+              class="footer__movie-icon"
+            />
+          </a>
         </div>
 
         <div class="footer__app-container">
@@ -134,11 +147,13 @@
 
 <script setup>
 import { useLangStore } from "../stores/langStore";
+import { useContactsStore } from "../stores/contactsStore";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
 
 const route = useRoute();
 const langStore = useLangStore();
+const contacts = useContactsStore();
 
 // Вычисляем текущий путь для определения активной ссылки
 const currentPath = computed(() => route.path);
