@@ -2,15 +2,9 @@
   <div class="carrier-page">
     <div class="main-container">
       <section class="banner-section">
-        <div class="banner-image-container">
-          <img
-            src="~/assets/carrier.png"
-            alt="COUBE - грузоперевозки"
-            class="banner-image"
-          />
-        </div>
-        <div class="banner-content-wrapper">
-          <div class="banner-content">
+        <!-- Мобильная версия баннера -->
+        <div class="banner-mobile">
+          <div class="banner-content-mobile">
             <h1 class="banner-title">
               {{ "COUBE — цифровой агрегатор\nавтомобильных грузоперевозок" }}
             </h1>
@@ -19,33 +13,91 @@
                 "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
               }}
             </p>
-            <div class="banner-buttons">
-              <div class="download-section">
-                <p class="download-title">Скачать приложение для водителя</p>
-                <div class="store-buttons">
-                  <a href="#" class="store-button">
-                    <img
-                      src="~/assets/Apple.svg"
-                      alt="Download on the App Store"
-                    />
-                  </a>
-                  <a href="#" class="store-button">
-                    <img
-                      src="~/assets/Google.svg"
-                      alt="Get it on Google Play"
-                    />
-                  </a>
-                </div>
+          </div>
+          <div class="banner-image-mobile">
+            <img
+              src="~/assets/carrier.png"
+              alt="COUBE - грузоперевозки"
+              class="banner-image"
+            />
+            <div class="platform-buttons-mobile">
+              <p class="platform-title">Ознакомьтесь с платформой</p>
+              <div class="buttons-row">
+                <a href="#" class="platform-button">
+                  <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                </a>
+                <a href="#" class="platform-button">
+                  <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                </a>
               </div>
-              <div class="platform-section">
-                <p class="platform-title">Ознакомьтесь с платформой</p>
-                <div class="platform-buttons">
-                  <a href="#" class="platform-button">
-                    <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
-                  </a>
-                  <a href="#" class="platform-button">
-                    <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
-                  </a>
+            </div>
+          </div>
+          <div class="mobile-app-buttons">
+            <p class="download-title">Скачать приложение для водителя</p>
+            <div class="store-buttons">
+              <a href="#" class="store-button">
+                <img src="~/assets/Apple.svg" alt="Download on the App Store" />
+              </a>
+              <a href="#" class="store-button">
+                <img src="~/assets/Google.svg" alt="Get it on Google Play" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Десктопная версия баннера -->
+        <div class="banner-desktop">
+          <div class="banner-image-container">
+            <img
+              src="~/assets/carrier.png"
+              alt="COUBE - грузоперевозки"
+              class="banner-image"
+            />
+          </div>
+          <div class="banner-content-wrapper">
+            <div class="banner-content">
+              <h1 class="banner-title">
+                {{ "COUBE — цифровой агрегатор\nавтомобильных грузоперевозок" }}
+              </h1>
+              <p class="banner-description">
+                {{
+                  "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
+                }}
+              </p>
+              <div class="banner-buttons">
+                <div class="download-section">
+                  <p class="download-title">Скачать приложение для водителя</p>
+                  <div class="store-buttons">
+                    <a href="#" class="store-button">
+                      <img
+                        src="~/assets/Apple.svg"
+                        alt="Download on the App Store"
+                      />
+                    </a>
+                    <a href="#" class="store-button">
+                      <img
+                        src="~/assets/Google.svg"
+                        alt="Get it on Google Play"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div class="platform-section">
+                  <p class="platform-title">Ознакомьтесь с платформой</p>
+                  <div class="platform-buttons">
+                    <a href="#" class="platform-button">
+                      <img
+                        src="~/assets/play-orange.svg"
+                        alt="Смотреть видео"
+                      />
+                    </a>
+                    <a href="#" class="platform-button">
+                      <img
+                        src="~/assets/play-orange.svg"
+                        alt="Смотреть видео"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -59,15 +111,16 @@
             <div class="value-header">
               <div class="value-header-content">
                 <h2 class="value-title">Ценность для перевозчика</h2>
-                <p class="value-description">
-                  Упрощаем поиск заказов и оформление документов для выполнения
-                  грузоперевозок
-                </p>
               </div>
               <div class="value-image">
                 <img src="~/assets/trucks.png" alt="Грузовики COUBE" />
               </div>
             </div>
+            <p class="value-description">
+              {{
+                "Упрощаем поиск заказов и оформление\nдокументов для выполнениягрузоперевозок"
+              }}
+            </p>
             <div class="value-grid">
               <div class="value-item">
                 <div class="value-number">1.</div>
@@ -180,7 +233,7 @@
         </div>
       </section>
 
-      <section class="laptop-section">
+      <section class="laptop-section desktop-only">
         <div class="container">
           <img
             src="~/assets/laptop-carrier.png"
@@ -283,7 +336,42 @@
   border-radius: 24px;
   margin-top: 40px;
   box-sizing: border-box;
-  min-height: 600px;
+  min-height: 560px;
+}
+
+.banner-mobile {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+}
+
+.banner-content-mobile {
+  background-color: #fff;
+  padding: 24px 16px;
+  order: 1;
+}
+
+.banner-image-mobile {
+  position: relative;
+  height: 240px;
+  order: 2;
+  overflow: hidden;
+  border-radius: 24px;
+
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.banner-desktop {
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+  min-height: 560px;
 }
 
 .banner-image-container {
@@ -332,7 +420,6 @@
   height: 100%;
   justify-content: flex-end;
   width: 100%;
-  max-width: 600px;
   box-sizing: border-box;
 }
 
@@ -356,9 +443,9 @@
 
 .banner-buttons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 24px;
-  margin-top: 40px;
+  margin-top: 120px;
 }
 
 .download-section,
@@ -410,45 +497,35 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .banner-title {
+    font-size: 36px;
+  }
+
+  .banner-description {
+    font-size: 20px;
+  }
+
+  .banner-buttons {
+    margin-top: 120px;
+  }
+}
+
 @media (max-width: 768px) {
   .banner-section {
-    height: auto;
-    min-height: auto;
-    display: flex;
-    flex-direction: column;
-    border-radius: 0 0 24px 24px;
     margin-top: 0;
   }
 
-  .banner-image-container {
-    position: relative;
-    height: 240px;
-    order: 2;
-
-    &::after {
-      display: none;
-    }
+  .banner-mobile {
+    display: flex;
   }
 
-  .banner-content-wrapper {
-    position: relative;
-    height: auto;
-    padding: 24px 16px;
-    order: 1;
-    background-color: #fff;
-    justify-content: flex-start;
-  }
-
-  .banner-content {
-    max-width: 100%;
-    text-align: left;
-    padding: 0;
-    color: #000;
-    justify-content: flex-start;
+  .banner-desktop {
+    display: none;
   }
 
   .banner-title {
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 8px;
     color: #000;
   }
@@ -459,35 +536,10 @@
     color: #000;
     opacity: 1;
   }
-
-  .banner-buttons {
-    margin-top: 24px;
-    gap: 16px;
-  }
-
-  .download-title,
-  .platform-title {
-    font-size: 14px;
-  }
-
-  .store-button {
-    height: 32px;
-  }
-
-  .platform-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-
-    img {
-      width: 20px;
-      height: 20px;
-    }
-  }
 }
 
 .value-section {
-  padding: 80px 0;
+  padding: 54px 0;
   width: 100%;
   box-sizing: border-box;
   background-color: #fff;
@@ -497,7 +549,7 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -510,7 +562,7 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 80px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .value-header-content {
@@ -523,12 +575,16 @@
   font-weight: 700;
   margin-bottom: 24px;
   line-height: 1.2;
+  white-space: pre;
 }
 
 .value-description {
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1.5;
   color: #333;
+  margin-top: 30px;
+  white-space: pre-wrap;
+  margin-bottom: 50px;
 }
 
 .value-image {
@@ -555,12 +611,12 @@
 
 .value-item {
   background: #f5f5f5;
-  padding: 24px;
+  padding: 32px 24px;
   border-radius: 16px;
   transition: all 0.3s ease;
 
   &:hover {
-    background: #ffa500;
+    background: #f19e22;
     color: #fff;
 
     .value-number {
@@ -578,17 +634,18 @@
 }
 
 .value-number {
-  font-size: 24px;
-  font-weight: 700;
-  color: #ffa500;
+  font-size: 36px;
+  font-weight: 800;
+  color: #f19e22;
   margin-bottom: 16px;
 }
 
 .value-item h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
   line-height: 1.3;
+  white-space: normal;
 }
 
 .value-list {
@@ -597,22 +654,22 @@
   margin: 0;
 
   li {
-    font-size: 16px;
+    font-size: 22px;
     line-height: 1.5;
     color: #333;
     margin-bottom: 8px;
     position: relative;
-    padding-left: 16px;
+    padding-left: 20px;
 
     &:before {
       content: "";
       position: absolute;
       left: 0;
-      top: 8px;
+      top: 12px;
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background-color: #ffa500;
+      background-color: #f19e22;
     }
 
     &:last-child {
@@ -626,12 +683,28 @@
     gap: 40px;
   }
 
+  .value-title {
+    font-size: 36px;
+  }
+
+  .value-description {
+    font-size: 20px;
+  }
+
   .value-image {
     width: 250px;
   }
 
   .value-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .value-item h3 {
+    font-size: 20px;
+  }
+
+  .value-list li {
+    font-size: 20px;
   }
 }
 
@@ -645,9 +718,10 @@
   }
 
   .value-header {
-    flex-direction: column;
-    gap: 24px;
-    margin-bottom: 32px;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: center;
   }
 
   .value-header-content {
@@ -655,11 +729,10 @@
   }
 
   .value-title {
-    font-size: 32px;
+    font-size: 24px;
     margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: block;
+    white-space: inherit;
   }
 
   .value-description {
@@ -671,10 +744,7 @@
     width: 130px;
     height: 30px;
     margin-left: auto;
-    order: -1;
-    position: absolute;
-    right: 16px;
-    top: 0;
+    flex-shrink: 0;
   }
 
   .value-grid {
@@ -707,12 +777,6 @@
       width: 4px;
       height: 4px;
     }
-  }
-}
-
-@media (max-width: 480px) {
-  .value-image {
-    width: 100px;
   }
 }
 
@@ -906,6 +970,75 @@
 
   .app-links.desktop-only {
     display: none !important;
+  }
+}
+
+.platform-buttons-mobile {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .platform-title {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .buttons-row {
+    display: flex;
+    gap: 16px;
+  }
+
+  .platform-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.mobile-app-buttons {
+  padding: 16px;
+  background-color: #f5f5f5;
+  border-radius: 0 0 24px 24px;
+  margin-bottom: 24px;
+  order: 3;
+
+  .download-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: #000;
+    text-align: center;
+  }
+
+  .store-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .store-button {
+    height: 45px;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
   }
 }
 </style>

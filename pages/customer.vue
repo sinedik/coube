@@ -20,17 +20,9 @@
               }}
             </p>
             <div class="banner-buttons">
-              <div class="platform-section">
-                <p class="platform-title">Ознакомьтесь с платформой</p>
-                <div class="platform-buttons">
-                  <a href="#" class="platform-button">
-                    <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
-                  </a>
-                  <a href="#" class="platform-button">
-                    <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
-                  </a>
-                </div>
-              </div>
+              <button class="banner-button">
+                {{ "Подключиться" }}
+              </button>
             </div>
           </div>
         </div>
@@ -42,17 +34,16 @@
             <div class="value-header">
               <div class="value-header-content">
                 <h2 class="value-title">Ценность для заказчика</h2>
-                <p class="value-description">
-                  Цифровая логистическая платформа и агрегатор помогают
-                  сократить затраты, ускорить поиск перевозчиков, контролировать
-                  доставку и автоматизировать документооборот для грузоперевозок
-                  наземным и водным транспортом.
-                </p>
               </div>
               <div class="value-image">
                 <img src="~/assets/trucks.png" alt="Грузовики COUBE" />
               </div>
             </div>
+            <p class="value-description">
+              {{
+                "Цифровая логистическая платформа и агрегатор помогаютсократить затраты,\nускорить поиск перевозчиков,контролировать доставку и автоматизировать\nдокументооборот для грузоперевозок наземным и водным транспортом."
+              }}
+            </p>
             <div class="value-grid">
               <div class="value-item">
                 <div class="value-number">1.</div>
@@ -174,76 +165,23 @@
 
       <section class="laptop-section">
         <div class="container">
-          <img
-            src="~/assets/laptop-customer.png"
-            alt="Интерфейс COUBE для заказчиков"
-            class="laptop-image"
-          />
-        </div>
-      </section>
-
-      <section class="driver-section">
-        <div class="container">
-          <div class="driver-content">
-            <div class="driver-info">
-              <div class="driver-logo">
-                <img
-                  src="~/assets/logo-clear.svg"
-                  alt="COUBE"
-                  class="logo-image"
-                />
+          <div class="laptop-container">
+            <div class="laptop-header">
+              <div class="laptop-header-content">
+                <h2 class="laptop-title">Управление перевозками</h2>
+                <p class="laptop-description">
+                  Простой способ управления и мониторинга перевозкой грузов
+                </p>
               </div>
-              <h2 class="driver-title">Управление перевозками</h2>
-              <p class="driver-description">
-                Простой способ управления и мониторинга перевозкой грузов
-              </p>
-              <div class="app-links desktop-only">
-                <a href="#" class="app-link">
-                  <img
-                    src="~/assets/Apple.svg"
-                    alt="App Store"
-                    class="app-badge"
-                  />
-                </a>
-                <a href="#" class="app-link">
-                  <img
-                    src="~/assets/Google.svg"
-                    alt="Google Play"
-                    class="app-badge"
-                  />
-                </a>
+              <div class="laptop-image-small">
+                <img src="~/assets/trucks.png" alt="Грузовики COUBE" />
               </div>
             </div>
-            <div class="driver-phones desktop-only">
-              <img
-                src="~/assets/phones.png"
-                alt="Приложение COUBE для заказчика"
-                class="phones-image"
-              />
-            </div>
-            <div class="driver-phones mobile-only">
-              <img
-                src="~/assets/phones.png"
-                alt="Приложение COUBE для заказчика"
-                class="phones-image"
-              />
-            </div>
-            <div class="app-links mobile-only">
-              <a href="#" class="app-link">
-                <img
-                  src="~/assets/Apple.svg"
-                  alt="App Store"
-                  class="app-badge"
-                />
-              </a>
-              <a href="#" class="app-link">
-                <img
-                  src="~/assets/Google.svg"
-                  alt="Google Play"
-                  class="app-badge"
-                />
-              </a>
-            </div>
+            <img
+              src="~/assets/laptop-customer.png"
+              alt="Интерфейс COUBE для заказчиков"
+              class="laptop-image"
+            />
           </div>
         </div>
       </section>
@@ -274,7 +212,7 @@
   border-radius: 24px;
   margin-top: 40px;
   box-sizing: border-box;
-  min-height: 600px;
+  min-height: 560px;
 }
 
 .banner-image-container {
@@ -323,7 +261,6 @@
   height: 100%;
   justify-content: flex-end;
   width: 100%;
-  max-width: 600px;
   box-sizing: border-box;
 }
 
@@ -345,11 +282,29 @@
   word-break: break-word;
 }
 
+.banner-button {
+  background-color: #f19e22;
+  color: #000;
+  border: none;
+  border-radius: 100px;
+  padding: 16px 40px;
+  width: 100%;
+  max-width: 240px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 160px;
+
+  &:hover {
+    background-color: darken(#f19e22, 10%);
+  }
+}
+
 .banner-buttons {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-top: 40px;
 }
 
 .platform-section {
@@ -389,14 +344,28 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .banner-title {
+    font-size: 36px;
+  }
+
+  .banner-description {
+    font-size: 20px;
+  }
+
+  .banner-button {
+    margin-top: 120px;
+  }
+}
+
 @media (max-width: 768px) {
   .banner-section {
     height: auto;
-    min-height: auto;
     display: flex;
     flex-direction: column;
     border-radius: 0 0 24px 24px;
     margin-top: 0;
+    min-height: auto;
   }
 
   .banner-image-container {
@@ -427,7 +396,7 @@
   }
 
   .banner-title {
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 8px;
     color: #000;
   }
@@ -439,29 +408,21 @@
     opacity: 1;
   }
 
+  .banner-button {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px 0;
+    margin-top: 0;
+  }
+
   .banner-buttons {
     margin-top: 24px;
     gap: 16px;
   }
-
-  .platform-title {
-    font-size: 14px;
-  }
-
-  .platform-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-
-    img {
-      width: 20px;
-      height: 20px;
-    }
-  }
 }
 
 .value-section {
-  padding: 80px 0;
+  padding: 54px 0;
   width: 100%;
   box-sizing: border-box;
   background-color: #fff;
@@ -471,7 +432,7 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -484,7 +445,7 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 80px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .value-header-content {
@@ -500,9 +461,12 @@
 }
 
 .value-description {
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1.5;
   color: #333;
+  margin-top: 30px;
+  white-space: pre-wrap;
+  margin-bottom: 50px;
 }
 
 .value-image {
@@ -529,12 +493,12 @@
 
 .value-item {
   background: #f5f5f5;
-  padding: 24px;
+  padding: 32px 24px;
   border-radius: 16px;
   transition: all 0.3s ease;
 
   &:hover {
-    background: #ffa500;
+    background: #f19e22;
     color: #fff;
 
     .value-number {
@@ -552,16 +516,16 @@
 }
 
 .value-number {
-  font-size: 24px;
-  font-weight: 700;
-  color: #ffa500;
+  font-size: 36px;
+  font-weight: 800;
+  color: #f19e22;
   margin-bottom: 16px;
 }
 
 .value-item h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
   line-height: 1.3;
 }
 
@@ -571,22 +535,22 @@
   margin: 0;
 
   li {
-    font-size: 16px;
+    font-size: 22px;
     line-height: 1.5;
     color: #333;
     margin-bottom: 8px;
     position: relative;
-    padding-left: 16px;
+    padding-left: 20px;
 
     &:before {
       content: "";
       position: absolute;
       left: 0;
-      top: 8px;
+      top: 12px;
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background-color: #ffa500;
+      background-color: #f19e22;
     }
 
     &:last-child {
@@ -600,12 +564,28 @@
     gap: 40px;
   }
 
+  .value-title {
+    font-size: 36px;
+  }
+
+  .value-description {
+    font-size: 20px;
+  }
+
   .value-image {
     width: 250px;
   }
 
   .value-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .value-item h3 {
+    font-size: 20px;
+  }
+
+  .value-list li {
+    font-size: 20px;
   }
 }
 
@@ -619,9 +599,10 @@
   }
 
   .value-header {
-    flex-direction: column;
-    gap: 24px;
-    margin-bottom: 32px;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: center;
   }
 
   .value-header-content {
@@ -629,11 +610,9 @@
   }
 
   .value-title {
-    font-size: 32px;
+    font-size: 24px;
     margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: block;
   }
 
   .value-description {
@@ -645,10 +624,7 @@
     width: 130px;
     height: 30px;
     margin-left: auto;
-    order: -1;
-    position: absolute;
-    right: 16px;
-    top: 0;
+    flex-shrink: 0;
   }
 
   .value-grid {
@@ -684,16 +660,11 @@
   }
 }
 
-@media (max-width: 480px) {
-  .value-image {
-    width: 100px;
-  }
-}
-
 .laptop-section {
-  padding: 80px 0;
+  padding: 54px 0;
   width: 100%;
   background-color: #fff;
+  margin-bottom: 54px;
 
   .container {
     display: flex;
@@ -701,185 +672,131 @@
     align-items: center;
   }
 
+  .laptop-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .laptop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 80px;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  .laptop-header-content {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  .laptop-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.2;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .laptop-description {
+    font-size: 24px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 0;
+    text-align: left;
+    white-space: pre;
+    margin-top: 30px;
+  }
+
+  .laptop-image-small {
+    width: 330px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+
   .laptop-image {
     width: 100%;
     max-width: 1200px;
     height: auto;
     object-fit: contain;
+    margin-top: 20px;
   }
-}
-
-.driver-section {
-  padding: 40px 0px;
-  background-color: #f5f5f5;
-  border-radius: 24px;
-  margin-bottom: 80px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.driver-section .container {
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.driver-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.driver-info {
-  max-width: 450px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.driver-logo {
-  width: 90px;
-  height: 100px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.logo-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.driver-title {
-  font-size: 48px;
-  font-weight: 700;
-  margin: 0 0 20px 0;
-  text-align: center;
-  word-break: break-word;
-}
-
-.driver-description {
-  font-size: 24px;
-  line-height: 1.5;
-  margin-bottom: 30px;
-  text-align: center;
-  word-break: break-word;
-}
-
-.app-links {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.app-link {
-  display: block;
-  min-width: 180px;
-  max-width: 100%;
-}
-
-.app-badge {
-  width: 100%;
-  height: auto;
-}
-
-.driver-phones {
-  max-width: 50%;
-}
-
-.phones-image {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
 }
 
 @media (max-width: 1024px) {
-  .driver-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+  .laptop-section {
+    padding: 40px 0;
 
-  .driver-info {
-    max-width: 100%;
-    margin-bottom: 0;
-    align-items: center;
-    width: 100%;
-  }
+    .laptop-header {
+      gap: 40px;
+    }
 
-  .driver-title {
-    font-size: 32px;
-    margin-bottom: 16px;
-  }
+    .laptop-title {
+      font-size: 36px;
+    }
 
-  .driver-description {
-    font-size: 16px;
-    margin-bottom: 24px;
-  }
+    .laptop-description {
+      font-size: 20px;
+    }
 
-  .driver-phones {
-    max-width: 100%;
-    margin: 32px 0;
+    .laptop-image-small {
+      width: 250px;
+    }
   }
 }
 
 @media (max-width: 768px) {
-  .driver-section {
-    margin-bottom: 40px;
-    border-radius: 16px;
-  }
+  .laptop-section {
+    padding: 30px 0;
 
-  .driver-logo {
-    width: 60px;
-    height: 70px;
-    margin-bottom: 16px;
-  }
+    .laptop-header {
+      flex-direction: row;
+      gap: 20px;
+      margin-bottom: 30px;
+      align-items: center;
+    }
 
-  .app-link {
-    min-width: 140px;
+    .laptop-header-content {
+      flex: 1;
+    }
+
+    .laptop-title {
+      font-size: 24px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .laptop-description {
+      font-size: 14px;
+    }
+
+    .laptop-image-small {
+      width: 130px;
+      height: 30px;
+      flex-shrink: 0;
+    }
   }
 }
 
 // Глобальные стили для скрытия/отображения элементов
 .mobile-only {
-  display: none !important;
+  display: none;
 }
 
 .desktop-only {
-  display: block !important;
-}
-
-// Специальные правила для flex-элементов
-.app-links.desktop-only {
-  display: flex !important;
-}
-
-.app-links.mobile-only {
-  display: none !important;
-}
-
-// Медиа-запросы для переключения видимости
-@media (max-width: 1024px) {
-  .mobile-only {
-    display: block !important;
-  }
-
-  .desktop-only {
-    display: none !important;
-  }
-
-  .app-links.mobile-only {
-    display: flex !important;
-  }
-
-  .app-links.desktop-only {
-    display: none !important;
-  }
+  display: block;
 }
 </style>
