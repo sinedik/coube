@@ -3,11 +3,19 @@
     <div class="main-container">
       <section class="banner-section">
         <div class="banner-image-container">
-          <img
-            src="~/assets/banner.png"
-            alt="COUBE - грузоперевозки"
-            class="banner-image"
-          />
+          <a
+            href="https://www.youtube.com/channel/UCnw5IujP_Pz0a7DnMJ2Zrxw"
+            target="_blank"
+          >
+            <video autoplay muted loop playsinline>
+              <source src="~/assets/banner-trucks.mp4" type="video/mp4" />
+            </video>
+            <img
+              src="~/assets/banner.png"
+              alt="COUBE - грузоперевозки"
+              class="banner-image"
+            />
+          </a>
         </div>
         <div class="banner-content-wrapper">
           <div class="banner-content">
@@ -19,7 +27,9 @@
                 "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
               }}
             </p>
-            <button class="banner-button">Подключиться</button>
+            <a href="https://platform.coube.kz/signin" class="banner-button"
+              >Подключиться</a
+            >
           </div>
         </div>
       </section>
@@ -522,12 +532,19 @@ onUnmounted(() => {
     background: rgba(0, 0, 0, 0.4);
     z-index: 1;
   }
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .banner-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: none;
 }
 
 .banner-content-wrapper {
@@ -592,6 +609,9 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 160px;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
 
   &:hover {
     background-color: darken(#ffa500, 10%);
@@ -653,6 +673,9 @@ onUnmounted(() => {
     max-width: 100%;
     padding: 16px 0;
     margin-top: 0;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
   }
 
   .container {
@@ -683,6 +706,32 @@ onUnmounted(() => {
 
   .driver-section .container {
     padding: 0;
+  }
+
+  .about-image-container {
+    width: 130px;
+    height: 40px;
+    border-radius: 8px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .container {
+    padding: 0px !important;
+  }
+
+  .banner-content-wrapper {
+    padding: 24px 0px;
+  }
+
+  .banner-title {
+    font-size: 20px;
   }
 }
 
@@ -736,6 +785,12 @@ onUnmounted(() => {
   overflow: hidden;
   border-radius: 50px;
   max-width: 100%;
+
+  img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
 }
 
 .about-description-block {
@@ -871,8 +926,14 @@ onUnmounted(() => {
 
   .about-image-container {
     width: 130px;
-    height: 30px;
+    height: 40px;
     border-radius: 8px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 
   .about-description-block {

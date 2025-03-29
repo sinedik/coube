@@ -11,7 +11,11 @@
       <nav class="header__nav">
         <ul class="header__menu">
           <li v-for="(item, index) in menuItems" :key="index">
-            <NuxtLink :to="item.link" :class="{ active: item.active }">
+            <NuxtLink
+              @click="toggleMobileMenu"
+              :to="item.link"
+              :class="{ active: item.active }"
+            >
               {{ item.text }}
             </NuxtLink>
           </li>
@@ -170,6 +174,10 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener("resize", checkIfMobile);
+});
+
+watch(route, () => {
+  toggleMobileMenu();
 });
 </script>
 

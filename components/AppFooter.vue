@@ -200,7 +200,7 @@ const scrollToTop = () => {
   border-radius: 24px;
 
   .container {
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 15px;
     display: flex;
@@ -288,8 +288,8 @@ const scrollToTop = () => {
     }
 
     &-arrow {
+      position: static; /* Убираем абсолютное позиционирование */
       content: "";
-      position: absolute;
       right: 40px; /* Подвигаем стрелку ближе к селекту */
       top: 50%;
       transform: translateY(-50%);
@@ -299,6 +299,52 @@ const scrollToTop = () => {
       border-right: 6px solid transparent;
       border-top: 8px solid $primary-color; /* Желтая стрелка */
       pointer-events: none;
+      display: inline-block; /* Добавляем для корректного отображения */
+      margin-left: -10px; /* Корректируем положение */
+      vertical-align: middle; /* Выравниваем вертикально */
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__lang {
+      position: relative;
+      margin-top: 10px;
+
+      select {
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        color: $white;
+        font-size: 16px;
+        padding-right: 20px; /* Уменьшаем отступ для стрелки */
+        cursor: pointer;
+
+        &:focus {
+          outline: none;
+        }
+
+        option {
+          background-color: $dark-bg;
+          color: $white;
+        }
+      }
+
+      &-arrow {
+        position: static; /* Убираем абсолютное позиционирование */
+        content: "";
+        right: 40px; /* Подвигаем стрелку ближе к селекту */
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 8px solid $primary-color; /* Желтая стрелка */
+        pointer-events: none;
+        display: inline-block; /* Добавляем для корректного отображения */
+        margin-left: -10px; /* Корректируем положение */
+        vertical-align: middle; /* Выравниваем вертикально */
+      }
     }
   }
 

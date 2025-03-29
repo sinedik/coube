@@ -20,9 +20,9 @@
               }}
             </p>
             <div class="banner-buttons">
-              <button class="banner-button">
+              <a href="https://platform.coube.kz/signin" class="banner-button">
                 {{ "Подключиться" }}
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -295,6 +295,9 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 160px;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
 
   &:hover {
     background-color: darken(#f19e22, 10%);
@@ -413,6 +416,9 @@
     max-width: 100%;
     padding: 16px 0;
     margin-top: 0;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
   }
 
   .banner-buttons {
@@ -421,8 +427,14 @@
   }
 }
 
+@media (max-width: 460px) {
+  .banner-content-wrapper {
+    padding: 24px 0px;
+  }
+}
+
 .value-section {
-  padding: 54px 0;
+  padding: 80px 0;
   width: 100%;
   box-sizing: border-box;
   background-color: #fff;
@@ -657,6 +669,20 @@
       width: 4px;
       height: 4px;
     }
+  }
+}
+
+@media (max-width: 460px) {
+  .value-item {
+    padding: 24px 0;
+  }
+
+  .container {
+    padding: 0px !important;
+  }
+
+  .value-section {
+    padding: 26px 0;
   }
 }
 

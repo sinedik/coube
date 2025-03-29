@@ -19,7 +19,9 @@
                 "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
               }}
             </p>
-            <button class="banner-button">Подключиться</button>
+            <a href="https://platform.coube.kz/signin" class="banner-button"
+              >Подключиться</a
+            >
           </div>
         </div>
       </section>
@@ -28,7 +30,9 @@
         <div class="container">
           <div class="mission-header">
             <h2 class="mission-title">Миссия компании COUBE</h2>
-            <button class="demo-button">Запросить демо</button>
+            <a href="https://platform.coube.kz/signin" class="demo-button"
+              >Запросить демо</a
+            >
           </div>
           <div class="mission-content">
             <div class="mission-info">
@@ -371,6 +375,9 @@ const socialLinks = [
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 160px;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
 
   &:hover {
     background-color: darken(#f19e22, 10%);
@@ -378,9 +385,22 @@ const socialLinks = [
 }
 
 .demo-button {
-  padding: 16px 51px !important;
-  margin-top: 0;
-  width: auto !important;
+  background-color: #f19e22;
+  color: #000;
+  border: none;
+  border-radius: 100px;
+  padding: 16px 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  width: auto;
+  &:hover {
+    background-color: darken(#f19e22, 10%);
+  }
 }
 
 // Адаптивность для мобильных устройств
@@ -438,6 +458,29 @@ const socialLinks = [
     max-width: 100%;
     padding: 16px 0;
     margin-top: 0;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .demo-button {
+    padding: 16px 24px;
+    font-size: 16px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 460px) {
+  .banner-content-wrapper {
+    position: relative;
+    height: auto;
+    padding: 24px 0px;
+    order: 1;
+    background-color: #fff;
+    justify-content: flex-start;
   }
 }
 
@@ -453,6 +496,12 @@ const socialLinks = [
   margin: 0 auto;
   padding: 0px;
   box-sizing: border-box;
+}
+
+@media (max-width: 460px) {
+  .container {
+    padding: 0px !important;
+  }
 }
 
 .mission-header {
@@ -500,28 +549,6 @@ const socialLinks = [
   width: 100%;
   height: auto;
   object-fit: contain;
-}
-
-.demo-button {
-  background-color: #f19e22;
-  color: #000;
-  border: none;
-  border-radius: 100px;
-  padding: 16px 50px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: auto;
-  display: inline-block;
-  text-align: center;
-  width: 100%;
-  max-width: 100%;
-  padding: 16px 0;
-  margin-top: 0;
-  &:hover {
-    background-color: darken(#f19e22, 10%);
-  }
 }
 
 @media (max-width: 1024px) {
@@ -803,6 +830,10 @@ const socialLinks = [
   .values-image {
     width: 100px;
   }
+
+  .value-item {
+    padding: 24px 0;
+  }
 }
 
 .social-section {
@@ -948,6 +979,12 @@ const socialLinks = [
       overflow: hidden;
       text-overflow: ellipsis;
     }
+  }
+}
+
+@media (max-width: 460px) {
+  .social-section {
+    padding: 24px 0;
   }
 }
 </style>

@@ -85,13 +85,21 @@
                 <div class="platform-section">
                   <p class="platform-title">Ознакомьтесь с платформой</p>
                   <div class="platform-buttons">
-                    <a href="#" class="platform-button">
+                    <a
+                      href="https://www.youtube.com/@coube_logistics"
+                      target="_blank"
+                      class="platform-button"
+                    >
                       <img
                         src="~/assets/play-orange.svg"
                         alt="Смотреть видео"
                       />
                     </a>
-                    <a href="#" class="platform-button">
+                    <a
+                      href="https://www.youtube.com/@coube_logistics"
+                      target="_blank"
+                      class="platform-button"
+                    >
                       <img
                         src="~/assets/play-orange.svg"
                         alt="Смотреть видео"
@@ -351,6 +359,12 @@
   order: 1;
 }
 
+@media (max-width: 460px) {
+  .banner-content-mobile {
+    padding: 24px 0px;
+  }
+}
+
 .banner-image-mobile {
   position: relative;
   height: 240px;
@@ -445,7 +459,7 @@
   display: flex;
   flex-direction: row;
   gap: 24px;
-  margin-top: 120px;
+  margin-top: 128px;
 }
 
 .download-section,
@@ -539,7 +553,7 @@
 }
 
 .value-section {
-  padding: 54px 0;
+  padding: 80px 0;
   width: 100%;
   box-sizing: border-box;
   background-color: #fff;
@@ -551,6 +565,12 @@
   margin: 0 auto;
   padding: 0px;
   box-sizing: border-box;
+}
+
+@media (max-width: 460px) {
+  .container {
+    padding: 0px !important;
+  }
 }
 
 .value-content {
@@ -799,6 +819,16 @@
   }
 }
 
+@media (max-width: 460px) {
+  .value-item {
+    padding: 24px 0;
+  }
+
+  .value-section {
+    padding: 26px 0;
+  }
+}
+
 .driver-section {
   padding: 40px 0px;
   background-color: #f5f5f5;
@@ -934,6 +964,16 @@
   .app-link {
     min-width: 140px;
   }
+
+  .banner-button {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px 0;
+    margin-top: 0;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+  }
 }
 
 // Глобальные стили для скрытия/отображения элементов
@@ -1039,6 +1079,28 @@
       height: 100%;
       width: auto;
     }
+  }
+}
+
+.banner-button {
+  background-color: #f19e22;
+  color: #000;
+  border: none;
+  border-radius: 100px;
+  padding: 16px 40px;
+  width: 100%;
+  max-width: 240px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    background-color: darken(#f19e22, 10%);
   }
 }
 </style>
