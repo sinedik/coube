@@ -3,19 +3,25 @@
     <div class="main-container">
       <section class="banner-section">
         <div class="banner-image-container">
-          <a
-            href="https://www.youtube.com/channel/UCnw5IujP_Pz0a7DnMJ2Zrxw"
-            target="_blank"
-          >
-            <video autoplay muted loop playsinline>
-              <source src="~/assets/banner-trucks.mp4" type="video/mp4" />
-            </video>
-            <img
-              src="~/assets/banner.png"
-              alt="COUBE - грузоперевозки"
-              class="banner-image"
-            />
-          </a>
+          <ClientOnly>
+            <a
+              href="https://www.youtube.com/channel/UCnw5IujP_Pz0a7DnMJ2Zrxw"
+              target="_blank"
+            >
+              <VideoPlayer
+                :video-url="bannerVideo"
+                :poster-url="bannerPoster"
+                :options="{
+                  autoplay: true,
+                  muted: true,
+                  loop: true,
+                  playsinline: true,
+                  preload: 'auto',
+                }"
+                class="banner-video"
+              />
+            </a>
+          </ClientOnly>
         </div>
         <div class="banner-content-wrapper">
           <div class="banner-content">
@@ -389,7 +395,22 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed } from "vue";
+import {
+  ref,
+  onMounted,
+  onUnmounted,
+  computed,
+  defineAsyncComponent,
+} from "vue";
+
+// Ленивая загрузка компонента VideoPlayer
+const VideoPlayer = defineAsyncComponent(() =>
+  import("~/components/VideoPlayer.vue")
+);
+
+// Импорт ассетов
+const bannerVideo = new URL("~/assets/banner-trucks.mp4", import.meta.url).href;
+const bannerPoster = new URL("~/assets/banner.png", import.meta.url).href;
 
 const activeRole = ref("customer");
 const isMobile = ref(false);
@@ -521,6 +542,7 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   z-index: 1;
+  background: #000; // Фон до загрузки видео
 
   &::after {
     content: "";
@@ -532,12 +554,12 @@ onUnmounted(() => {
     background: rgba(0, 0, 0, 0.4);
     z-index: 1;
   }
+}
 
-  video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.banner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .banner-image {
