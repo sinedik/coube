@@ -496,7 +496,7 @@ onUnmounted(() => {
   width: 100%;
   display: flex;
   justify-content: center;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .main-container {
@@ -754,7 +754,7 @@ onUnmounted(() => {
   align-items: flex-start;
   margin-bottom: 60px;
   width: 100%;
-  gap: 90px;
+  gap: 130px;
   justify-content: flex-start;
   flex-wrap: nowrap;
   box-sizing: border-box;
@@ -801,6 +801,7 @@ onUnmounted(() => {
 .about-description {
   font-size: 24px;
   line-height: 1.5;
+  text-align: right;
 
   p {
     margin: 0;
@@ -821,7 +822,7 @@ onUnmounted(() => {
   position: relative;
   padding: 20px;
   border-radius: 12px;
-  background-color: #f5f5f5;
+  background-color: transparent;
   min-height: 80px;
   display: flex;
   align-items: center;
@@ -829,7 +830,7 @@ onUnmounted(() => {
   transition: transform 0.3s ease;
 
   &:hover {
-    transform: scale(1.02);
+    /* transform: scale(1.02); */
 
     .feature-text {
       /* color: $primary-color; */
@@ -943,6 +944,7 @@ onUnmounted(() => {
   .about-description {
     font-size: 14px;
     line-height: 1.4;
+    text-align: left;
   }
 
   .features-grid {
@@ -974,7 +976,7 @@ onUnmounted(() => {
 
 @media (max-width: 480px) {
   .about-image-container {
-    width: 100px;
+    width: 150px;
   }
 }
 
@@ -1360,6 +1362,7 @@ onUnmounted(() => {
   margin-bottom: 80px;
   width: 100%;
   box-sizing: border-box;
+  margin-top: 70px;
 }
 
 .driver-section .container {
@@ -1370,7 +1373,7 @@ onUnmounted(() => {
 .driver-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
   box-sizing: border-box;
 }
@@ -1409,7 +1412,7 @@ onUnmounted(() => {
 .driver-description {
   font-size: 24px;
   line-height: 1.5;
-  margin-bottom: 30px;
+  margin-bottom: 64px;
   text-align: center;
   word-break: break-word;
 }
@@ -1484,6 +1487,8 @@ onUnmounted(() => {
     padding: 40px 16px;
     border-radius: 0;
     margin-bottom: 0;
+    background-color: transparent;
+    margin-top: 4px;
   }
 
   .driver-title {
