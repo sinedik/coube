@@ -228,18 +228,18 @@
 
       <section class="laptop-section">
         <div class="container">
-          <div class="laptop-container">
+          <div class="laptop-content">
             <div class="laptop-header">
               <div class="laptop-header-content">
                 <h2 class="laptop-title">Управление перевозками</h2>
-                <p class="laptop-description">
-                  Простой способ управления и мониторинга перевозкой грузов
-                </p>
               </div>
               <div class="laptop-image-small">
                 <img src="~/assets/trucks.png" alt="Грузовики COUBE" />
               </div>
             </div>
+            <p class="laptop-description">
+              Простой способ управления и мониторинга перевозкой грузов
+            </p>
             <img
               src="~/assets/laptop-customer.png"
               alt="Интерфейс COUBE для заказчиков"
@@ -775,11 +775,8 @@
     align-items: center;
   }
 
-  .laptop-container {
-    display: flex;
-    flex-direction: column;
+  .laptop-content {
     width: 100%;
-    align-items: center;
   }
 
   .laptop-header {
@@ -787,7 +784,7 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 80px;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     width: 100%;
   }
 
@@ -799,7 +796,7 @@
   .laptop-title {
     font-size: 48px;
     font-weight: 700;
-    margin-bottom: 24px;
+    margin-bottom: 0;
     line-height: 1.2;
     text-align: left;
     white-space: nowrap;
@@ -809,10 +806,9 @@
     font-size: 24px;
     line-height: 1.5;
     color: #333;
-    margin-bottom: 0;
+    margin-bottom: 40px;
     text-align: left;
     white-space: pre;
-    margin-top: 30px;
   }
 
   .laptop-image-small {
@@ -835,7 +831,6 @@
     max-width: 1200px;
     height: auto;
     object-fit: contain;
-    margin-top: 20px;
   }
 }
 
@@ -868,7 +863,7 @@
     .laptop-header {
       flex-direction: row;
       gap: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 16px;
       align-items: center;
     }
 
@@ -878,12 +873,14 @@
 
     .laptop-title {
       font-size: 24px;
-      margin-bottom: 16px;
+      margin-bottom: 0;
       display: block;
+      white-space: normal !important;
     }
 
     .laptop-description {
       font-size: 14px;
+      margin-bottom: 24px;
     }
 
     .laptop-image-small {
@@ -891,6 +888,48 @@
       height: 30px;
       flex-shrink: 0;
     }
+  }
+}
+
+@media (max-width: 460px) {
+  .laptop-section {
+    padding: 0px 0;
+  }
+
+  .laptop-header {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .laptop-header-content {
+    flex: 1;
+    max-width: 100%;
+  }
+
+  .laptop-title {
+    font-size: 24px;
+    margin-bottom: 0;
+    white-space: normal !important;
+  }
+
+  .laptop-description {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 24px;
+    white-space: normal;
+  }
+
+  .laptop-image-small {
+    width: 130px;
+    height: 30px;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .laptop-image {
+    margin-top: 0;
   }
 }
 
