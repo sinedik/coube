@@ -12,6 +12,16 @@
           </div>
         </div>
 
+        <!-- Блок Astana Hub -->
+        <div class="footer__astana-hub">
+          <img
+            src="~/assets/astana-hub.png"
+            alt="Astana Hub"
+            class="footer__astana-hub-logo"
+          />
+          <span class="footer__certificate">№ свидетельства 1439</span>
+        </div>
+
         <!-- Копирайт -->
         <div class="footer__copyright">© COUBE 2025. Все права защищены</div>
       </div>
@@ -168,11 +178,11 @@ const menuItems = computed(() => [
   },
   {
     text: "Перевозчик",
-    link: "/carrier",
-    active: currentPath.value === "/carrier",
+    link: "/driver",
+    active: currentPath.value === "/driver",
   },
   { text: "О нас", link: "/about", active: currentPath.value === "/about" },
-  { text: "Новости", link: "/news", active: currentPath.value === "/news" },
+  // { text: "Новости", link: "/news", active: currentPath.value === "/news" },
 ]);
 
 const changeLang = () => {
@@ -236,6 +246,24 @@ const scrollToTop = () => {
     font-size: 24px;
     color: $white;
     white-space: nowrap;
+  }
+
+  &__astana-hub {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    &-logo {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__certificate {
+    color: $white;
+    font-size: 16px;
   }
 
   &__copyright {

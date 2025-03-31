@@ -847,6 +847,7 @@ const socialLinks = [
 
 .social-section {
   padding: 54px 0;
+  padding-top: 0;
   background-color: #fff;
 }
 

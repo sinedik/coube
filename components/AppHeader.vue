@@ -93,27 +93,13 @@
           />
           <span>+7 707 467 83-36</span>
         </a>
-
-        <!-- Нативный селект для переключения языка в мобильном меню -->
-        <div class="header__lang">
-          <select v-model="langStore.currentLang" @change="changeLang">
-            <option
-              v-for="lang in langStore.availableLangs"
-              :key="lang.code"
-              :value="lang.code"
-            >
-              {{ lang.name }}
-            </option>
-          </select>
-          <span class="header__lang-arrow"></span>
-        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed } from "vue";
+import { ref, onMounted, onUnmounted, computed, watch } from "vue";
 import { useLangStore } from "../stores/langStore";
 import { useRoute } from "vue-router";
 
@@ -140,11 +126,11 @@ const menuItems = computed(() => [
   },
   {
     text: "Перевозчик",
-    link: "/carrier",
-    active: currentPath.value === "/carrier",
+    link: "/driver",
+    active: currentPath.value === "/driver",
   },
   { text: "О нас", link: "/about", active: currentPath.value === "/about" },
-  { text: "Новости", link: "/news", active: currentPath.value === "/news" },
+  // { text: "Новости", link: "/news", active: currentPath.value === "/news" },
 ]);
 
 // Метод для обработки изменения языка
@@ -177,10 +163,8 @@ onUnmounted(() => {
 });
 
 watch(route, () => {
-  console.log("route: ", route);
-  if (isMobile.value) {
-    mobileMenuOpen.value = false;
-  }
+  mobileMenuOpen.value = false;
+  document.body.classList.remove("no-scroll");
 });
 </script>
 
@@ -578,15 +562,19 @@ body.no-scroll {
     }
 
     &__top-actions {
-      .header__phone,
-      .header__lang {
+      .header__phone {
         display: none;
       }
     }
 
+    &__lang {
+      display: block;
+      margin-right: 15px;
+    }
+
     &__mobile-menu {
       display: block;
-      margin-left: auto; // Сдвигаем к правому краю
+      margin-left: 0;
     }
 
     &__right {
