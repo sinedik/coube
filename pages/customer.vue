@@ -2,15 +2,9 @@
   <div class="customer-page">
     <div class="main-container">
       <section class="banner-section">
-        <div class="banner-image-container">
-          <img
-            src="~/assets/customer.png"
-            alt="COUBE - грузоперевозки"
-            class="banner-image"
-          />
-        </div>
-        <div class="banner-content-wrapper">
-          <div class="banner-content">
+        <!-- Мобильная версия баннера -->
+        <div class="banner-mobile">
+          <div class="banner-content-mobile">
             <h1 class="banner-title">
               {{ "COUBE — цифровой агрегатор\nавтомобильных грузоперевозок" }}
             </h1>
@@ -19,10 +13,79 @@
                 "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
               }}
             </p>
-            <div class="banner-buttons">
-              <a href="https://platform.coube.kz/signin" class="banner-button">
-                {{ "Подключиться" }}
-              </a>
+          </div>
+          <div class="banner-image-mobile">
+            <img
+              src="~/assets/customer.png"
+              alt="COUBE - грузоперевозки"
+              class="banner-image"
+            />
+            <div class="platform-buttons-mobile">
+              <p class="platform-title">Ознакомьтесь с платформой</p>
+              <div class="buttons-row">
+                <a href="#" class="platform-button">
+                  <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                </a>
+                <a href="#" class="platform-button">
+                  <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Десктопная версия баннера -->
+        <div class="banner-desktop">
+          <div class="banner-image-container">
+            <img
+              src="~/assets/customer.png"
+              alt="COUBE - грузоперевозки"
+              class="banner-image"
+            />
+          </div>
+          <div class="banner-content-wrapper">
+            <div class="banner-content">
+              <h1 class="banner-title">
+                {{ "COUBE — цифровой агрегатор\nавтомобильных грузоперевозок" }}
+              </h1>
+              <p class="banner-description">
+                {{
+                  "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
+                }}
+              </p>
+              <div class="banner-buttons">
+                <a
+                  href="https://platform.coube.kz/signin"
+                  class="banner-button"
+                >
+                  {{ "Подключиться" }}
+                </a>
+                <div class="platform-section">
+                  <p class="platform-title">Ознакомьтесь с платформой</p>
+                  <div class="platform-buttons">
+                    <a
+                      href="https://www.youtube.com/@coube_logistics"
+                      target="_blank"
+                      class="platform-button"
+                    >
+                      <img
+                        src="~/assets/play-orange.svg"
+                        alt="Смотреть видео"
+                      />
+                    </a>
+                    <a
+                      href="https://www.youtube.com/@coube_logistics"
+                      target="_blank"
+                      class="platform-button"
+                    >
+                      <img
+                        src="~/assets/play-orange.svg"
+                        alt="Смотреть видео"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -287,17 +350,20 @@
   color: #000;
   border: none;
   border-radius: 100px;
-  padding: 16px 40px;
+  padding: 16px 36px;
   width: 100%;
   max-width: 240px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 160px;
   display: inline-block;
   text-decoration: none;
   text-align: center;
+  /* max-height: 54px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background-color: darken(#f19e22, 10%);
@@ -306,8 +372,9 @@
 
 .banner-buttons {
   display: flex;
-  flex-direction: column;
   gap: 24px;
+  margin-top: 128px;
+  align-items: flex-end;
 }
 
 .platform-section {
@@ -504,7 +571,7 @@
 }
 
 .value-item {
-  background: #f5f5f5;
+  background: #f4f4f4;
   padding: 32px 24px;
   border-radius: 16px;
   transition: all 0.3s ease;
@@ -674,7 +741,7 @@
 
 @media (max-width: 460px) {
   .value-item {
-    padding: 24px 0;
+    padding: 24px 16px;
   }
 
   .container {
@@ -683,6 +750,16 @@
 
   .value-section {
     padding: 26px 0;
+  }
+
+  .value-header {
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .value-description {
+    margin-bottom: 20px;
+    margin-top: 0;
   }
 }
 
@@ -824,5 +901,135 @@
 
 .desktop-only {
   display: block;
+}
+
+.banner-mobile {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+}
+
+.banner-content-mobile {
+  background-color: #fff;
+  padding: 24px 16px;
+  order: 1;
+}
+
+.banner-image-mobile {
+  position: relative;
+  height: 240px;
+  order: 2;
+  overflow: hidden;
+  border-radius: 24px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.banner-desktop {
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+  min-height: 560px;
+}
+
+.platform-buttons-mobile {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .platform-title {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .buttons-row {
+    display: flex;
+    gap: 16px;
+  }
+
+  .platform-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-section {
+    margin-top: 0;
+  }
+
+  .banner-mobile {
+    display: flex;
+  }
+
+  .banner-desktop {
+    display: none;
+  }
+
+  .banner-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #000;
+  }
+
+  .banner-description {
+    font-size: 14px;
+    margin-bottom: 24px;
+    color: #000;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 460px) {
+  .banner-content-mobile {
+    padding: 24px 0px;
+  }
+  .banner-description {
+    margin-bottom: 0px;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 460px) {
+  .laptop-section {
+    padding: 0px 0;
+  }
+  .laptop-description {
+    white-space: unset !important;
+  }
 }
 </style>

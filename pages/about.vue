@@ -657,7 +657,7 @@ const socialLinks = [
 }
 
 .value-item {
-  background: #f5f5f5;
+  background: #f4f4f4;
   padding: 32px 0;
   border-radius: 16px;
 }
@@ -767,7 +767,7 @@ const socialLinks = [
 
   .social-section {
     padding: 24px 16px;
-    background-color: #f5f5f5;
+    background-color: #f4f4f4;
     border-radius: 16px;
     margin: 16px;
   }
@@ -853,7 +853,7 @@ const socialLinks = [
 
 .social-links-container {
   width: 100%;
-  background-color: #f5f5f5;
+  background-color: #f4f4f4;
   border-radius: 24px;
   padding: 40px;
 }
@@ -922,7 +922,7 @@ const socialLinks = [
 @media (max-width: 768px) {
   .social-section {
     padding: 24px 16px;
-    background-color: #f5f5f5;
+    background-color: #f4f4f4;
     border-radius: 16px;
     margin: 16px;
   }

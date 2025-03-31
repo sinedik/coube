@@ -177,7 +177,9 @@ onUnmounted(() => {
 });
 
 watch(route, () => {
-  toggleMobileMenu();
+  if (isMobile.value) {
+    mobileMenuOpen.value = false;
+  }
 });
 </script>
 

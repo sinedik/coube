@@ -64,47 +64,58 @@
                   "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
                 }}
               </p>
+
               <div class="banner-buttons">
-                <div class="download-section">
-                  <p class="download-title">Скачать приложение для водителя</p>
-                  <div class="store-buttons">
-                    <a href="#" class="store-button">
-                      <img
-                        src="~/assets/Apple.svg"
-                        alt="Download on the App Store"
-                      />
-                    </a>
-                    <a href="#" class="store-button">
-                      <img
-                        src="~/assets/Google.svg"
-                        alt="Get it on Google Play"
-                      />
-                    </a>
+                <a
+                  href="https://platform.coube.kz/signin"
+                  class="banner-button"
+                >
+                  {{ "Подключиться" }}
+                </a>
+                <div class="banner-buttons-mobile">
+                  <div class="download-section">
+                    <p class="download-title">
+                      Скачать приложение для водителя
+                    </p>
+                    <div class="store-buttons">
+                      <a href="#" class="store-button">
+                        <img
+                          src="~/assets/Apple.svg"
+                          alt="Download on the App Store"
+                        />
+                      </a>
+                      <a href="#" class="store-button">
+                        <img
+                          src="~/assets/Google.svg"
+                          alt="Get it on Google Play"
+                        />
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="platform-section">
-                  <p class="platform-title">Ознакомьтесь с платформой</p>
-                  <div class="platform-buttons">
-                    <a
-                      href="https://www.youtube.com/@coube_logistics"
-                      target="_blank"
-                      class="platform-button"
-                    >
-                      <img
-                        src="~/assets/play-orange.svg"
-                        alt="Смотреть видео"
-                      />
-                    </a>
-                    <a
-                      href="https://www.youtube.com/@coube_logistics"
-                      target="_blank"
-                      class="platform-button"
-                    >
-                      <img
-                        src="~/assets/play-orange.svg"
-                        alt="Смотреть видео"
-                      />
-                    </a>
+                  <div class="platform-section">
+                    <p class="platform-title">Ознакомьтесь с платформой</p>
+                    <div class="platform-buttons">
+                      <a
+                        href="https://www.youtube.com/@coube_logistics"
+                        target="_blank"
+                        class="platform-button"
+                      >
+                        <img
+                          src="~/assets/play-orange.svg"
+                          alt="Смотреть видео"
+                        />
+                      </a>
+                      <a
+                        href="https://www.youtube.com/@coube_logistics"
+                        target="_blank"
+                        class="platform-button"
+                      >
+                        <img
+                          src="~/assets/play-orange.svg"
+                          alt="Смотреть видео"
+                        />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -372,6 +383,17 @@
   overflow: hidden;
   border-radius: 24px;
 
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
   .banner-image {
     width: 100%;
     height: 100%;
@@ -456,10 +478,16 @@
 }
 
 .banner-buttons {
-  display: flex;
   flex-direction: row;
   gap: 24px;
-  margin-top: 128px;
+  margin-top: 45px;
+}
+
+.banner-buttons-mobile {
+  display: flex;
+  margin-top: 28px;
+  /* flex-direction: column; */
+  gap: 24px;
 }
 
 .download-section,
@@ -488,6 +516,27 @@
   img {
     height: 100%;
     width: auto;
+  }
+}
+
+.banner-button {
+  background-color: #f19e22;
+  color: #000;
+  border: none;
+  border-radius: 100px;
+  padding: 16px 36px;
+  width: 100%;
+  max-width: 240px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    background-color: darken(#f19e22, 10%);
   }
 }
 
@@ -630,7 +679,7 @@
 }
 
 .value-item {
-  background: #f5f5f5;
+  background: #f4f4f4;
   padding: 32px 24px;
   border-radius: 16px;
   transition: all 0.3s ease;
@@ -821,17 +870,17 @@
 
 @media (max-width: 460px) {
   .value-item {
-    padding: 24px 0;
+    padding: 24px 16px;
   }
 
   .value-section {
-    padding: 26px 0;
+    padding: 20px 0;
   }
 }
 
 .driver-section {
   padding: 40px 0px;
-  background-color: #f5f5f5;
+  background-color: #f4f4f4;
   border-radius: 24px;
   margin-bottom: 80px;
   width: 100%;
@@ -846,7 +895,7 @@
 .driver-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
   box-sizing: border-box;
 }
@@ -1053,14 +1102,13 @@
 
 .mobile-app-buttons {
   padding: 16px;
-  background-color: #f5f5f5;
   border-radius: 0 0 24px 24px;
   margin-bottom: 24px;
   order: 3;
 
   .download-title {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     margin-bottom: 12px;
     color: #000;
     text-align: center;
@@ -1101,6 +1149,26 @@
 
   &:hover {
     background-color: darken(#f19e22, 10%);
+  }
+}
+
+@media (max-width: 460px) {
+  .value-header {
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  .value-description {
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  .driver-section {
+    background-color: transparent;
+    padding-top: 0;
+  }
+
+  .banner-description {
+    margin-bottom: 0px;
+    margin-top: 16px;
   }
 }
 </style>

@@ -1357,7 +1357,7 @@ onUnmounted(() => {
 // Стили для секции "Для водителя"
 .driver-section {
   padding: 40px 0px;
-  background-color: #f5f5f5;
+  background-color: #f4f4f4;
   border-radius: 24px;
   margin-bottom: 80px;
   width: 100%;
