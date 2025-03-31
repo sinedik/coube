@@ -624,7 +624,7 @@ onUnmounted(() => {
     height: auto;
     display: flex;
     flex-direction: column;
-    border-radius: 0 0 24px 24px;
+    border-radius: 24px;
     margin-top: 0;
   }
 
@@ -632,6 +632,11 @@ onUnmounted(() => {
     position: relative;
     height: 240px;
     order: 2;
+    border-radius: 24px;
+
+    video {
+      border-radius: 24px;
+    }
 
     &::after {
       display: none;

@@ -67,7 +67,7 @@
           <div class="values-content">
             <p class="values-description">
               {{
-                "Наши ценности помогают платформе быть не просто помощником, а полноценным\nцифровым логистическим партнером, который делаетперевозки удобными\n,экономичными и безопасными."
+                "Наши ценности помогают платформе быть не просто помощником, а полноценным\nцифровым логистическим партнером, который делаетперевозки удобными экономичными и безопасными."
               }}
             </p>
             <div class="values-grid">
@@ -302,6 +302,8 @@ const socialLinks = [
   width: 100%;
   height: 100%;
   z-index: 1;
+  border-radius: 24px;
+  overflow: hidden;
 
   &::after {
     content: "";
@@ -319,6 +321,7 @@ const socialLinks = [
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 24px;
 }
 
 .banner-content-wrapper {
@@ -409,18 +412,24 @@ const socialLinks = [
     height: auto;
     display: flex;
     flex-direction: column;
-    border-radius: 0 0 24px 24px;
+    border-radius: 24px;
     margin-top: 0;
+    min-height: auto;
   }
 
   .banner-image-container {
     position: relative;
     height: 240px;
     order: 2;
+    border-radius: 24px;
 
     &::after {
       display: none;
     }
+  }
+
+  .banner-image {
+    border-radius: 24px;
   }
 
   .banner-content-wrapper {
@@ -441,13 +450,13 @@ const socialLinks = [
   }
 
   .banner-title {
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-size: 24px;
+    margin-bottom: 16px;
     color: #000;
   }
 
   .banner-description {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 24px;
     color: #000;
     opacity: 1;
@@ -565,7 +574,7 @@ const socialLinks = [
 
 @media (max-width: 768px) {
   .mission-section {
-    padding: 40px 0;
+    padding: 54px 0 0 0;
   }
 
   .container {
@@ -658,7 +667,7 @@ const socialLinks = [
 
 .value-item {
   background: #f4f4f4;
-  padding: 32px 0;
+  padding: 32px;
   border-radius: 16px;
 }
 
@@ -710,7 +719,7 @@ const socialLinks = [
 
 @media (max-width: 768px) {
   .values-section {
-    padding: 40px 0;
+    padding: 54px 0px 0px 0px;
   }
 
   .values-header {
@@ -828,11 +837,11 @@ const socialLinks = [
 
 @media (max-width: 480px) {
   .values-image {
-    width: 100px;
+    width: 130px;
   }
 
   .value-item {
-    padding: 24px 0;
+    padding: 24px 16px;
   }
 }
 
@@ -984,7 +993,9 @@ const socialLinks = [
 
 @media (max-width: 460px) {
   .social-section {
-    padding: 24px 0;
+    padding: 24px 16px;
+    margin: 0;
+    margin-bottom: 54px;
   }
 }
 </style>
