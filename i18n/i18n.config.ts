@@ -4,8 +4,8 @@ import kz from "./locales/kz.js";
 
 export default defineI18nConfig(() => ({
   legacy: false,
-  locale: "ru",
-  fallbackLocale: "ru",
+  locale: "en",
+  fallbackLocale: "en",
   silentTranslationWarn: false,
   sync: true,
   missingWarn: true,

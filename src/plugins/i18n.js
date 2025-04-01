@@ -1,7 +1,7 @@
 import { createI18n } from "vue-i18n";
 
 // Получаем сохраненный язык из localStorage или используем русский по умолчанию
-const savedLang = localStorage.getItem("app-lang") || "ru";
+const savedLang = localStorage.getItem("app-lang") || "en";
 
 // Сообщения для локализации
 const messages = {
@@ -42,7 +42,7 @@ const i18n = createI18n({
   legacy: false, // Используем Composition API
   globalInjection: true, // Добавляет $t, $tc, и т.д. в шаблоны
   locale: savedLang, // Используем сохраненный язык
-  fallbackLocale: "ru",
+  fallbackLocale: "en",
   messages,
 });
 

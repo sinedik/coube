@@ -35,7 +35,7 @@ export default defineNuxtConfig({
         name: "Қазақша",
       },
     ],
-    defaultLocale: "ru",
+    defaultLocale: "en",
     strategy: "no_prefix",
     lazy: false,
     langDir: "i18n/locales",

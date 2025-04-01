@@ -13,7 +13,7 @@ const getLocalStorage = () => {
 
 export const useLangStore = defineStore("lang", {
   state: () => ({
-    currentLang: "ru",
+    currentLang: "en",
     availableLangs: [
       { code: "ru", name: "RU" },
       { code: "en", name: "EN" },
@@ -49,7 +49,7 @@ export const useLangStore = defineStore("lang", {
       ) {
         this.currentLang = savedLang;
       } else {
-        this.currentLang = "ru"; // Русский язык по умолчанию
+        this.currentLang = "en"; // Русский язык по умолчанию
       }
 
       // Устанавливаем язык документа, если мы в браузере
