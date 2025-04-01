@@ -6,40 +6,50 @@
         <div class="banner-mobile">
           <div class="banner-content-mobile">
             <h1 class="banner-title">
-              {{ "COUBE — цифровой агрегатор\nавтомобильных грузоперевозок" }}
+              {{ t("homePage.banner.title") }}
             </h1>
             <p class="banner-description">
-              {{
-                "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
-              }}
+              {{ t("homePage.banner.description") }}
             </p>
           </div>
           <div class="banner-image-mobile">
             <img
               src="~/assets/carrier.png"
-              alt="COUBE - грузоперевозки"
+              :alt="t('homePage.banner.title')"
               class="banner-image"
             />
             <div class="platform-buttons-mobile">
-              <p class="platform-title">Ознакомьтесь с платформой</p>
+              <p class="platform-title">{{ t("homePage.banner.platform") }}</p>
               <div class="buttons-row">
                 <a href="#" class="platform-button">
-                  <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                  <img
+                    src="~/assets/play-orange.svg"
+                    :alt="t('homePage.banner.video')"
+                  />
                 </a>
                 <a href="#" class="platform-button">
-                  <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                  <img
+                    src="~/assets/play-orange.svg"
+                    :alt="t('homePage.banner.video')"
+                  />
                 </a>
               </div>
             </div>
           </div>
           <div class="mobile-app-buttons">
-            <p class="download-title">Скачать приложение для водителя</p>
+            <p class="download-title">{{ t("homePage.driver.downloadApp") }}</p>
             <div class="store-buttons">
               <a href="#" class="store-button">
-                <img src="~/assets/Apple.svg" alt="Download on the App Store" />
+                <img
+                  src="~/assets/Apple.svg"
+                  :alt="t('homePage.driver.appStore')"
+                />
               </a>
               <a href="#" class="store-button">
-                <img src="~/assets/Google.svg" alt="Get it on Google Play" />
+                <img
+                  src="~/assets/Google.svg"
+                  :alt="t('homePage.driver.googlePlay')"
+                />
               </a>
             </div>
           </div>
@@ -50,19 +60,17 @@
           <div class="banner-image-container">
             <img
               src="~/assets/carrier.png"
-              alt="COUBE - грузоперевозки"
+              :alt="t('homePage.banner.title')"
               class="banner-image"
             />
           </div>
           <div class="banner-content-wrapper">
             <div class="banner-content">
               <h1 class="banner-title">
-                {{ "COUBE — цифровой агрегатор\nавтомобильных грузоперевозок" }}
+                {{ t("homePage.banner.title") }}
               </h1>
               <p class="banner-description">
-                {{
-                  "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
-                }}
+                {{ t("homePage.banner.description") }}
               </p>
 
               <div class="banner-buttons">
@@ -70,30 +78,32 @@
                   href="https://platform.coube.kz/signin"
                   class="banner-button"
                 >
-                  {{ "Подключиться" }}
+                  {{ t("homePage.banner.button") }}
                 </a>
                 <div class="banner-buttons-mobile">
                   <div class="download-section">
                     <p class="download-title">
-                      Скачать приложение для водителя
+                      {{ t("homePage.driver.downloadApp") }}
                     </p>
                     <div class="store-buttons">
                       <a href="#" class="store-button">
                         <img
                           src="~/assets/Apple.svg"
-                          alt="Download on the App Store"
+                          :alt="t('homePage.driver.appStore')"
                         />
                       </a>
                       <a href="#" class="store-button">
                         <img
                           src="~/assets/Google.svg"
-                          alt="Get it on Google Play"
+                          :alt="t('homePage.driver.googlePlay')"
                         />
                       </a>
                     </div>
                   </div>
                   <div class="platform-section">
-                    <p class="platform-title">Ознакомьтесь с платформой</p>
+                    <p class="platform-title">
+                      {{ t("homePage.banner.platform") }}
+                    </p>
                     <div class="platform-buttons">
                       <a
                         href="https://www.youtube.com/@coube_logistics"
@@ -102,7 +112,7 @@
                       >
                         <img
                           src="~/assets/play-orange.svg"
-                          alt="Смотреть видео"
+                          :alt="t('homePage.banner.video')"
                         />
                       </a>
                       <a
@@ -112,7 +122,7 @@
                       >
                         <img
                           src="~/assets/play-orange.svg"
-                          alt="Смотреть видео"
+                          :alt="t('homePage.banner.video')"
                         />
                       </a>
                     </div>
@@ -129,121 +139,32 @@
           <div class="value-content">
             <div class="value-header">
               <div class="value-header-content">
-                <h2 class="value-title">Ценность для перевозчика</h2>
+                <h2 class="value-title">{{ t("driverPage.value.title") }}</h2>
               </div>
               <div class="value-image">
-                <img src="~/assets/trucks.png" alt="Грузовики COUBE" />
+                <img
+                  src="~/assets/trucks.png"
+                  :alt="t('driverPage.value.trucksAlt')"
+                />
               </div>
             </div>
             <p class="value-description">
-              {{
-                "Упрощаем поиск заказов и оформление\nдокументов для выполнениягрузоперевозок"
-              }}
+              {{ t("driverPage.value.description") }}
             </p>
             <div class="value-grid">
-              <div class="value-item">
-                <div class="value-number">1.</div>
-                <h3 class="value-title">Постоянный доступ к заказам</h3>
+              <div
+                class="value-item"
+                v-for="(item, index) in valueItems"
+                :key="index"
+              >
+                <div class="value-number">{{ item.number }}.</div>
+                <h3 class="value-title">{{ item.title }}</h3>
                 <ul class="value-list">
-                  <li>
-                    Большая база грузов — можно быстро находить заказы без
-                    посредников.
-                  </li>
-                  <li>
-                    Возможность выбора оптимальных маршрутов и рейсов для
-                    максимальной загрузки транспорта.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">2.</div>
-                <h3 class="value-title">
-                  Быстрая оплата без ожидания (факторинг)
-                </h3>
-                <ul class="value-list">
-                  <li>
-                    Возможность получить деньги сразу после выполнения рейса, не
-                    дожидаясь платежей от заказчиков.
-                  </li>
-                  <li>
-                    Устранение кассовых разрывов и стабильность финансовых
-                    потоков.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">3.</div>
-                <h3 class="value-title">Снижение простоя и пустых пробегов</h3>
-                <ul class="value-list">
-                  <li>
-                    Алгоритмы подбора грузов помогают минимизировать холостые
-                    пробеги.
-                  </li>
-                  <li>
-                    Возможность комбинировать грузы и маршруты для повышения
-                    эффективности.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">7.</div>
-                <h3 class="value-title">Упрощение документооборота</h3>
-                <ul class="value-list">
-                  <li>
-                    Электронные документы, цифровые подписи, автоматизированная
-                    отчетность.
-                  </li>
-                  <li>
-                    Быстрое оформление заявок, контрактов и закрывающих
-                    документов.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">5.</div>
-                <h3 class="value-title">Быстрая и гарантированная оплата</h3>
-                <ul class="value-list">
-                  <li>Прозрачные тарифы, понятные условия оплаты.</li>
-                  <li>
-                    Возможность моментального вывода средств или гарантированные
-                    выплаты без задержек.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">6.</div>
-                <h3 class="value-title">Гибкость и удобство работы</h3>
-                <ul class="value-list">
-                  <li>
-                    Можно работать с любым количеством заказов в удобное время.
-                  </li>
-                  <li>
-                    Доступ к платформе через мобильное приложение или
-                    веб-кабинет.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">8.</div>
-                <h3 class="value-title">
-                  Безопасность и надежность сотрудничества
-                </h3>
-                <ul class="value-list">
-                  <li>Проверенные заказчики, снижение рисков мошенничества.</li>
-                  <li>
-                    Возможность страхования груза и получения юридической
-                    поддержки.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">9.</div>
-                <h3 class="value-title">Поддержка и консультации</h3>
-                <ul class="value-list">
-                  <li>Круглосуточная техническая и клиентская поддержка.</li>
-                  <li>
-                    Информационная поддержка по законодательству и транспортным
-                    нормам.
+                  <li
+                    v-for="(point, pointIndex) in item.points"
+                    :key="pointIndex"
+                  >
+                    {{ point }}
                   </li>
                 </ul>
               </div>
@@ -256,7 +177,7 @@
         <div class="container">
           <img
             src="~/assets/laptop-carrier.png"
-            alt="Интерфейс COUBE для перевозчиков"
+            :alt="t('driverPage.laptop.interfaceAlt')"
             class="laptop-image"
           />
         </div>
@@ -273,23 +194,22 @@
                   class="logo-image"
                 />
               </div>
-              <h2 class="driver-title">Для водителя</h2>
+              <h2 class="driver-title">{{ t("homePage.driver.title") }}</h2>
               <p class="driver-description">
-                Установите приложение для водителя COUBE и открывайте доступ к
-                самым прибыльным заказам прямо со своего смартфона.
+                {{ t("homePage.driver.description") }}
               </p>
               <div class="app-links desktop-only">
                 <a href="#" class="app-link">
                   <img
                     src="~/assets/Apple.svg"
-                    alt="App Store"
+                    :alt="t('homePage.driver.appStore')"
                     class="app-badge"
                   />
                 </a>
                 <a href="#" class="app-link">
                   <img
                     src="~/assets/Google.svg"
-                    alt="Google Play"
+                    :alt="t('homePage.driver.googlePlay')"
                     class="app-badge"
                   />
                 </a>
@@ -298,14 +218,14 @@
             <div class="driver-phones desktop-only">
               <img
                 src="~/assets/phones.png"
-                alt="Приложение COUBE для водителя"
+                :alt="t('homePage.driver.appImage')"
                 class="phones-image"
               />
             </div>
             <div class="driver-phones mobile-only">
               <img
                 src="~/assets/phones.png"
-                alt="Приложение COUBE для водителя"
+                :alt="t('homePage.driver.appImage')"
                 class="phones-image"
               />
             </div>
@@ -313,14 +233,14 @@
               <a href="#" class="app-link">
                 <img
                   src="~/assets/Apple.svg"
-                  alt="App Store"
+                  :alt="t('homePage.driver.appStore')"
                   class="app-badge"
                 />
               </a>
               <a href="#" class="app-link">
                 <img
                   src="~/assets/Google.svg"
-                  alt="Google Play"
+                  :alt="t('homePage.driver.googlePlay')"
                   class="app-badge"
                 />
               </a>
@@ -332,7 +252,79 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useI18n } from "vue-i18n";
+import { computed } from "vue";
+
+const { t } = useI18n();
+
+const valueItems = computed(() => [
+  {
+    number: 1,
+    title: t("driverPage.value.items.1.title"),
+    points: [
+      t("driverPage.value.items.1.point1"),
+      t("driverPage.value.items.1.point2"),
+    ],
+  },
+  {
+    number: 2,
+    title: t("driverPage.value.items.2.title"),
+    points: [
+      t("driverPage.value.items.2.point1"),
+      t("driverPage.value.items.2.point2"),
+    ],
+  },
+  {
+    number: 3,
+    title: t("driverPage.value.items.3.title"),
+    points: [
+      t("driverPage.value.items.3.point1"),
+      t("driverPage.value.items.3.point2"),
+    ],
+  },
+  {
+    number: 7,
+    title: t("driverPage.value.items.7.title"),
+    points: [
+      t("driverPage.value.items.7.point1"),
+      t("driverPage.value.items.7.point2"),
+    ],
+  },
+  {
+    number: 5,
+    title: t("driverPage.value.items.5.title"),
+    points: [
+      t("driverPage.value.items.5.point1"),
+      t("driverPage.value.items.5.point2"),
+    ],
+  },
+  {
+    number: 6,
+    title: t("driverPage.value.items.6.title"),
+    points: [
+      t("driverPage.value.items.6.point1"),
+      t("driverPage.value.items.6.point2"),
+    ],
+  },
+  {
+    number: 8,
+    title: t("driverPage.value.items.8.title"),
+    points: [
+      t("driverPage.value.items.8.point1"),
+      t("driverPage.value.items.8.point2"),
+    ],
+  },
+  {
+    number: 9,
+    title: t("driverPage.value.items.9.title"),
+    points: [
+      t("driverPage.value.items.9.point1"),
+      t("driverPage.value.items.9.point2"),
+    ],
+  },
+]);
+</script>
 
 <style lang="scss" scoped>
 .carrier-page {

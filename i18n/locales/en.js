@@ -110,6 +110,7 @@ export default {
       appStore: "App Store",
       googlePlay: "Google Play",
       appImage: "COUBE driver application",
+      downloadApp: "Download driver app",
     },
   },
   customerPage: {
@@ -182,6 +183,69 @@ export default {
       title: "Transportation management",
       description: "Simple way to manage and monitor cargo transportation",
       interfaceAlt: "COUBE interface for customers",
+    },
+  },
+  driverPage: {
+    value: {
+      title: "Value for carriers",
+      trucksAlt: "COUBE Trucks",
+      description:
+        "We simplify order search and document processing for freight transportation",
+      items: {
+        1: {
+          title: "Constant access to orders",
+          point1:
+            "Large cargo database — find orders quickly without intermediaries.",
+          point2:
+            "Ability to choose optimal routes and trips for maximum vehicle utilization.",
+        },
+        2: {
+          title: "Fast payment without waiting (factoring)",
+          point1:
+            "Ability to receive money immediately after completing a trip, without waiting for payments from customers.",
+          point2: "Elimination of cash gaps and stability of financial flows.",
+        },
+        3: {
+          title: "Reduction of downtime and empty runs",
+          point1: "Cargo selection algorithms help minimize empty mileage.",
+          point2:
+            "Ability to combine cargoes and routes to increase efficiency.",
+        },
+        5: {
+          title: "Fast and guaranteed payment",
+          point1: "Transparent tariffs, clear payment terms.",
+          point2:
+            "Possibility of instant withdrawal of funds or guaranteed payments without delays.",
+        },
+        6: {
+          title: "Flexibility and convenience of work",
+          point1:
+            "You can work with any number of orders at a convenient time.",
+          point2:
+            "Access to the platform through a mobile application or web dashboard.",
+        },
+        7: {
+          title: "Document flow simplification",
+          point1:
+            "Electronic documents, digital signatures, automated reporting.",
+          point2:
+            "Quick processing of applications, contracts, and closing documents.",
+        },
+        8: {
+          title: "Safety and reliability of cooperation",
+          point1: "Verified customers, reduced fraud risks.",
+          point2: "Possibility of cargo insurance and receiving legal support.",
+        },
+        9: {
+          title: "Support and consultation",
+          point1: "24/7 technical and customer support.",
+          point2:
+            "Informational support on legislation and transport regulations.",
+        },
+      },
+    },
+    laptop: {
+      interfaceAlt: "COUBE interface for carriers",
     },
   },
 };
