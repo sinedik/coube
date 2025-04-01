@@ -22,6 +22,31 @@
               />
             </a>
           </ClientOnly>
+          <div class="astana-hub-logo desktop-only">
+            <img src="~/assets/astana-hub.png" alt="Astana Hub" />
+          </div>
+          <div class="astana-hub-logo mobile-only">
+            <img src="~/assets/astana-hub.png" alt="Astana Hub" />
+          </div>
+          <div class="platform-buttons-mobile">
+            <p class="platform-title">Ознакомьтесь с платформой</p>
+            <div class="buttons-row">
+              <a
+                href="https://www.youtube.com/@coube_logistics"
+                target="_blank"
+                class="platform-button"
+              >
+                <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+              </a>
+              <a
+                href="https://www.youtube.com/@coube_logistics"
+                target="_blank"
+                class="platform-button"
+              >
+                <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+              </a>
+            </div>
+          </div>
         </div>
         <div class="banner-content-wrapper">
           <div class="banner-content">
@@ -33,9 +58,30 @@
                 "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
               }}
             </p>
-            <a href="https://platform.coube.kz/signin" class="banner-button"
-              >Подключиться</a
-            >
+            <div class="banner-buttons">
+              <a href="https://platform.coube.kz/signin" class="banner-button"
+                >Подключиться</a
+              >
+              <div class="platform-section">
+                <p class="platform-title">Ознакомьтесь с платформой</p>
+                <div class="platform-buttons">
+                  <a
+                    href="https://www.youtube.com/@coube_logistics"
+                    target="_blank"
+                    class="platform-button"
+                  >
+                    <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@coube_logistics"
+                    target="_blank"
+                    class="platform-button"
+                  >
+                    <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -551,7 +597,11 @@ onUnmounted(() => {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
     z-index: 1;
   }
 }
@@ -618,6 +668,50 @@ onUnmounted(() => {
   word-break: break-word;
 }
 
+.banner-buttons {
+  display: flex;
+  gap: 24px;
+  margin-top: 128px;
+  align-items: flex-end;
+}
+
+.platform-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.platform-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  color: #fff;
+}
+
+.platform-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.platform-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
 .banner-button {
   background-color: #ffa500;
   color: #000;
@@ -630,7 +724,6 @@ onUnmounted(() => {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 160px;
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -640,7 +733,44 @@ onUnmounted(() => {
   }
 }
 
-// Адаптивность для мобильных устройств
+.platform-buttons-mobile {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 20;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+
+  .platform-title {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .buttons-row {
+    display: flex;
+    gap: 16px;
+  }
+
+  .platform-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .banner-section {
     height: auto;
@@ -661,8 +791,17 @@ onUnmounted(() => {
     }
 
     &::after {
-      display: none;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.6) 100%
+      );
+      border-radius: 24px;
     }
+  }
+
+  .platform-buttons-mobile {
+    display: flex;
   }
 
   .banner-content-wrapper {
@@ -695,6 +834,14 @@ onUnmounted(() => {
     opacity: 1;
   }
 
+  .banner-buttons {
+    margin-top: 24px;
+  }
+
+  .platform-section {
+    display: none;
+  }
+
   .banner-button {
     width: 100%;
     max-width: 100%;
@@ -703,48 +850,6 @@ onUnmounted(() => {
     display: inline-block;
     text-decoration: none;
     text-align: center;
-  }
-
-  .container {
-    padding: 0 16px;
-  }
-
-  .about-section {
-    padding: 40px 0;
-  }
-
-  .about-section .container {
-    padding: 0 16px;
-  }
-
-  .steps-section {
-    padding: 40px 0;
-  }
-
-  .steps-section .container {
-    padding: 0 16px;
-  }
-
-  .driver-section {
-    padding: 40px 16px;
-    border-radius: 0;
-    margin-bottom: 0;
-  }
-
-  .driver-section .container {
-    padding: 0;
-  }
-
-  .about-image-container {
-    width: 130px;
-    height: 40px;
-    border-radius: 8px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
   }
 }
 
@@ -758,7 +863,21 @@ onUnmounted(() => {
   }
 
   .banner-title {
-    font-size: 20px;
+    font-size: 24px;
+  }
+
+  .banner-description {
+    margin-bottom: 0px;
+    margin-top: 16px;
+  }
+
+  .banner-buttons {
+    margin-top: 16px;
+  }
+
+  .platform-buttons-mobile {
+    bottom: 12px;
+    left: 12px;
   }
 }
 
@@ -1559,5 +1678,101 @@ onUnmounted(() => {
   max-width: none;
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+.astana-hub-logo {
+  position: absolute;
+  z-index: 20;
+  padding: 24px;
+  border-radius: 12px;
+
+  img {
+    width: 150px;
+    height: auto;
+  }
+
+  &.desktop-only {
+    top: 24px;
+    right: 24px;
+  }
+
+  &.mobile-only {
+    bottom: 16px;
+    right: 16px;
+    padding: 16px;
+
+    img {
+      width: 150px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .astana-hub-logo {
+    padding: 20px;
+
+    img {
+      /* width: 110px; */
+    }
+  }
+
+  .astana-hub-logo.desktop-only {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-image-container {
+    &::after {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.6) 100%
+      );
+    }
+  }
+
+  .astana-hub-logo.desktop-only {
+    display: none;
+  }
+
+  .astana-hub-logo.mobile-only {
+    bottom: 16px;
+    right: 16px;
+    padding: 16px;
+
+    img {
+      width: 100px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-image-container {
+    &::after {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.6) 100%
+      );
+    }
+  }
+
+  .astana-hub-logo.mobile-only {
+    bottom: 0px;
+    right: 12px;
+    padding: 12px;
+
+    img {
+      width: 90px;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .astana-hub-logo.mobile-only {
+    display: none;
+  }
 }
 </style>

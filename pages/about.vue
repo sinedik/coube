@@ -491,6 +491,9 @@ const socialLinks = [
     background-color: #fff;
     justify-content: flex-start;
   }
+  .demo-button {
+    display: none;
+  }
 }
 
 .mission-section {
