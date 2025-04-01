@@ -6,28 +6,32 @@
         <div class="banner-mobile">
           <div class="banner-content-mobile">
             <h1 class="banner-title">
-              {{ "COUBE — цифровой агрегатор\nавтомобильных грузоперевозок" }}
+              {{ t("homePage.banner.title") }}
             </h1>
             <p class="banner-description">
-              {{
-                "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
-              }}
+              {{ t("homePage.banner.description") }}
             </p>
           </div>
           <div class="banner-image-mobile">
             <img
               src="~/assets/customer.png"
-              alt="COUBE - грузоперевозки"
+              :alt="t('homePage.banner.title')"
               class="banner-image"
             />
             <div class="platform-buttons-mobile">
-              <p class="platform-title">Ознакомьтесь с платформой</p>
+              <p class="platform-title">{{ t("homePage.banner.platform") }}</p>
               <div class="buttons-row">
                 <a href="#" class="platform-button">
-                  <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                  <img
+                    src="~/assets/play-orange.svg"
+                    :alt="t('homePage.banner.video')"
+                  />
                 </a>
                 <a href="#" class="platform-button">
-                  <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                  <img
+                    src="~/assets/play-orange.svg"
+                    :alt="t('homePage.banner.video')"
+                  />
                 </a>
               </div>
             </div>
@@ -39,29 +43,29 @@
           <div class="banner-image-container">
             <img
               src="~/assets/customer.png"
-              alt="COUBE - грузоперевозки"
+              :alt="t('homePage.banner.title')"
               class="banner-image"
             />
           </div>
           <div class="banner-content-wrapper">
             <div class="banner-content">
               <h1 class="banner-title">
-                {{ "COUBE — цифровой агрегатор\nавтомобильных грузоперевозок" }}
+                {{ t("homePage.banner.title") }}
               </h1>
               <p class="banner-description">
-                {{
-                  "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
-                }}
+                {{ t("homePage.banner.description") }}
               </p>
               <div class="banner-buttons">
                 <a
                   href="https://platform.coube.kz/signin"
                   class="banner-button"
                 >
-                  {{ "Подключиться" }}
+                  {{ t("homePage.banner.button") }}
                 </a>
                 <div class="platform-section">
-                  <p class="platform-title">Ознакомьтесь с платформой</p>
+                  <p class="platform-title">
+                    {{ t("homePage.banner.platform") }}
+                  </p>
                   <div class="platform-buttons">
                     <a
                       href="https://www.youtube.com/@coube_logistics"
@@ -70,7 +74,7 @@
                     >
                       <img
                         src="~/assets/play-orange.svg"
-                        alt="Смотреть видео"
+                        :alt="t('homePage.banner.video')"
                       />
                     </a>
                     <a
@@ -80,7 +84,7 @@
                     >
                       <img
                         src="~/assets/play-orange.svg"
-                        alt="Смотреть видео"
+                        :alt="t('homePage.banner.video')"
                       />
                     </a>
                   </div>
@@ -96,128 +100,34 @@
           <div class="value-content">
             <div class="value-header">
               <div class="value-header-content">
-                <h2 class="value-title">Ценность для заказчика</h2>
+                <h2 class="value-title">{{ t("customerPage.value.title") }}</h2>
               </div>
               <div class="value-image">
-                <img src="~/assets/trucks.png" alt="Грузовики COUBE" />
+                <img
+                  src="~/assets/trucks.png"
+                  :alt="t('customerPage.value.trucksAlt')"
+                />
               </div>
             </div>
             <p class="value-description">
-              {{
-                "Цифровая логистическая платформа и агрегатор помогаютсократить затраты,\nускорить поиск перевозчиков,контролировать доставку и автоматизировать\nдокументооборот для грузоперевозок наземным и водным транспортом."
-              }}
+              {{ t("customerPage.value.description") }}
             </p>
             <div class="value-grid">
-              <div class="value-item">
-                <div class="value-number">1.</div>
+              <div
+                class="value-item"
+                v-for="(item, index) in valueItems"
+                :key="index"
+              >
+                <div class="value-number">{{ index + 1 }}.</div>
                 <h3 class="value-title">
-                  Быстрый и удобный поиск перевозчиков
+                  {{ item.title }}
                 </h3>
                 <ul class="value-list">
-                  <li>Доступ к широкой сети проверенных перевозчиков.</li>
-                  <li>
-                    Возможность выбора оптимального транспорта по цене, срокам и
-                    условиям.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">2.</div>
-                <h3 class="value-title">Постоянный доступ к заказам</h3>
-                <ul class="value-list">
-                  <li>Большая база грузов — можно быстро находить заказы.</li>
-                  <li>
-                    Возможность выбора оптимальных маршрутов и рейсов для
-                    максимальной загрузки.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">3.</div>
-                <h3 class="value-title">
-                  Факторинг для удобного финансирования
-                </h3>
-                <ul class="value-list">
-                  <li>
-                    Возможность получить отсрочку платежа для бизнеса с любым
-                    оборотом.
-                  </li>
-                  <li>
-                    Прозрачные финансовые инструменты без необходимости
-                    поддержки.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">4.</div>
-                <h3 class="value-title">Онлайн-страхование грузов</h3>
-                <ul class="value-list">
-                  <li>
-                    Быстрое оформление страховки онлайн в интерфейсе без
-                    бумажной волокиты.
-                  </li>
-                  <li>
-                    Гибкие условия страхования, подходящие под любой тип груза.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">5.</div>
-                <h3 class="value-title">Гибкость и удобство работы</h3>
-                <ul class="value-list">
-                  <li>
-                    Возможность выбора как разовых, так и долгосрочных
-                    контрактов.
-                  </li>
-                  <li>
-                    Удобный интерфейс для размещения под любые объемы и типы
-                    грузов.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">6.</div>
-                <h3 class="value-title">Минимизация рисков и надежность</h3>
-                <ul class="value-list">
-                  <li>Работа только с проверенными перевозчиками.</li>
-                  <li>Возможность страхования груза через платформу.</li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">7.</div>
-                <h3 class="value-title">Прозрачность и контроль перевозки</h3>
-                <ul class="value-list">
-                  <li>Онлайн-отслеживание груза в реальном времени.</li>
-                  <li>Автоматическое уведомление о статусе доставки.</li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">8.</div>
-                <h3 class="value-title">Экономия на логистике</h3>
-                <ul class="value-list">
-                  <li>Конкурентные цены от проверенных перевозчиков.</li>
-                  <li>Оптимальные маршруты помогут сэкономить на доставке.</li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">9.</div>
-                <h3 class="value-title">Автоматизация документооборота</h3>
-                <ul class="value-list">
-                  <li>
-                    Электронные накладные, акты и счет-фактуры в одном
-                    интерфейсе.
-                  </li>
-                  <li>Прозрачная бухгалтерия и интеграция с ERP-системами.</li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">10.</div>
-                <h3 class="value-title">Инструменты аналитики и статистики</h3>
-                <ul class="value-list">
-                  <li>Статистика по затратам и эффективности логистики.</li>
-                  <li>
-                    Возможность оптимизации логистических процессов на основе
-                    данных.
+                  <li
+                    v-for="(point, pointIndex) in item.points"
+                    :key="pointIndex"
+                  >
+                    {{ point }}
                   </li>
                 </ul>
               </div>
@@ -231,18 +141,23 @@
           <div class="laptop-content">
             <div class="laptop-header">
               <div class="laptop-header-content">
-                <h2 class="laptop-title">Управление перевозками</h2>
+                <h2 class="laptop-title">
+                  {{ t("customerPage.management.title") }}
+                </h2>
               </div>
               <div class="laptop-image-small">
-                <img src="~/assets/trucks.png" alt="Грузовики COUBE" />
+                <img
+                  src="~/assets/trucks.png"
+                  :alt="t('customerPage.value.trucksAlt')"
+                />
               </div>
             </div>
             <p class="laptop-description">
-              Простой способ управления и мониторинга перевозкой грузов
+              {{ t("customerPage.management.description") }}
             </p>
             <img
               src="~/assets/laptop-customer.png"
-              alt="Интерфейс COUBE для заказчиков"
+              :alt="t('customerPage.management.interfaceAlt')"
               class="laptop-image"
             />
           </div>
@@ -252,7 +167,85 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useI18n } from "vue-i18n";
+import { computed } from "vue";
+
+const { t } = useI18n();
+
+const valueItems = computed(() => [
+  {
+    title: t("customerPage.value.items.1.title"),
+    points: [
+      t("customerPage.value.items.1.point1"),
+      t("customerPage.value.items.1.point2"),
+    ],
+  },
+  {
+    title: t("customerPage.value.items.2.title"),
+    points: [
+      t("customerPage.value.items.2.point1"),
+      t("customerPage.value.items.2.point2"),
+    ],
+  },
+  {
+    title: t("customerPage.value.items.3.title"),
+    points: [
+      t("customerPage.value.items.3.point1"),
+      t("customerPage.value.items.3.point2"),
+    ],
+  },
+  {
+    title: t("customerPage.value.items.4.title"),
+    points: [
+      t("customerPage.value.items.4.point1"),
+      t("customerPage.value.items.4.point2"),
+    ],
+  },
+  {
+    title: t("customerPage.value.items.5.title"),
+    points: [
+      t("customerPage.value.items.5.point1"),
+      t("customerPage.value.items.5.point2"),
+    ],
+  },
+  {
+    title: t("customerPage.value.items.6.title"),
+    points: [
+      t("customerPage.value.items.6.point1"),
+      t("customerPage.value.items.6.point2"),
+    ],
+  },
+  {
+    title: t("customerPage.value.items.7.title"),
+    points: [
+      t("customerPage.value.items.7.point1"),
+      t("customerPage.value.items.7.point2"),
+    ],
+  },
+  {
+    title: t("customerPage.value.items.8.title"),
+    points: [
+      t("customerPage.value.items.8.point1"),
+      t("customerPage.value.items.8.point2"),
+    ],
+  },
+  {
+    title: t("customerPage.value.items.9.title"),
+    points: [
+      t("customerPage.value.items.9.point1"),
+      t("customerPage.value.items.9.point2"),
+    ],
+  },
+  {
+    title: t("customerPage.value.items.10.title"),
+    points: [
+      t("customerPage.value.items.10.point1"),
+      t("customerPage.value.items.10.point2"),
+    ],
+  },
+]);
+</script>
 
 <style lang="scss" scoped>
 .customer-page {

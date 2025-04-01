@@ -58,9 +58,9 @@ export default {
   },
   homePage: {
     banner: {
-      title: "COUBE — digital aggregator\nof road cargo transportation",
+      title: "COUBE — digital aggregator\nof road freight transportation",
       description:
-        "We have simplified the interaction between\nclient and carrier, made the process of\ntransporting goods safe and transparent",
+        "We simplified the interaction between\nclient and carrier, made the process\nof cargo transportation safe and transparent",
       button: "Connect",
       platform: "Explore the platform",
       video: "Watch video",
@@ -68,15 +68,15 @@ export default {
     about: {
       title: "About us",
       description:
-        "Coube is a digital freight aggregator that combines a number of important functions, such as:",
+        "Coube is a digital freight transportation aggregator combining several important functions such as:",
       features: [
-        "Order placement and direct provider search",
+        "Placing an order and finding a direct executor",
         "Online route monitoring",
-        "Signing documents with digital signature",
-        "AI selection of return cargo",
-        "Creating invoices and work completion reports",
+        "Digital signature for documents",
+        "AI selection of return cargoes",
+        "Creating invoices and work completion certificates",
         "Payment for services through the platform",
-        "Objective transportation price",
+        "Fair transportation prices",
         "Analytical reports",
         "Integration with 1C accounting",
       ],
@@ -84,32 +84,104 @@ export default {
     steps: {
       title: "Simple platform steps",
       roles: {
-        customer: "Client",
-        executor: "Carrier",
+        customer: "Customer",
+        executor: "Executor",
       },
       customer: [
-        "Places a transport request",
-        "Waits for carrier responses",
+        "Places a transportation request",
+        "Waits for carriers' responses",
         "Selects carriers",
         "Signs a contract with the carrier",
-        "Monitoring in transit",
-        "Receiving an invoice from the carrier",
+        "Monitors in transit",
+        "Receives an invoice from the carrier",
       ],
       executor: [
-        "Search for posted orders",
-        "Respond to the desired order",
-        "Waiting for contract signing from the client",
-        "Driver assignment",
-        "Issuing an invoice after completion of transportation",
+        "Searches for placed orders",
+        "Responds to the desired order",
+        "Waits for contract signing from the customer",
+        "Assigns a driver",
+        "Issues an invoice after transportation completion",
       ],
     },
     driver: {
       title: "For drivers",
       description:
-        "Install the COUBE driver app and gain access to the most profitable orders right from your smartphone.",
+        "Install the COUBE driver app and get access to the most profitable orders right from your smartphone.",
       appStore: "App Store",
       googlePlay: "Google Play",
-      appImage: "COUBE driver app",
+      appImage: "COUBE driver application",
+    },
+  },
+  customerPage: {
+    value: {
+      title: "Value for the customer",
+      trucksAlt: "COUBE Trucks",
+      description:
+        "Digital logistics platform and aggregator help reduce costs, speed up the search for carriers, control delivery, and automate document flow for cargo transportation by land and water transport.",
+      items: {
+        1: {
+          title: "Fast and convenient carrier search",
+          point1: "Access to a wide network of verified carriers.",
+          point2:
+            "Ability to choose optimal transport by price, timing, and conditions.",
+        },
+        2: {
+          title: "Constant access to orders",
+          point1: "Large cargo database — quickly find orders.",
+          point2:
+            "Ability to choose optimal routes and trips for maximum loading.",
+        },
+        3: {
+          title: "Factoring for convenient financing",
+          point1:
+            "Possibility to get payment deferral for businesses of any turnover.",
+          point2:
+            "Transparent financial instruments without the need for support.",
+        },
+        4: {
+          title: "Online cargo insurance",
+          point1: "Fast online insurance in the interface without paperwork.",
+          point2:
+            "Flexible insurance conditions suitable for any type of cargo.",
+        },
+        5: {
+          title: "Flexibility and convenience of work",
+          point1:
+            "Possibility to choose both one-time and long-term contracts.",
+          point2:
+            "User-friendly interface for placing any volumes and types of cargo.",
+        },
+        6: {
+          title: "Risk minimization and reliability",
+          point1: "Work only with verified carriers.",
+          point2: "Possibility of cargo insurance through the platform.",
+        },
+        7: {
+          title: "Transparency and control of transportation",
+          point1: "Online cargo tracking in real-time.",
+          point2: "Automatic notification of delivery status.",
+        },
+        8: {
+          title: "Logistics cost savings",
+          point1: "Competitive prices from verified carriers.",
+          point2: "Optimal routes will help save on delivery.",
+        },
+        9: {
+          title: "Document flow automation",
+          point1: "Electronic waybills, acts, and invoices in one interface.",
+          point2: "Transparent accounting and integration with ERP systems.",
+        },
+        10: {
+          title: "Analytics and statistics tools",
+          point1: "Statistics on logistics costs and efficiency.",
+          point2: "Ability to optimize logistics processes based on data.",
+        },
+      },
+    },
+    management: {
+      title: "Transportation management",
+      description: "Simple way to manage and monitor cargo transportation",
+      interfaceAlt: "COUBE interface for customers",
     },
   },
 };
