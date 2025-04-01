@@ -23,27 +23,39 @@
             </a>
           </ClientOnly>
           <div class="astana-hub-logo desktop-only">
-            <img src="~/assets/astana-hub.png" alt="Astana Hub" />
+            <img
+              src="~/assets/astana-hub.png"
+              :alt="t('footer.astanaHub.alt')"
+            />
           </div>
           <div class="astana-hub-logo mobile-only">
-            <img src="~/assets/astana-hub.png" alt="Astana Hub" />
+            <img
+              src="~/assets/astana-hub.png"
+              :alt="t('footer.astanaHub.alt')"
+            />
           </div>
           <div class="platform-buttons-mobile">
-            <p class="platform-title">Ознакомьтесь с платформой</p>
+            <p class="platform-title">{{ t("homePage.banner.platform") }}</p>
             <div class="buttons-row">
               <a
                 href="https://www.youtube.com/@coube_logistics"
                 target="_blank"
                 class="platform-button"
               >
-                <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                <img
+                  src="~/assets/play-orange.svg"
+                  :alt="t('homePage.banner.video')"
+                />
               </a>
               <a
                 href="https://www.youtube.com/@coube_logistics"
                 target="_blank"
                 class="platform-button"
               >
-                <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                <img
+                  src="~/assets/play-orange.svg"
+                  :alt="t('homePage.banner.video')"
+                />
               </a>
             </div>
           </div>
@@ -51,33 +63,41 @@
         <div class="banner-content-wrapper">
           <div class="banner-content">
             <h1 class="banner-title">
-              {{ "COUBE — цифровой агрегатор\nавтомобильных грузоперевозок" }}
+              {{ t("homePage.banner.title") }}
             </h1>
             <p class="banner-description">
-              {{
-                "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
-              }}
+              {{ t("homePage.banner.description") }}
             </p>
             <div class="banner-buttons">
-              <a href="https://platform.coube.kz/signin" class="banner-button"
-                >Подключиться</a
+              <a
+                href="https://platform.coube.kz/signin"
+                class="banner-button"
+                >{{ t("homePage.banner.button") }}</a
               >
               <div class="platform-section">
-                <p class="platform-title">Ознакомьтесь с платформой</p>
+                <p class="platform-title">
+                  {{ t("homePage.banner.platform") }}
+                </p>
                 <div class="platform-buttons">
                   <a
                     href="https://www.youtube.com/@coube_logistics"
                     target="_blank"
                     class="platform-button"
                   >
-                    <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                    <img
+                      src="~/assets/play-orange.svg"
+                      :alt="t('homePage.banner.video')"
+                    />
                   </a>
                   <a
                     href="https://www.youtube.com/@coube_logistics"
                     target="_blank"
                     class="platform-button"
                   >
-                    <img src="~/assets/play-orange.svg" alt="Смотреть видео" />
+                    <img
+                      src="~/assets/play-orange.svg"
+                      :alt="t('homePage.banner.video')"
+                    />
                   </a>
                 </div>
               </div>
@@ -90,13 +110,13 @@
         <div class="container">
           <div class="about-header">
             <div class="about-title-block">
-              <h2 class="about-title">О нас</h2>
+              <h2 class="about-title">{{ t("homePage.about.title") }}</h2>
             </div>
             <div class="about-image-block">
               <div class="about-image-container">
                 <img
                   src="~/assets/trucks.png"
-                  alt="Грузовики COUBE"
+                  :alt="t('homePage.about.title')"
                   class="about-image"
                 />
               </div>
@@ -104,50 +124,21 @@
             <div class="about-description-block">
               <div class="about-description">
                 <p>
-                  Coube это цифровой агрегатор грузовых перевозок, сочетающий в
-                  себе ряд важных функций, таких как:
+                  {{ t("homePage.about.description") }}
                 </p>
               </div>
             </div>
           </div>
 
           <div class="features-grid">
-            <div class="feature-item">
+            <div
+              class="feature-item"
+              v-for="(feature, index) in features"
+              :key="index"
+            >
               <p class="feature-text">
-                Размещение заказа и поиск прямого исполнителя
+                {{ feature }}
               </p>
-            </div>
-
-            <div class="feature-item">
-              <p class="feature-text">Онлайн мониторинг маршрута</p>
-            </div>
-
-            <div class="feature-item">
-              <p class="feature-text">Подписание документов по ЭЦП</p>
-            </div>
-
-            <div class="feature-item">
-              <p class="feature-text">Ai подбор обратных грузов</p>
-            </div>
-
-            <div class="feature-item">
-              <p class="feature-text">Создание счетов и АВР</p>
-            </div>
-
-            <div class="feature-item">
-              <p class="feature-text">Оплата услуг через платформу</p>
-            </div>
-
-            <div class="feature-item">
-              <p class="feature-text">Объективная цена перевозки</p>
-            </div>
-
-            <div class="feature-item">
-              <p class="feature-text">Аналитические отчеты</p>
-            </div>
-
-            <div class="feature-item highlight">
-              <p class="feature-text">Интеграция с 1С бухгалтерия</p>
             </div>
           </div>
         </div>
@@ -156,21 +147,21 @@
       <section class="steps-section">
         <div class="container">
           <div class="steps-header">
-            <h2 class="steps-title">Простые шаги платформы</h2>
+            <h2 class="steps-title">{{ t("homePage.steps.title") }}</h2>
             <div class="role-switcher">
               <button
                 class="role-button"
                 :class="{ active: activeRole === 'customer' }"
                 @click="setActiveRole('customer')"
               >
-                Заказчик
+                {{ t("homePage.steps.roles.customer") }}
               </button>
               <button
                 class="role-button"
                 :class="{ active: activeRole === 'executor' }"
                 @click="setActiveRole('executor')"
               >
-                Исполнитель
+                {{ t("homePage.steps.roles.executor") }}
               </button>
             </div>
           </div>
@@ -182,19 +173,19 @@
             <div class="steps-column left">
               <div class="step-item left">
                 <div class="step-content">
-                  <p>Размещает заявку на перевозку</p>
+                  <p>{{ customerSteps[0] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item left">
                 <div class="step-content">
-                  <p>Выбирает перевозчиков</p>
+                  <p>{{ customerSteps[2] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item left">
                 <div class="step-content">
-                  <p>Мониторинг в пути</p>
+                  <p>{{ customerSteps[4] }}</p>
                 </div>
               </div>
             </div>
@@ -220,19 +211,19 @@
               <div class="step-spacer"></div>
               <div class="step-item right">
                 <div class="step-content">
-                  <p>Ждет отклики перевозчиков</p>
+                  <p>{{ customerSteps[1] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item right">
                 <div class="step-content">
-                  <p>Подписывает договор с перевозчиком</p>
+                  <p>{{ customerSteps[3] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item right">
                 <div class="step-content">
-                  <p>Получение счета от перевозчика</p>
+                  <p>{{ customerSteps[5] }}</p>
                 </div>
               </div>
             </div>
@@ -243,34 +234,13 @@
             v-if="activeRole === 'customer' && isMobile"
           >
             <div class="mobile-steps-container">
-              <div class="step-item">
+              <div
+                class="step-item"
+                v-for="(step, index) in customerSteps"
+                :key="'mobile-customer-' + index"
+              >
                 <div class="step-content">
-                  <p>Размещает заявку на перевозку</p>
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="step-content">
-                  <p>Ждет отклики перевозчиков</p>
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="step-content">
-                  <p>Выбирает перевозчиков</p>
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="step-content">
-                  <p>Подписывает договор с перевозчиком</p>
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="step-content">
-                  <p>Мониторинг в пути</p>
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="step-content">
-                  <p>Получение счета от перевозчика</p>
+                  <p>{{ step }}</p>
                 </div>
               </div>
             </div>
@@ -283,19 +253,19 @@
             <div class="steps-column left">
               <div class="step-item left">
                 <div class="step-content">
-                  <p>Поиск размещенных заказов</p>
+                  <p>{{ executorSteps[0] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item left">
                 <div class="step-content">
-                  <p>Ожидания подписания договора от заказчика</p>
+                  <p>{{ executorSteps[2] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item left">
                 <div class="step-content">
-                  <p>Выставление счет после завершения перевозки</p>
+                  <p>{{ executorSteps[4] }}</p>
                 </div>
               </div>
             </div>
@@ -321,13 +291,13 @@
               <div class="step-spacer"></div>
               <div class="step-item right">
                 <div class="step-content">
-                  <p>Отклик на нужный заказ</p>
+                  <p>{{ executorSteps[1] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item right">
                 <div class="step-content">
-                  <p>Назначение водителя</p>
+                  <p>{{ executorSteps[3] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
@@ -340,29 +310,13 @@
             v-if="activeRole === 'executor' && isMobile"
           >
             <div class="mobile-steps-container">
-              <div class="step-item">
+              <div
+                class="step-item"
+                v-for="(step, index) in executorSteps"
+                :key="'mobile-executor-' + index"
+              >
                 <div class="step-content">
-                  <p>Поиск размещенных заказов</p>
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="step-content">
-                  <p>Отклик на нужный заказ</p>
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="step-content">
-                  <p>Ожидания подписания договора от заказчика</p>
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="step-content">
-                  <p>Назначение водителя</p>
-                </div>
-              </div>
-              <div class="step-item">
-                <div class="step-content">
-                  <p>Выставление счет после завершения перевозки</p>
+                  <p>{{ step }}</p>
                 </div>
               </div>
             </div>
@@ -370,68 +324,43 @@
         </div>
       </section>
 
-      <section class="driver-section">
+      <section class="drivers-section">
         <div class="container">
-          <div class="driver-content">
-            <div class="driver-info">
-              <div class="driver-logo">
-                <img
-                  src="~/assets/logo-clear.svg"
-                  alt="COUBE"
-                  class="logo-image"
-                />
-              </div>
-              <h2 class="driver-title">Для водителя</h2>
-              <p class="driver-description">
-                Установите приложение для водителя COUBE и открывайте доступ к
-                самым прибыльным заказам прямо со своего смартфона.
+          <div class="drivers-content">
+            <div class="drivers-info">
+              <h2 class="drivers-title">{{ t("homePage.driver.title") }}</h2>
+              <p class="drivers-description">
+                {{ t("homePage.driver.description") }}
               </p>
-              <div class="app-links desktop-only">
-                <a href="#" class="app-link">
+              <div class="app-links">
+                <a
+                  href="https://apps.apple.com/app/id1552181846"
+                  target="_blank"
+                  class="app-link"
+                >
                   <img
                     src="~/assets/Apple.svg"
-                    alt="App Store"
-                    class="app-badge"
+                    :alt="t('homePage.driver.appStore')"
                   />
                 </a>
-                <a href="#" class="app-link">
+                <a
+                  href="https://play.google.com/store/apps/details?id=kz.coube.driver"
+                  target="_blank"
+                  class="app-link"
+                >
                   <img
                     src="~/assets/Google.svg"
-                    alt="Google Play"
-                    class="app-badge"
+                    :alt="t('homePage.driver.googlePlay')"
                   />
                 </a>
               </div>
             </div>
-            <div class="driver-phones desktop-only">
+            <div class="drivers-image">
               <img
                 src="~/assets/phones.png"
-                alt="Приложение COUBE для водителя"
-                class="phones-image"
+                :alt="t('homePage.driver.appImage')"
+                class="app-preview-img"
               />
-            </div>
-            <div class="driver-phones mobile-only">
-              <img
-                src="~/assets/phones.png"
-                alt="Приложение COUBE для водителя"
-                class="phones-image"
-              />
-            </div>
-            <div class="app-links mobile-only">
-              <a href="#" class="app-link">
-                <img
-                  src="~/assets/Apple.svg"
-                  alt="App Store"
-                  class="app-badge"
-                />
-              </a>
-              <a href="#" class="app-link">
-                <img
-                  src="~/assets/Google.svg"
-                  alt="Google Play"
-                  class="app-badge"
-                />
-              </a>
             </div>
           </div>
         </div>
@@ -440,85 +369,196 @@
   </div>
 </template>
 
-<script setup>
-import {
-  ref,
-  onMounted,
-  onUnmounted,
-  computed,
-  defineAsyncComponent,
-} from "vue";
+<script>
+import { useI18n } from "vue-i18n";
+import { ref, onMounted } from "vue";
 
-// Ленивая загрузка компонента VideoPlayer
-const VideoPlayer = defineAsyncComponent(() =>
-  import("~/components/VideoPlayer.vue")
-);
+export default {
+  name: "IndexPage",
+  setup() {
+    const { t } = useI18n();
+    return { t };
+  },
+  data() {
+    return {
+      activeRole: "customer",
+      customerStepsDots: [],
+      executorStepsDots: [],
+      customerFirstDotPosition: 0,
+      customerLastDotPosition: 0,
+      executorFirstDotPosition: 0,
+      executorLastDotPosition: 0,
+      videoModalVisible: false,
+      isMobile: false,
+      bannerVideo: new URL("~/assets/banner-trucks.mp4", import.meta.url).href,
+      bannerPoster: new URL("~/assets/banner.png", import.meta.url).href,
+    };
+  },
+  computed: {
+    features() {
+      return [
+        this.t("homePage.about.features.0"),
+        this.t("homePage.about.features.1"),
+        this.t("homePage.about.features.2"),
+        this.t("homePage.about.features.3"),
+        this.t("homePage.about.features.4"),
+        this.t("homePage.about.features.5"),
+      ];
+    },
+    customerSteps() {
+      return [
+        this.t("homePage.steps.customer.0"),
+        this.t("homePage.steps.customer.1"),
+        this.t("homePage.steps.customer.2"),
+        this.t("homePage.steps.customer.3"),
+        this.t("homePage.steps.customer.4"),
+        this.t("homePage.steps.customer.5"),
+      ];
+    },
+    executorSteps() {
+      return [
+        this.t("homePage.steps.executor.0"),
+        this.t("homePage.steps.executor.1"),
+        this.t("homePage.steps.executor.2"),
+        this.t("homePage.steps.executor.3"),
+        this.t("homePage.steps.executor.4"),
+      ];
+    },
+  },
+  mounted() {
+    this.calculateTimelineDots();
+    window.addEventListener("resize", this.handleResize);
 
-// Импорт ассетов
-const bannerVideo = new URL("~/assets/banner-trucks.mp4", import.meta.url).href;
-const bannerPoster = new URL("~/assets/banner.png", import.meta.url).href;
+    // Проверяем размер экрана
+    this.checkIfMobile();
+    window.addEventListener("resize", this.checkIfMobile);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.handleResize);
+    window.removeEventListener("resize", this.checkIfMobile);
+  },
+  methods: {
+    checkIfMobile() {
+      this.isMobile = window.innerWidth <= 768;
+    },
+    setActiveRole(role) {
+      this.activeRole = role;
+      this.$nextTick(() => {
+        this.calculateTimelineDots();
+      });
+    },
+    handleResize() {
+      this.calculateTimelineDots();
+    },
+    calculateTimelineDots() {
+      this.$nextTick(() => {
+        // Расчет позиций точек для шагов клиента
+        if (this.activeRole === "customer") {
+          const customerLeftSteps = document.querySelectorAll(
+            ".steps-column.left .step-item"
+          );
+          const customerRightSteps = document.querySelectorAll(
+            ".steps-column.right .step-item"
+          );
 
-const activeRole = ref("customer");
-const isMobile = ref(false);
+          this.customerStepsDots = [];
 
-// Расчет позиций точек для временной шкалы заказчика
-const customerStepsDots = computed(() => {
-  return [
-    { position: 47 }, // Первый блок слева (Размещает заявку)
-    { position: 128 }, // Первый блок справа (Ждет отклики)
-    { position: 223 }, // Второй блок слева (Выбирает перевозчиков)
-    { position: 310 }, // Второй блок справа (Подписывает договор)
-    { position: 400 }, // Третий блок слева (Мониторинг в пути)
-    { position: 485 }, // Третий блок справа (Получение счета)
-  ];
-});
+          // Левые точки
+          customerLeftSteps.forEach((step) => {
+            const stepRect = step.getBoundingClientRect();
+            const containerRect = document
+              .querySelector(".steps-diagram")
+              .getBoundingClientRect();
+            const position =
+              stepRect.top + stepRect.height / 2 - containerRect.top;
 
-// Расчет позиций точек для временной шкалы исполнителя
-const executorStepsDots = computed(() => {
-  return [
-    { position: 47 }, // Первый блок слева (Поиск заказов)
-    { position: 128 }, // Первый блок справа (Отклик на заказ)
-    { position: 223 }, // Второй блок слева (Ожидание подписания)
-    { position: 310 }, // Второй блок справа (Назначение водителя)
-    { position: 400 }, // Третий блок слева (Выставление счета)
-  ];
-});
+            this.customerStepsDots.push({
+              position,
+            });
+          });
 
-// Получаем позицию первой и последней точки для каждой роли
-const customerFirstDotPosition = computed(() => {
-  return customerStepsDots.value[0].position;
-});
+          // Правые точки
+          customerRightSteps.forEach((step) => {
+            const stepRect = step.getBoundingClientRect();
+            const containerRect = document
+              .querySelector(".steps-diagram")
+              .getBoundingClientRect();
+            const position =
+              stepRect.top + stepRect.height / 2 - containerRect.top;
 
-const customerLastDotPosition = computed(() => {
-  const dots = customerStepsDots.value;
-  return dots[dots.length - 1].position;
-});
+            this.customerStepsDots.push({
+              position,
+            });
+          });
 
-const executorFirstDotPosition = computed(() => {
-  return executorStepsDots.value[0].position;
-});
+          // Сортировка точек по позиции
+          this.customerStepsDots.sort((a, b) => a.position - b.position);
 
-const executorLastDotPosition = computed(() => {
-  const dots = executorStepsDots.value;
-  return dots[dots.length - 1].position;
-});
+          // Установка первой и последней позиции для линии
+          this.customerFirstDotPosition = this.customerStepsDots[0].position;
+          this.customerLastDotPosition =
+            this.customerStepsDots[this.customerStepsDots.length - 1].position;
+        }
 
-const setActiveRole = (role) => {
-  activeRole.value = role;
+        // Расчет позиций точек для шагов исполнителя
+        if (this.activeRole === "executor") {
+          const executorLeftSteps = document.querySelectorAll(
+            ".steps-column.left .step-item"
+          );
+          const executorRightSteps = document.querySelectorAll(
+            ".steps-column.right .step-item"
+          );
+
+          this.executorStepsDots = [];
+
+          // Левые точки
+          executorLeftSteps.forEach((step) => {
+            const stepRect = step.getBoundingClientRect();
+            const containerRect = document
+              .querySelector(".steps-diagram")
+              .getBoundingClientRect();
+            const position =
+              stepRect.top + stepRect.height / 2 - containerRect.top;
+
+            this.executorStepsDots.push({
+              position,
+            });
+          });
+
+          // Правые точки
+          executorRightSteps.forEach((step) => {
+            const stepRect = step.getBoundingClientRect();
+            const containerRect = document
+              .querySelector(".steps-diagram")
+              .getBoundingClientRect();
+            const position =
+              stepRect.top + stepRect.height / 2 - containerRect.top;
+
+            this.executorStepsDots.push({
+              position,
+            });
+          });
+
+          // Сортировка точек по позиции
+          this.executorStepsDots.sort((a, b) => a.position - b.position);
+
+          // Установка первой и последней позиции для линии
+          this.executorFirstDotPosition = this.executorStepsDots[0].position;
+          this.executorLastDotPosition =
+            this.executorStepsDots[this.executorStepsDots.length - 1].position;
+        }
+      });
+    },
+    openVideoModal() {
+      this.videoModalVisible = true;
+      document.body.classList.add("modal-open");
+    },
+    closeVideoModal() {
+      this.videoModalVisible = false;
+      document.body.classList.remove("modal-open");
+    },
+  },
 };
-
-const checkMobile = () => {
-  isMobile.value = window.innerWidth <= 768;
-};
-
-onMounted(() => {
-  checkMobile();
-  window.addEventListener("resize", checkMobile);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("resize", checkMobile);
-});
 </script>
 
 <style lang="scss" scoped>
@@ -1160,7 +1200,8 @@ onUnmounted(() => {
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 100px;
-  width: 360px;
+  min-width: 360px;
+  max-width: 450px;
   overflow: hidden;
   max-width: 100%;
   box-sizing: border-box;
@@ -1501,7 +1542,7 @@ onUnmounted(() => {
 }
 
 // Стили для секции "Для водителя"
-.driver-section {
+.drivers-section {
   padding: 40px 0px;
   background-color: #f4f4f4;
   border-radius: 24px;
@@ -1511,12 +1552,12 @@ onUnmounted(() => {
   margin-top: 70px;
 }
 
-.driver-section .container {
+.drivers-section .container {
   padding: 0;
   box-sizing: border-box;
 }
 
-.driver-content {
+.drivers-content {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -1524,7 +1565,7 @@ onUnmounted(() => {
   box-sizing: border-box;
 }
 
-.driver-info {
+.drivers-info {
   max-width: 450px;
   display: flex;
   flex-direction: column;
@@ -1533,21 +1574,7 @@ onUnmounted(() => {
   box-sizing: border-box;
 }
 
-.driver-logo {
-  width: 90px;
-  height: 100px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.logo-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.driver-title {
+.drivers-title {
   font-size: 48px;
   font-weight: 700;
   margin: 0 0 20px 0;
@@ -1555,7 +1582,7 @@ onUnmounted(() => {
   word-break: break-word;
 }
 
-.driver-description {
+.drivers-description {
   font-size: 24px;
   line-height: 1.5;
   margin-bottom: 64px;
@@ -1569,6 +1596,12 @@ onUnmounted(() => {
   gap: 16px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 20px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .app-link {
@@ -1582,11 +1615,11 @@ onUnmounted(() => {
   height: auto;
 }
 
-.driver-phones {
+.drivers-image {
   max-width: 50%;
 }
 
-.phones-image {
+.app-preview-img {
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -1594,42 +1627,36 @@ onUnmounted(() => {
 
 // Адаптивность для секции "Для водителя"
 @media (max-width: 1024px) {
-  .driver-content {
+  .drivers-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  .driver-info {
+  .drivers-info {
     max-width: 100%;
     margin-bottom: 0;
     align-items: center;
     width: 100%;
   }
 
-  .driver-phones {
+  .drivers-image {
     max-width: 80%;
     margin: 30px 0;
     order: 2;
   }
 
-  .app-links.mobile-only {
-    order: 3;
-    margin-top: 0;
-    justify-content: center;
-  }
-
-  .driver-title {
+  .drivers-title {
     font-size: 36px;
   }
 
-  .driver-description {
+  .drivers-description {
     font-size: 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .driver-section {
+  .drivers-section {
     padding: 40px 16px;
     border-radius: 0;
     margin-bottom: 0;
@@ -1637,17 +1664,17 @@ onUnmounted(() => {
     margin-top: 4px;
   }
 
-  .driver-title {
+  .drivers-title {
     font-size: 24px;
     margin-bottom: 16px;
   }
 
-  .driver-description {
+  .drivers-description {
     font-size: 14px;
     margin-bottom: 0;
   }
 
-  .driver-phones {
+  .drivers-image {
     max-width: 100%;
     margin: 24px 0;
   }
