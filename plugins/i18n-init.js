@@ -1,49 +1,74 @@
 import { useLangStore } from "~/stores/langStore";
-import { watch } from "vue";
+import { watch, nextTick } from "vue";
 
 export default defineNuxtPlugin({
   name: "i18n-init",
   enforce: "post", // Выполняем после инициализации i18n
-  setup(nuxtApp) {
+  async setup(nuxtApp) {
+    if (!nuxtApp.$i18n) {
+      console.error("i18n не инициализирован в плагине i18n-init");
+      return;
+    }
+
     // Получаем хранилище Pinia
     const langStore = useLangStore();
 
-    // Инициализируем язык из localStorage только на клиенте
-    if (process.client) {
-      // Инициализируем язык
-      langStore.initLang();
+    // Для отладки
+    if (process.client && typeof window !== "undefined") {
+      window.$i18n = nuxtApp.$i18n;
+    }
 
-      // Устанавливаем язык в i18n
-      if (nuxtApp.$i18n) {
-        nuxtApp.$i18n.locale.value = langStore.currentLang;
+    // Функция для синхронизации языка
+    const syncLanguage = async (newLang) => {
+      try {
+        console.log(`syncLanguage: Установка языка ${newLang}`);
 
-        // Следим за изменениями языка в i18n с помощью Vue watch
-        const stopWatch = watch(
-          () => nuxtApp.$i18n.locale.value,
-          (newLocale) => {
-            if (newLocale !== langStore.currentLang) {
-              langStore.setLang(newLocale);
-            }
-          }
-        );
+        // Устанавливаем язык в i18n
+        await nuxtApp.$i18n.setLocale(newLang);
 
-        // Отписываемся при уничтожении приложения
-        nuxtApp.hook("app:unmounted", () => {
-          stopWatch && typeof stopWatch === "function" && stopWatch();
-        });
+        // Ждем применения изменений
+        await nextTick();
+        await nextTick(); // Второй nextTick для гарантии
+
+        console.log(`Язык успешно изменен на ${newLang}`);
+      } catch (error) {
+        console.error("Ошибка при смене языка:", error);
       }
+    };
 
-      // Следим за изменениями в хранилище
-      langStore.$subscribe((mutation, state) => {
-        if (nuxtApp.$i18n && state.currentLang !== nuxtApp.$i18n.locale.value) {
-          nuxtApp.$i18n.locale.value = state.currentLang;
+    // Инициализируем на клиенте
+    if (process.client) {
+      // Загружаем язык из localStorage через хранилище
+      langStore.initLang();
+      console.log(`Начальный язык из хранилища: ${langStore.currentLang}`);
+
+      // Синхронизируем i18n с langStore при инициализации
+      await syncLanguage(langStore.currentLang);
+
+      // Подписываемся на изменения в хранилище
+      const unsubscribe = langStore.$subscribe(async (mutation, state) => {
+        // Проверяем, отличается ли язык в i18n от языка в хранилище
+        if (nuxtApp.$i18n.locale.value !== state.currentLang) {
+          console.log(
+            `Синхронизация из хранилища в i18n: ${state.currentLang}`
+          );
+          await syncLanguage(state.currentLang);
         }
       });
-    } else {
-      // На сервере просто устанавливаем язык по умолчанию
-      if (nuxtApp.$i18n) {
-        nuxtApp.$i18n.locale.value = langStore.currentLang;
-      }
+
+      // Подписываемся на изменения в i18n
+      const stopWatch = watch(nuxtApp.$i18n.locale, async (newLocale) => {
+        if (newLocale !== langStore.currentLang) {
+          console.log(`Синхронизация из i18n в хранилище: ${newLocale}`);
+          langStore.setLang(newLocale);
+        }
+      });
+
+      // Отписываемся при размонтировании
+      nuxtApp.hook("app:unmounted", () => {
+        unsubscribe();
+        stopWatch();
+      });
     }
   },
 });

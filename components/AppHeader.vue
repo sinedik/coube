@@ -3,12 +3,12 @@
     <div class="container">
       <div class="header__logo">
         <NuxtLink to="/">
-          <img src="~/assets/logo.svg" alt="Coube" />
+          <img src="~/assets/logo.svg" :alt="t('header.logo.alt')" />
         </NuxtLink>
       </div>
 
       <!-- Навигационное меню для десктопа -->
-      <nav class="header__nav">
+      <nav class="header__nav" :aria-label="t('header.menu.desktopTitle')">
         <ul class="header__menu">
           <li v-for="(item, index) in menuItems" :key="index">
             <NuxtLink
@@ -25,18 +25,17 @@
       <div class="header__right">
         <div class="header__top-actions">
           <div class="header__support">
-            <span class="header__support-text"
-              >Поддержка пользователей 24/7</span
-            >
+            <span class="header__support-text">{{ t("common.support") }}</span>
           </div>
           <a
             :href="contacts.social.whatsapp.direct"
             class="header__social-link"
             target="_blank"
+            :aria-label="t('header.social.whatsapp')"
           >
             <img
               src="~/assets/whatsapp.svg"
-              alt="WhatsApp"
+              :alt="t('header.social.whatsapp')"
               class="header__social-icon"
             />
           </a>
@@ -44,25 +43,34 @@
             :href="contacts.social.telegram.contact"
             class="header__social-link"
             target="_blank"
+            :aria-label="t('header.social.telegram')"
           >
             <img
               src="~/assets/telegram.svg"
-              alt="Telegram"
+              :alt="t('header.social.telegram')"
               class="header__social-icon"
             />
           </a>
-          <a href="tel:+77074678336" class="header__phone">
+          <a
+            href="tel:+77074678336"
+            class="header__phone"
+            :aria-label="t('common.phone')"
+          >
             <img
               src="~/assets/phone.svg"
-              alt="Телефон"
+              :alt="t('common.phone')"
               class="header__phone-icon"
             />
             <span class="header__phone-text">+7 707 467 83-36</span>
           </a>
 
-          <!-- Нативный селект для переключения языка через Pinia -->
+          <!-- Селектор языка -->
           <div class="header__lang">
-            <select v-model="langStore.currentLang" @change="changeLang">
+            <select
+              v-model="selectedLang"
+              @change="switchLocale(selectedLang)"
+              :aria-label="t('common.selectLanguage')"
+            >
               <option
                 v-for="lang in langStore.availableLangs"
                 :key="lang.code"
@@ -79,6 +87,8 @@
               class="hamburger"
               @click="toggleMobileMenu"
               :class="{ active: mobileMenuOpen }"
+              :aria-label="t('common.mobileMenu')"
+              :aria-expanded="mobileMenuOpen"
             >
               <span></span>
               <span></span>
@@ -89,15 +99,24 @@
       </div>
     </div>
 
-    <div class="mobile-nav" :class="{ active: mobileMenuOpen }">
+    <div
+      class="mobile-nav"
+      :class="{ active: mobileMenuOpen }"
+      role="dialog"
+      :aria-label="t('header.menu.mobileTitle')"
+    >
       <div class="mobile-nav__header">
         <div class="header__logo">
           <NuxtLink to="/">
-            <img src="~/assets/logo.svg" alt="Coube" />
+            <img src="~/assets/logo.svg" :alt="t('header.logo.alt')" />
           </NuxtLink>
         </div>
 
-        <button class="mobile-nav__close" @click="toggleMobileMenu">
+        <button
+          class="mobile-nav__close"
+          @click="toggleMobileMenu"
+          :aria-label="t('common.close')"
+        >
           <span></span>
           <span></span>
         </button>
@@ -113,17 +132,18 @@
 
       <div class="header__actions">
         <div class="header__support mobile-support">
-          <span class="header__support-text">Поддержка пользователей 24/7</span>
+          <span class="header__support-text">{{ t("common.support") }}</span>
         </div>
         <div class="mobile-social">
           <a
             :href="contacts.social.whatsapp.direct"
             class="header__social-link"
             target="_blank"
+            :aria-label="t('header.social.whatsapp')"
           >
             <img
               src="~/assets/whatsapp.svg"
-              alt="WhatsApp"
+              :alt="t('header.social.whatsapp')"
               class="header__social-icon"
             />
           </a>
@@ -131,17 +151,22 @@
             :href="contacts.social.telegram.contact"
             class="header__social-link"
             target="_blank"
+            :aria-label="t('header.social.telegram')"
           >
             <img
               src="~/assets/telegram.svg"
-              alt="Telegram"
+              :alt="t('header.social.telegram')"
               class="header__social-icon"
             />
           </a>
-          <a href="tel:+77074678336" class="header__phone mobile-phone">
+          <a
+            href="tel:+77074678336"
+            class="header__phone mobile-phone"
+            :aria-label="t('common.phone')"
+          >
             <img
               src="~/assets/phone.svg"
-              alt="Телефон"
+              :alt="t('common.phone')"
               class="header__phone-icon"
             />
             <span>+7 707 467 83-36</span>
@@ -153,10 +178,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed, watch } from "vue";
+import { ref, onMounted, onUnmounted, computed, watch, nextTick } from "vue";
 import { useLangStore } from "../stores/langStore";
 import { useContactsStore } from "../stores/contactsStore";
 import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
+import { useNuxtApp } from "#app";
+
+// Получаем экземпляр Nuxt приложения
+const nuxtApp = useNuxtApp();
 
 // Используем Vue Router для определения текущего маршрута
 const route = useRoute();
@@ -165,33 +195,64 @@ const route = useRoute();
 const langStore = useLangStore();
 const contacts = useContactsStore();
 
+// Используем i18n
+const { t, locale } = useI18n();
+
 // Реактивные переменные
 const mobileMenuOpen = ref(false);
 const isMobile = ref(false);
+const selectedLang = ref(langStore.currentLang);
 
 // Вычисляем текущий путь для определения активной ссылки
 const currentPath = computed(() => route.path);
 
 // Данные меню с правильными путями
 const menuItems = computed(() => [
-  { text: "Главная", link: "/", active: currentPath.value === "/" },
+  { text: t("common.home"), link: "/", active: currentPath.value === "/" },
   {
-    text: "Заказчик",
+    text: t("common.client"),
     link: "/customer",
     active: currentPath.value === "/customer",
   },
   {
-    text: "Перевозчик",
+    text: t("common.carrier"),
     link: "/driver",
     active: currentPath.value === "/driver",
   },
-  { text: "О нас", link: "/about", active: currentPath.value === "/about" },
-  // { text: "Новости", link: "/news", active: currentPath.value === "/news" },
+  {
+    text: t("common.about"),
+    link: "/about",
+    active: currentPath.value === "/about",
+  },
+  // { text: t('common.news'), link: "/news", active: currentPath.value === "/news" },
 ]);
 
 // Метод для обработки изменения языка
-const changeLang = () => {
-  // Ничего не делаем, так как v-model автоматически обновляет значение
+const switchLocale = async (newLocale) => {
+  try {
+    if (newLocale === locale.value) return;
+
+    console.log(`Переключение языка на ${newLocale}`, {
+      current: locale.value,
+    });
+
+    // Устанавливаем язык в хранилище
+    langStore.setLang(newLocale);
+
+    // Напрямую устанавливаем язык в i18n
+    locale.value = newLocale;
+
+    // Обновляем интерфейс после смены языка
+    await nextTick();
+
+    // Обновляем меню после смены языка
+    await nextTick();
+
+    // Проверяем результат смены языка
+    console.log(`Язык после переключения: ${locale.value}`);
+  } catch (error) {
+    console.error("Ошибка при смене языка:", error);
+  }
 };
 
 // Методы для управления мобильным меню
@@ -212,7 +273,34 @@ const checkIfMobile = () => {
 onMounted(() => {
   checkIfMobile();
   window.addEventListener("resize", checkIfMobile);
+
+  // Убедимся, что локаль i18n синхронизирована с хранилищем
+  if (locale.value !== langStore.currentLang) {
+    locale.value = langStore.currentLang;
+  }
+
+  // Устанавливаем начальное значение для селектора
+  selectedLang.value = locale.value;
+  console.log(
+    `Компонент смонтирован, язык: ${locale.value}, хранилище: ${langStore.currentLang}`
+  );
 });
+
+// Следим за изменениями языка в i18n и обновляем выбранный язык
+watch(
+  () => locale.value,
+  (newLang) => {
+    selectedLang.value = newLang;
+  }
+);
+
+// Следим за изменениями в хранилище
+watch(
+  () => langStore.currentLang,
+  (newLang) => {
+    selectedLang.value = newLang;
+  }
+);
 
 onUnmounted(() => {
   window.removeEventListener("resize", checkIfMobile);

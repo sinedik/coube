@@ -23,6 +23,9 @@ export const useLangStore = defineStore("lang", {
 
   actions: {
     setLang(lang) {
+      if (lang === this.currentLang) return;
+
+      // Устанавливаем новый язык в хранилище
       this.currentLang = lang;
 
       // Устанавливаем язык документа, если мы в браузере
