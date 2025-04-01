@@ -24,6 +24,33 @@
 
       <div class="header__right">
         <div class="header__top-actions">
+          <div class="header__support">
+            <span class="header__support-text"
+              >Поддержка пользователей 24/7</span
+            >
+          </div>
+          <a
+            :href="contacts.social.whatsapp.direct"
+            class="header__social-link"
+            target="_blank"
+          >
+            <img
+              src="~/assets/whatsapp.svg"
+              alt="WhatsApp"
+              class="header__social-icon"
+            />
+          </a>
+          <a
+            :href="contacts.social.telegram.contact"
+            class="header__social-link"
+            target="_blank"
+          >
+            <img
+              src="~/assets/telegram.svg"
+              alt="Telegram"
+              class="header__social-icon"
+            />
+          </a>
           <a href="tel:+77074678336" class="header__phone">
             <img
               src="~/assets/phone.svg"
@@ -85,14 +112,41 @@
       </ul>
 
       <div class="header__actions">
-        <a href="tel:+77074678336" class="header__phone mobile-phone">
-          <img
-            src="~/assets/phone.svg"
-            alt="Телефон"
-            class="header__phone-icon"
-          />
-          <span>+7 707 467 83-36</span>
-        </a>
+        <div class="header__support mobile-support">
+          <span class="header__support-text">Поддержка пользователей 24/7</span>
+        </div>
+        <div class="mobile-social">
+          <a
+            :href="contacts.social.whatsapp.direct"
+            class="header__social-link"
+            target="_blank"
+          >
+            <img
+              src="~/assets/whatsapp.svg"
+              alt="WhatsApp"
+              class="header__social-icon"
+            />
+          </a>
+          <a
+            :href="contacts.social.telegram.contact"
+            class="header__social-link"
+            target="_blank"
+          >
+            <img
+              src="~/assets/telegram.svg"
+              alt="Telegram"
+              class="header__social-icon"
+            />
+          </a>
+          <a href="tel:+77074678336" class="header__phone mobile-phone">
+            <img
+              src="~/assets/phone.svg"
+              alt="Телефон"
+              class="header__phone-icon"
+            />
+            <span>+7 707 467 83-36</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -101,6 +155,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed, watch } from "vue";
 import { useLangStore } from "../stores/langStore";
+import { useContactsStore } from "../stores/contactsStore";
 import { useRoute } from "vue-router";
 
 // Используем Vue Router для определения текущего маршрута
@@ -108,6 +163,7 @@ const route = useRoute();
 
 // Используем Pinia
 const langStore = useLangStore();
+const contacts = useContactsStore();
 
 // Реактивные переменные
 const mobileMenuOpen = ref(false);
@@ -242,6 +298,54 @@ watch(route, () => {
   &__top-actions {
     display: flex;
     align-items: center;
+    gap: 15px;
+  }
+
+  &__support {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+
+    &-icon {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+
+    &-text {
+      @media (max-width: 1280px) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 120px;
+      }
+
+      @media (max-width: 820px) {
+        display: none;
+      }
+    }
+  }
+
+  &__social {
+    &-link {
+      display: flex;
+      align-items: center;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &-icon {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
   }
 
   &__phone {
@@ -424,9 +528,22 @@ watch(route, () => {
     align-items: flex-start;
     gap: 20px;
 
+    .mobile-support {
+      .header__support-text {
+        font-size: 16px;
+        display: block !important;
+        max-width: none;
+      }
+    }
+
+    .mobile-social {
+      display: flex;
+      gap: 15px;
+    }
+
     .header__phone {
       span {
-        display: inline-block !important; // Принудительно показываем номер в мобильном меню
+        display: inline-block !important;
       }
     }
   }

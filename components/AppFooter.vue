@@ -159,7 +159,7 @@
 import { useLangStore } from "../stores/langStore";
 import { useContactsStore } from "../stores/contactsStore";
 import { useRoute } from "vue-router";
-import { computed } from "vue";
+import { computed, onMounted, onUnmounted } from "vue";
 
 const route = useRoute();
 const langStore = useLangStore();
@@ -195,6 +195,35 @@ const scrollToTop = () => {
     behavior: "smooth",
   });
 };
+
+// Функция для перемещения копирайта
+const moveCopyright = () => {
+  const copyright = document.querySelector(".footer__copyright");
+  const appContainer = document.querySelector(".footer__app-container");
+
+  if (window.innerWidth <= 991) {
+    if (copyright && appContainer) {
+      appContainer.after(copyright);
+    }
+  } else {
+    if (copyright) {
+      const leftSection = document.querySelector(".footer__left");
+      if (leftSection) {
+        leftSection.appendChild(copyright);
+      }
+    }
+  }
+};
+
+// Хуки жизненного цикла
+onMounted(() => {
+  moveCopyright();
+  window.addEventListener("resize", moveCopyright);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", moveCopyright);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -208,11 +237,12 @@ const scrollToTop = () => {
   width: 100%;
   position: relative;
   border-radius: 24px;
+  margin-bottom: 0;
 
   .container {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -483,8 +513,12 @@ const scrollToTop = () => {
   }
 
   @media (max-width: 991px) {
+    margin: 0;
+    width: 100%;
+    padding: 30px 20px;
+
     .container {
-      flex-direction: column;
+      padding: 0;
     }
 
     &__left,
@@ -505,13 +539,18 @@ const scrollToTop = () => {
       font-size: 20px;
     }
 
-    &__movie-link {
-      display: inline-block;
-      margin-top: 15px;
+    &__astana-hub {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+
+    &__copyright {
+      margin-top: 40px;
     }
 
     .scroll-to-top {
-      top: -24px; /* Сохраняем то же смещение для мобильных устройств */
+      top: -24px;
       right: 20px;
     }
   }
@@ -542,6 +581,17 @@ const scrollToTop = () => {
         left: 35px;
       }
     }
+  }
+
+  @media (max-width: 468px) {
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 </style>
