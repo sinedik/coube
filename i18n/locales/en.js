@@ -248,4 +248,67 @@ export default {
       interfaceAlt: "COUBE interface for carriers",
     },
   },
+  aboutPage: {
+    banner: {
+      imageAlt: "COUBE - cargo transportation",
+    },
+    mission: {
+      title: "COUBE company mission",
+      requestDemo: "Request demo",
+      description:
+        'Our mission is to "Ensure transparency, efficiency, and convenience of cargo transportation through digital technologies, bringing shippers and carriers together on one platform. We strive to optimize logistics processes, reduce costs, increase delivery speed, and ensure the reliability of each trip"....',
+      interfaceAlt: "COUBE platform interface",
+    },
+    values: {
+      title: "Our values",
+      trucksAlt: "COUBE Trucks",
+      description:
+        "Our values help the platform be not just an assistant, but a full-fledged digital logistics partner that makes transportation convenient, economical, and safe.",
+      items: {
+        1: {
+          title: "Transparency and trust",
+          point1:
+            "Open pricing system and transparent working conditions for all participants.",
+          point2: "Full control over the transportation process in real-time.",
+        },
+        2: {
+          title: "Efficiency and optimization",
+          point1: "Automation of cargo and transport search to reduce costs.",
+          point2:
+            "Intelligent routing to minimize empty runs and reduce delivery times.",
+        },
+        3: {
+          title: "Technology and innovation",
+          point1:
+            "Using advanced IT solutions, AI, and Big Data to forecast demand, optimize loading, and routes.",
+          point2:
+            "Integration with customer ERP and CRM systems for convenient logistics management.",
+        },
+        4: {
+          title: "Customer orientation",
+          point1:
+            "Flexible solutions for different types of shippers and carriers.",
+          point2:
+            "Convenient tools for tracking, communication, and document flow.",
+        },
+        5: {
+          title: "Safety and reliability",
+          point1: "Verification of carriers and quality control of services.",
+          point2: "Online cargo insurance protection against force majeure.",
+        },
+        6: {
+          title: "Partnership and cooperation",
+          point1:
+            "Creating comfortable working conditions for all participants in the ecosystem.",
+          point2:
+            "Building long-term relationships with customers and partners.",
+        },
+      },
+    },
+    social: {
+      title: "We are on social media",
+      yandexMaps: "Yandex Maps",
+      telegramChannel: "Telegram channel",
+    },
+  },
 };

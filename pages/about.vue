@@ -5,23 +5,21 @@
         <div class="banner-image-container">
           <img
             src="~/assets/trucks-highway.png"
-            alt="COUBE - грузоперевозки"
+            :alt="t('aboutPage.banner.imageAlt')"
             class="banner-image"
           />
         </div>
         <div class="banner-content-wrapper">
           <div class="banner-content">
             <h1 class="banner-title">
-              {{ "COUBE — цифровой агрегатор\nавтомобильных грузоперевозок" }}
+              {{ t("homePage.banner.title") }}
             </h1>
             <p class="banner-description">
-              {{
-                "Мы упростили взаимодействие между\nзаказчиком и перевозчиком, сделали процесс\nперевозки грузов безопасным и прозрачным"
-              }}
+              {{ t("homePage.banner.description") }}
             </p>
-            <a href="https://platform.coube.kz/signin" class="banner-button"
-              >Подключиться</a
-            >
+            <a href="https://platform.coube.kz/signin" class="banner-button">{{
+              t("homePage.banner.button")
+            }}</a>
           </div>
         </div>
       </section>
@@ -29,26 +27,21 @@
       <section class="mission-section">
         <div class="container">
           <div class="mission-header">
-            <h2 class="mission-title">Миссия компании COUBE</h2>
-            <a href="https://platform.coube.kz/signin" class="demo-button"
-              >Запросить демо</a
-            >
+            <h2 class="mission-title">{{ t("aboutPage.mission.title") }}</h2>
+            <a href="https://platform.coube.kz/signin" class="demo-button">{{
+              t("aboutPage.mission.requestDemo")
+            }}</a>
           </div>
           <div class="mission-content">
             <div class="mission-info">
               <p class="mission-description">
-                Наша миссия — «Обеспечить прозрачность, эффективность и удобство
-                грузоперевозок за счет цифровых технологий, объединяя
-                грузоотправителей и перевозчиков на одной платформе. Мы
-                стремимся оптимизировать логистические процессы, снижать
-                затраты, повышать скорость доставки и обеспечивать надежность
-                каждого рейса»....
+                {{ t("aboutPage.mission.description") }}
               </p>
             </div>
             <div class="mission-image">
               <img
                 src="~/assets/demo.png"
-                alt="Интерфейс платформы COUBE"
+                :alt="t('aboutPage.mission.interfaceAlt')"
                 class="interface-image"
               />
             </div>
@@ -59,93 +52,32 @@
       <section class="values-section">
         <div class="container">
           <div class="values-header">
-            <h2 class="values-title">Наши ценности</h2>
+            <h2 class="values-title">{{ t("aboutPage.values.title") }}</h2>
             <div class="values-image">
-              <img src="~/assets/trucks.png" alt="Грузовики COUBE" />
+              <img
+                src="~/assets/trucks.png"
+                :alt="t('aboutPage.values.trucksAlt')"
+              />
             </div>
           </div>
           <div class="values-content">
             <p class="values-description">
-              {{
-                "Наши ценности помогают платформе быть не просто помощником, а полноценным\nцифровым логистическим партнером, который делаетперевозки удобными экономичными и безопасными."
-              }}
+              {{ t("aboutPage.values.description") }}
             </p>
             <div class="values-grid">
-              <div class="value-item">
-                <div class="value-number">1.</div>
-                <h3 class="value-title">Прозрачность и доверие</h3>
+              <div
+                class="value-item"
+                v-for="(item, index) in valueItems"
+                :key="index"
+              >
+                <div class="value-number">{{ item.number }}.</div>
+                <h3 class="value-title">{{ item.title }}</h3>
                 <ul class="value-list">
-                  <li>
-                    Открытая система ценообразования и прозрачные условия работы
-                    для всех участников.
-                  </li>
-                  <li>
-                    Полный контроль за процессом перевозки в режиме реального
-                    времени.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">2.</div>
-                <h3 class="value-title">Эффективность и оптимизация</h3>
-                <ul class="value-list">
-                  <li>
-                    Автоматизация поиска грузов и транспорта для снижения
-                    издержек.
-                  </li>
-                  <li>
-                    Интеллектуальная маршрутизация для минимизации пустых
-                    пробегов и сокращения сроков доставки.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">3.</div>
-                <h3 class="value-title">Технологичность и инновации</h3>
-                <ul class="value-list">
-                  <li>
-                    Использование передовых IT-решений, AI и Big Data для
-                    прогнозирования спроса, оптимизации загрузки и маршрутов.
-                  </li>
-                  <li>
-                    Интеграция с ERP и CRM-системами клиентов для удобного
-                    управления логистикой.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">4.</div>
-                <h3 class="value-title">Ориентированность на клиента</h3>
-                <ul class="value-list">
-                  <li>
-                    Гибкие решения для разных типов грузоотправителей и
-                    перевозчиков.
-                  </li>
-                  <li>
-                    Удобные инструменты для отслеживания, коммуникации и
-                    документооборота.
-                  </li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">5.</div>
-                <h3 class="value-title">Безопасность и надежность</h3>
-                <ul class="value-list">
-                  <li>Проверка перевозчиков и контроль качества услуг.</li>
-                  <li>Онлайн страхование грузов защита от форс-мажоров.</li>
-                </ul>
-              </div>
-              <div class="value-item">
-                <div class="value-number">6.</div>
-                <h3 class="value-title">Партнерство и сотрудничество</h3>
-                <ul class="value-list">
-                  <li>
-                    Создание комфортных условий работы для всех участников
-                    экосистемы.
-                  </li>
-                  <li>
-                    Выстраивание долгосрочных отношений с клиентами и
-                    партнерами.
+                  <li
+                    v-for="(point, pointIndex) in item.points"
+                    :key="pointIndex"
+                  >
+                    {{ point }}
                   </li>
                 </ul>
               </div>
@@ -157,7 +89,7 @@
       <section class="social-section">
         <div class="container">
           <div class="social-content">
-            <h2 class="social-title">Мы в соц.сетях</h2>
+            <h2 class="social-title">{{ t("aboutPage.social.title") }}</h2>
             <div class="social-links-container">
               <div class="social-links-wrapper">
                 <div class="social-links-row">
@@ -192,8 +124,11 @@
                     target="_blank"
                     class="social-link"
                   >
-                    <img src="~/assets/yandex.png" alt="Яндекс карты" />
-                    <span>Яндекс карты</span>
+                    <img
+                      src="~/assets/yandex.png"
+                      :alt="t('aboutPage.social.yandexMaps')"
+                    />
+                    <span>{{ t("aboutPage.social.yandexMaps") }}</span>
                   </a>
                   <a
                     :href="contacts.location._2gis"
@@ -210,8 +145,11 @@
                     target="_blank"
                     class="social-link"
                   >
-                    <img src="~/assets/telegram.png" alt="Telegram канал" />
-                    <span>Telegram канал</span>
+                    <img
+                      src="~/assets/telegram.png"
+                      :alt="t('aboutPage.social.telegramChannel')"
+                    />
+                    <span>{{ t("aboutPage.social.telegramChannel") }}</span>
                   </a>
                   <a
                     :href="contacts.social.youtube"
@@ -251,9 +189,63 @@
 
 <script setup>
 import { useContactsStore } from "../stores/contactsStore";
+import { useI18n } from "vue-i18n";
+import { computed } from "vue";
 import "swiper/css";
 
 const contacts = useContactsStore();
+const { t } = useI18n();
+
+const valueItems = computed(() => [
+  {
+    number: 1,
+    title: t("aboutPage.values.items.1.title"),
+    points: [
+      t("aboutPage.values.items.1.point1"),
+      t("aboutPage.values.items.1.point2"),
+    ],
+  },
+  {
+    number: 2,
+    title: t("aboutPage.values.items.2.title"),
+    points: [
+      t("aboutPage.values.items.2.point1"),
+      t("aboutPage.values.items.2.point2"),
+    ],
+  },
+  {
+    number: 3,
+    title: t("aboutPage.values.items.3.title"),
+    points: [
+      t("aboutPage.values.items.3.point1"),
+      t("aboutPage.values.items.3.point2"),
+    ],
+  },
+  {
+    number: 4,
+    title: t("aboutPage.values.items.4.title"),
+    points: [
+      t("aboutPage.values.items.4.point1"),
+      t("aboutPage.values.items.4.point2"),
+    ],
+  },
+  {
+    number: 5,
+    title: t("aboutPage.values.items.5.title"),
+    points: [
+      t("aboutPage.values.items.5.point1"),
+      t("aboutPage.values.items.5.point2"),
+    ],
+  },
+  {
+    number: 6,
+    title: t("aboutPage.values.items.6.title"),
+    points: [
+      t("aboutPage.values.items.6.point1"),
+      t("aboutPage.values.items.6.point2"),
+    ],
+  },
+]);
 
 const socialLinks = [
   {
