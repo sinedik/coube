@@ -6,9 +6,15 @@
         <div class="footer__logo-container">
           <div class="footer__logo-wrapper">
             <NuxtLink to="/">
-              <img src="~/assets/logo.svg" alt="Coube" class="footer__logo" />
+              <img
+                src="~/assets/logo.svg"
+                :alt="t('footer.logo.alt')"
+                class="footer__logo"
+              />
             </NuxtLink>
-            <span class="footer__platform">Logistic platform</span>
+            <span class="footer__platform">{{
+              t("footer.logo.platform")
+            }}</span>
           </div>
         </div>
 
@@ -16,14 +22,16 @@
         <div class="footer__astana-hub">
           <img
             src="~/assets/astana-hub.png"
-            alt="Astana Hub"
+            :alt="t('footer.astanaHub.alt')"
             class="footer__astana-hub-logo"
           />
-          <span class="footer__certificate">№ свидетельства 1439</span>
+          <span class="footer__certificate">{{
+            t("footer.astanaHub.certificate")
+          }}</span>
         </div>
 
         <!-- Копирайт -->
-        <div class="footer__copyright">© COUBE 2025. Все права защищены</div>
+        <div class="footer__copyright">{{ t("footer.copyright") }}</div>
       </div>
 
       <div class="footer__nav">
@@ -37,7 +45,7 @@
           {{ item.text }}
         </NuxtLink>
         <div class="footer__lang">
-          <select v-model="langStore.currentLang" @change="changeLang">
+          <select v-model="selectedLang" @change="switchLocale(selectedLang)">
             <option
               v-for="lang in langStore.availableLangs"
               :key="lang.code"
@@ -54,7 +62,7 @@
         <a :href="`tel:${contacts.phone.raw}`" class="footer__contact-link">
           <img
             src="~/assets/phone.svg"
-            alt="Телефон"
+            :alt="t('footer.contacts.phone')"
             class="footer__contact-icon"
           />
           <span>{{ contacts.phone.display }}</span>
@@ -66,7 +74,7 @@
         >
           <img
             src="~/assets/whatsapp.svg"
-            alt="WhatsApp"
+            :alt="t('footer.contacts.whatsapp')"
             class="footer__contact-icon"
           />
           <span>WhatsApp</span>
@@ -78,7 +86,7 @@
         >
           <img
             src="~/assets/telegram.svg"
-            alt="Telegram"
+            :alt="t('footer.contacts.telegram')"
             class="footer__contact-icon"
           />
           <span>Telegram</span>
@@ -89,7 +97,7 @@
         >
           <img
             src="~/assets/mail.svg"
-            alt="Email"
+            :alt="t('footer.contacts.email')"
             class="footer__contact-icon"
           />
           <span>{{ contacts.email.office }}</span>
@@ -101,7 +109,7 @@
         >
           <img
             src="~/assets/instagram.svg"
-            alt="Instagram"
+            :alt="t('footer.contacts.instagram')"
             class="footer__contact-icon"
           />
           <span>coube.kz</span>
@@ -110,32 +118,43 @@
 
       <div class="footer__right">
         <div class="footer__docs">
-          <a href="#" class="footer__doc-link">Пользовательское соглашение</a>
-          <a href="#" class="footer__doc-link">Политика конфиденциальности</a>
-          <p class="footer__app-title">Ознакомьтесь с платформой</p>
+          <a href="#" class="footer__doc-link">{{
+            t("footer.docs.userAgreement")
+          }}</a>
+          <a href="#" class="footer__doc-link">{{
+            t("footer.docs.privacyPolicy")
+          }}</a>
+          <p class="footer__app-title">{{ t("footer.docs.watchPlatform") }}</p>
           <a :href="contacts.social.youtube" target="_blank">
             <img
               src="~/assets/movie.svg"
-              alt="Видео"
+              :alt="t('footer.docs.video')"
               class="footer__movie-icon"
             />
           </a>
         </div>
 
         <div class="footer__app-container">
-          <p class="footer__app-title">Скачивай приложение для водителя</p>
+          <p class="footer__app-title">{{ t("footer.app.downloadDriver") }}</p>
           <div class="footer__app-buttons">
             <a href="#" class="footer__app-button">
-              <img src="~/assets/Apple.svg" alt="App Store" />
+              <img src="~/assets/Apple.svg" :alt="t('footer.app.appStore')" />
             </a>
             <a href="#" class="footer__app-button">
-              <img src="~/assets/Google.svg" alt="Google Play" />
+              <img
+                src="~/assets/Google.svg"
+                :alt="t('footer.app.googlePlay')"
+              />
             </a>
           </div>
         </div>
       </div>
     </div>
-    <button class="scroll-to-top" @click="scrollToTop">
+    <button
+      class="scroll-to-top"
+      @click="scrollToTop"
+      :aria-label="t('footer.scrollToTop')"
+    >
       <svg
         width="24"
         height="24"
@@ -159,34 +178,73 @@
 import { useLangStore } from "../stores/langStore";
 import { useContactsStore } from "../stores/contactsStore";
 import { useRoute } from "vue-router";
-import { computed, onMounted, onUnmounted } from "vue";
+import { computed, onMounted, onUnmounted, ref, watch, nextTick } from "vue";
+import { useI18n } from "vue-i18n";
+import { useNuxtApp } from "#app";
 
+// Получаем экземпляр Nuxt
+const nuxtApp = useNuxtApp();
+
+// Маршрутизатор
 const route = useRoute();
+
+// Хранилища Pinia
 const langStore = useLangStore();
 const contacts = useContactsStore();
+
+// i18n
+const { t, locale } = useI18n();
+
+// Реактивные переменные
+const selectedLang = ref(langStore.currentLang);
 
 // Вычисляем текущий путь для определения активной ссылки
 const currentPath = computed(() => route.path);
 
 // Данные меню с правильными путями
 const menuItems = computed(() => [
-  { text: "Главная", link: "/", active: currentPath.value === "/" },
+  { text: t("common.home"), link: "/", active: currentPath.value === "/" },
   {
-    text: "Заказчик",
+    text: t("common.client"),
     link: "/customer",
     active: currentPath.value === "/customer",
   },
   {
-    text: "Перевозчик",
+    text: t("common.carrier"),
     link: "/driver",
     active: currentPath.value === "/driver",
   },
-  { text: "О нас", link: "/about", active: currentPath.value === "/about" },
-  // { text: "Новости", link: "/news", active: currentPath.value === "/news" },
+  {
+    text: t("common.about"),
+    link: "/about",
+    active: currentPath.value === "/about",
+  },
+  // { text: t('common.news'), link: "/news", active: currentPath.value === "/news" },
 ]);
 
-const changeLang = () => {
-  // Ничего не делаем, так как v-model автоматически обновляет значение
+// Метод для переключения языка (такой же, как в хедере)
+const switchLocale = async (newLocale) => {
+  try {
+    if (newLocale === locale.value) return;
+
+    console.log(`Переключение языка на ${newLocale}`, {
+      current: locale.value,
+    });
+
+    // Устанавливаем язык в хранилище
+    langStore.setLang(newLocale);
+
+    // Напрямую устанавливаем язык в i18n
+    locale.value = newLocale;
+
+    // Обновляем интерфейс после смены языка
+    await nextTick();
+    await nextTick();
+
+    console.log(`Язык после переключения: ${locale.value}`);
+  } catch (error) {
+    console.error("Ошибка при смене языка:", error);
+  }
 };
 
 const scrollToTop = () => {
@@ -215,10 +273,29 @@ const moveCopyright = () => {
   }
 };
 
+// Следим за изменениями языка в i18n
+watch(
+  () => locale.value,
+  (newLang) => {
+    selectedLang.value = newLang;
+  }
+);
+
+// Следим за изменениями в хранилище
+watch(
+  () => langStore.currentLang,
+  (newLang) => {
+    selectedLang.value = newLang;
+  }
+);
+
 // Хуки жизненного цикла
 onMounted(() => {
   moveCopyright();
   window.addEventListener("resize", moveCopyright);
+
+  // Устанавливаем начальное значение для селектора
+  selectedLang.value = locale.value;
 });
 
 onUnmounted(() => {
