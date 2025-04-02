@@ -5,13 +5,13 @@
         <!-- Логотип и платформа -->
         <div class="footer__logo-container">
           <div class="footer__logo-wrapper">
-            <NuxtLink to="/">
+            <NuxtLinkLocale to="/">
               <img
                 src="~/assets/logo.svg"
                 :alt="t('footer.logo.alt')"
                 class="footer__logo"
               />
-            </NuxtLink>
+            </NuxtLinkLocale>
             <span class="footer__platform">{{
               t("footer.logo.platform")
             }}</span>
@@ -35,7 +35,7 @@
       </div>
 
       <div class="footer__nav">
-        <NuxtLink
+        <NuxtLinkLocale
           v-for="(item, index) in menuItems"
           :key="index"
           :to="item.link"
@@ -43,11 +43,11 @@
           :class="{ active: item.active }"
         >
           {{ item.text }}
-        </NuxtLink>
+        </NuxtLinkLocale>
         <div class="footer__lang">
           <select v-model="selectedLang" @change="switchLocale(selectedLang)">
             <option
-              v-for="lang in langStore.availableLangs"
+              v-for="lang in availableLocales"
               :key="lang.code"
               :value="lang.code"
             >
@@ -175,52 +175,68 @@
 </template>
 
 <script setup>
-import { useLangStore } from "../stores/langStore";
 import { useContactsStore } from "../stores/contactsStore";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { computed, onMounted, onUnmounted, ref, watch, nextTick } from "vue";
 import { useI18n } from "vue-i18n";
 import { useNuxtApp } from "#app";
+import { useCookieLocale } from "#i18n";
+import { useLocalePath, useSwitchLocalePath } from "#i18n";
 
 // Получаем экземпляр Nuxt
 const nuxtApp = useNuxtApp();
 
 // Маршрутизатор
 const route = useRoute();
+const router = useRouter();
 
 // Хранилища Pinia
-const langStore = useLangStore();
 const contacts = useContactsStore();
 
 // i18n
-const { t, locale } = useI18n();
+const { t, locale, setLocale, locales } = useI18n();
+const cookieLocale = useCookieLocale();
+const localePath = useLocalePath();
+const switchLocalePath = useSwitchLocalePath();
 
 // Реактивные переменные
-const selectedLang = ref(langStore.currentLang);
+const selectedLang = ref(locale.value);
 
 // Вычисляем текущий путь для определения активной ссылки
 const currentPath = computed(() => route.path);
 
 // Данные меню с правильными путями
 const menuItems = computed(() => [
-  { text: t("common.home"), link: "/", active: currentPath.value === "/" },
+  {
+    text: t("common.home"),
+    link: localePath("/"),
+    active: currentPath.value === localePath("/"),
+  },
   {
     text: t("common.client"),
-    link: "/customer",
-    active: currentPath.value === "/customer",
+    link: localePath("/customer"),
+    active: currentPath.value === localePath("/customer"),
   },
   {
     text: t("common.carrier"),
-    link: "/driver",
-    active: currentPath.value === "/driver",
+    link: localePath("/driver"),
+    active: currentPath.value === localePath("/driver"),
   },
   {
     text: t("common.about"),
-    link: "/about",
-    active: currentPath.value === "/about",
+    link: localePath("/about"),
+    active: currentPath.value === localePath("/about"),
   },
-  // { text: t('common.news'), link: "/news", active: currentPath.value === "/news" },
+  // { text: t('common.news'), link: localePath('/news'), active: currentPath.value === localePath('/news') },
 ]);
+
+// Вычисляем доступные языки
+const availableLocales = computed(() => {
+  return locales.value.map((locale) => ({
+    code: locale.code,
+    name: locale.code.toUpperCase(),
+  }));
+});
 
 // Метод для переключения языка (такой же, как в хедере)
 const switchLocale = async (newLocale) => {
@@ -231,17 +247,26 @@ const switchLocale = async (newLocale) => {
       current: locale.value,
     });
 
-    // Устанавливаем язык в хранилище
-    langStore.setLang(newLocale);
+    // Получаем новый путь для текущей страницы с новой локалью
+    const redirectPath = switchLocalePath(newLocale);
 
-    // Напрямую устанавливаем язык в i18n
-    locale.value = newLocale;
+    // Устанавливаем cookie для языка
+    cookieLocale.value = newLocale;
+
+    // Устанавливаем новую локаль
+    await setLocale(newLocale);
+
+    // Перенаправляем пользователя на тот же маршрут, но с новой локалью
+    if (redirectPath) {
+      await router.push(redirectPath);
+    }
 
     // Обновляем интерфейс после смены языка
     await nextTick();
-    await nextTick();
 
-    console.log(`Язык после переключения: ${locale.value}`);
+    console.log(
+      `Язык после переключения: ${locale.value}, cookie: ${cookieLocale.value}, путь: ${route.path}`
+    );
   } catch (error) {
     console.error("Ошибка при смене языка:", error);
   }
@@ -276,14 +301,6 @@ const moveCopyright = () => {
 // Следим за изменениями языка в i18n
 watch(
   () => locale.value,
-  (newLang) => {
-    selectedLang.value = newLang;
-  }
-);
-
-// Следим за изменениями в хранилище
-watch(
-  () => langStore.currentLang,
   (newLang) => {
     selectedLang.value = newLang;
   }

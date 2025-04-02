@@ -11,9 +11,4 @@ const pinia = createPinia();
 app.use(pinia);
 app.use(i18n);
 
-// Инициализация языка после создания хранилища
-import { useLangStore } from "./stores/langStore";
-const langStore = useLangStore();
-langStore.initLang();
-
 app.mount("#app");
