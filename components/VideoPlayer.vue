@@ -1,20 +1,22 @@
 <template>
   <div class="video-player" ref="videoContainer">
     <video
-      ref="video"
+      ref="videoElement"
       :poster="posterUrl"
       :muted="options.muted"
       :autoplay="options.autoplay"
       :loop="options.loop"
       :preload="options.preload"
       :playsinline="options.playsinline"
-      class="video-player"
+      class="video-player__element"
       width="100%"
       height="100%"
       fetchpriority="high"
       loading="eager"
+      @loadedmetadata="onLoadedMetadata"
+      @canplay="onCanPlay"
     >
-      <source :src="videoUrl" type="video/mp4" />
+      <source :src="currentVideoUrl" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <div v-if="loading" class="video-player__loader">
