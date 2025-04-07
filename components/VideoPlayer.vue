@@ -1,15 +1,21 @@
 <template>
   <div class="video-player" ref="videoContainer">
     <video
-      ref="videoElement"
-      class="video-player__element"
+      ref="video"
       :poster="posterUrl"
-      v-bind="options"
-      @loadedmetadata="onLoadedMetadata"
-      @canplay="onCanPlay"
+      :muted="options.muted"
+      :autoplay="options.autoplay"
+      :loop="options.loop"
+      :preload="options.preload"
+      :playsinline="options.playsinline"
+      class="video-player"
+      width="100%"
+      height="100%"
+      fetchpriority="high"
+      loading="eager"
     >
-      <source :src="currentVideoUrl" type="video/mp4" />
-      Ваш браузер не поддерживает видео.
+      <source :src="videoUrl" type="video/mp4" />
+      Your browser does not support the video tag.
     </video>
     <div v-if="loading" class="video-player__loader">
       <div class="video-player__loader-content">

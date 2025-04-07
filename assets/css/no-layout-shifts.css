@@ -1,0 +1,98 @@
+/**
+ * Стили для предотвращения CLS (Cumulative Layout Shift)
+ */
+
+/* Предустановка размеров для изображений */
+img,
+video {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+/* Контейнеры для изображений и видео */
+.aspect-ratio-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+.aspect-ratio-16-9 {
+  padding-top: 56.25%; /* 16:9 соотношение */
+}
+
+.aspect-ratio-4-3 {
+  padding-top: 75%; /* 4:3 соотношение */
+}
+
+.aspect-ratio-1-1 {
+  padding-top: 100%; /* Квадратное соотношение */
+}
+
+.aspect-ratio-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Предустановка размеров для баннера */
+.banner-section {
+  min-height: 560px;
+  width: 100%;
+}
+
+/* Предустановка размеров для карточек */
+.value-item,
+.feature-item {
+  height: auto;
+  min-height: 120px;
+}
+
+/* Предустановка шрифтов для предотвращения прыжков при загрузке */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+button,
+input,
+textarea,
+select {
+  font-display: swap;
+}
+
+/* Предустановка для мобильных устройств */
+@media (max-width: 768px) {
+  .banner-section {
+    min-height: 240px;
+  }
+
+  .banner-image-container {
+    height: 240px;
+  }
+
+  .value-item,
+  .feature-item {
+    min-height: 80px;
+  }
+}
+
+/* Предустановка для анимаций */
+.fade-enter-active,
+.fade-leave-active {
+  will-change: opacity;
+  transition: opacity 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+  }
+}
