@@ -149,7 +149,97 @@ export const useSeo = () => {
     ];
   };
 
+  const getSchemaOrg = (page: keyof typeof seoConfig) => {
+    const baseSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "COUBE",
+      url: "https://coube.kz",
+      logo: "https://coube.kz/images/logo-clear.svg",
+      description: "Цифровой агрегатор грузоперевозок в Казахстане",
+      sameAs: [
+        "https://tiktok.com/@coube.kz",
+        "https://facebook.com/coube.kz",
+        "https://twitter.com/coube_kz",
+        "https://t.me/coube_kz",
+        "https://youtube.com/@coube.kz",
+        "https://linkedin.com/company/coube-kz",
+        "https://instagram.com/coube.kz",
+      ],
+    };
+
+    const pageSchemas = {
+      index: {
+        ...baseSchema,
+        "@type": "WebSite",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: "https://coube.kz/search?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      },
+      customer: {
+        ...baseSchema,
+        "@type": "Service",
+        serviceType: "Freight Transportation",
+        provider: {
+          "@type": "Organization",
+          name: "COUBE",
+          description: "Платформа для поиска надежных перевозчиков",
+        },
+      },
+      driver: {
+        ...baseSchema,
+        "@type": "Service",
+        serviceType: "Freight Transportation",
+        provider: {
+          "@type": "Organization",
+          name: "COUBE",
+          description: "Платформа для перевозчиков",
+        },
+      },
+      about: {
+        ...baseSchema,
+        "@type": "AboutPage",
+        description: "Узнайте о компании COUBE и нашей миссии",
+      },
+    };
+
+    return pageSchemas[page];
+  };
+
+  // Функция для создания Open Graph тегов
+  const getOpenGraphTags = (
+    page: keyof SeoConfigs,
+    seoConfig: { title: string; description: string }
+  ) => {
+    const baseUrl = "https://coube.kz";
+    const pageUrl = page === "index" ? baseUrl : `${baseUrl}/${page}`;
+
+    return [
+      { property: "og:title", content: seoConfig.title },
+      { property: "og:description", content: seoConfig.description },
+      { property: "og:image", content: `${baseUrl}/images/coube-og-image.jpg` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: pageUrl },
+      { property: "og:site_name", content: "COUBE" },
+      { property: "og:locale", content: "en_US" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: seoConfig.title },
+      { name: "twitter:description", content: seoConfig.description },
+      {
+        name: "twitter:image",
+        content: `${baseUrl}/images/coube-og-image.jpg`,
+      },
+      { name: "twitter:site", content: "@coube_logistics" },
+    ];
+  };
+
   return {
     getSeoConfig,
+    getSchemaOrg,
+    getOpenGraphTags,
   };
 };

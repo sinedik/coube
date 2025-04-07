@@ -1,1 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://coube.kz/sitemap.xml
 
+# Разрешаем индексацию всех разделов

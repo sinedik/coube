@@ -189,8 +189,9 @@ import { useSeo } from "~/composables/useSeo";
 import { useHead } from "nuxt/app";
 
 const { t } = useI18n();
-const { getSeoConfig } = useSeo();
+const { getSeoConfig, getSchemaOrg } = useSeo();
 const seo = getSeoConfig("customer");
+const schemaOrg = getSchemaOrg("customer");
 
 useHead({
   title: seo.title,
@@ -198,7 +199,30 @@ useHead({
     { name: "description", content: seo.description },
     { property: "og:title", content: seo.title },
     { property: "og:description", content: seo.description },
-    { property: "og:image", content: "/images/coube-og-image.jpg" },
+    {
+      property: "og:image",
+      content: "https://coube.kz/images/coube-og-image.jpg",
+    },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://coube.kz/customer" },
+    { property: "og:site_name", content: "COUBE" },
+    { property: "og:locale", content: "en_US" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: seo.title },
+    { name: "twitter:description", content: seo.description },
+    {
+      name: "twitter:image",
+      content: "https://coube.kz/images/coube-og-image.jpg",
+    },
+    { name: "twitter:site", content: "@coube_logistics" },
+  ],
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(schemaOrg),
+    },
   ],
 });
 
