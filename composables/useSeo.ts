@@ -46,9 +46,9 @@ export const useSeo = () => {
     },
     customer: {
       ru: {
-        title: "COUBE — заказывайте грузоперевозки онлайн легко и быстро",
+        title: "COUBE — Для грузоотправителей",
         description:
-          "Размещайте заявки, выбирайте перевозчиков и отслеживайте грузы в реальном времени с COUBE.",
+          "Найдите надежного перевозчика для вашего груза через платформу COUBE. Безопасные сделки и отслеживание в реальном времени.",
         h1: "Эффективное управление грузоперевозками с COUBE",
         h2: [
           "Как разместить заказ на платформе",
@@ -57,7 +57,7 @@ export const useSeo = () => {
         ],
       },
       kz: {
-        title: "COUBE — жүк тасымалдауға онлайн тапсырыс беру оңай және жылдам",
+        title: "COUBE — Жүк тасымалдауға онлайн тапсырыс беру оңай және жылдам",
         description:
           "COUBE арқылы тапсырыстар орналастырыңыз, тасымалдаушыларды таңдаңыз және жүктерді нақты уақытта бақылаңыз.",
         h1: "COUBE көмегімен жүк тасымалдауды тиімді басқару",
@@ -68,9 +68,9 @@ export const useSeo = () => {
         ],
       },
       en: {
-        title: "COUBE — Order Freight Transport Online Easily and Quickly",
+        title: "COUBE — For Shippers",
         description:
-          "Place requests, choose carriers, and track shipments in real-time with COUBE.",
+          "Find a reliable carrier for your cargo through the COUBE platform. Secure transactions and real-time tracking.",
         h1: "Efficient Freight Transportation Management with COUBE",
         h2: [
           "How to place an order on the platform",
@@ -81,7 +81,7 @@ export const useSeo = () => {
     },
     driver: {
       ru: {
-        title: "COUBE — находите выгодные заказы на перевозки без посредников",
+        title: "COUBE — Для перевозчиков",
         description:
           "Получайте прямые заказы, используйте онлайн-мониторинг и подписывайте документы с ЭЦП через COUBE.",
         h1: "Новые возможности для перевозчиков с COUBE",
