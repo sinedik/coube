@@ -13,24 +13,28 @@
             </p>
           </div>
           <div class="banner-image-mobile">
-            <img
-              src="~/assets/customer.png"
-              :alt="t('homePage.banner.title')"
+            <NuxtImg
+              src="/images/customer.webp"
+              alt="Customer Hero"
               class="banner-image"
+              format="webp"
+              quality="100"
             />
             <div class="platform-buttons-mobile">
               <p class="platform-title">{{ t("homePage.banner.platform") }}</p>
               <div class="buttons-row">
                 <a href="#" class="platform-button">
-                  <img
-                    src="~/assets/play-orange.svg"
+                  <NuxtImg
+                    src="/images/play-orange.svg"
                     :alt="t('homePage.banner.video')"
+                    loading="lazy"
                   />
                 </a>
                 <a href="#" class="platform-button">
-                  <img
-                    src="~/assets/play-orange.svg"
+                  <NuxtImg
+                    src="/images/play-orange.svg"
                     :alt="t('homePage.banner.video')"
+                    loading="lazy"
                   />
                 </a>
               </div>
@@ -41,10 +45,12 @@
         <!-- Десктопная версия баннера -->
         <div class="banner-desktop">
           <div class="banner-image-container">
-            <img
-              src="~/assets/customer.png"
-              :alt="t('homePage.banner.title')"
+            <NuxtImg
+              src="/images/customer.webp"
+              alt="Customer Hero"
               class="banner-image"
+              format="webp"
+              quality="100"
             />
           </div>
           <div class="banner-content-wrapper">
@@ -72,9 +78,10 @@
                       target="_blank"
                       class="platform-button"
                     >
-                      <img
-                        src="~/assets/play-orange.svg"
+                      <NuxtImg
+                        src="/images/play-orange.svg"
                         :alt="t('homePage.banner.video')"
+                        loading="lazy"
                       />
                     </a>
                     <a
@@ -82,9 +89,10 @@
                       target="_blank"
                       class="platform-button"
                     >
-                      <img
-                        src="~/assets/play-orange.svg"
+                      <NuxtImg
+                        src="/images/play-orange.svg"
                         :alt="t('homePage.banner.video')"
+                        loading="lazy"
                       />
                     </a>
                   </div>
@@ -103,9 +111,12 @@
                 <h2 class="value-title">{{ t("customerPage.value.title") }}</h2>
               </div>
               <div class="value-image">
-                <img
-                  src="~/assets/trucks.png"
-                  :alt="t('customerPage.value.trucksAlt')"
+                <NuxtImg
+                  src="/images/trucks.webp"
+                  alt="Customer Benefits"
+                  class="customer-benefits__image"
+                  format="webp"
+                  quality="80"
                 />
               </div>
             </div>
@@ -120,14 +131,14 @@
               >
                 <div class="value-number">{{ index + 1 }}.</div>
                 <h3 class="value-title">
-                  {{ item.title }}
+                  {{ t(item.title) }}
                 </h3>
                 <ul class="value-list">
                   <li
                     v-for="(point, pointIndex) in item.points"
                     :key="pointIndex"
                   >
-                    {{ point }}
+                    {{ t(point) }}
                   </li>
                 </ul>
               </div>
@@ -146,19 +157,23 @@
                 </h2>
               </div>
               <div class="laptop-image-small">
-                <img
-                  src="~/assets/trucks.png"
-                  :alt="t('customerPage.value.trucksAlt')"
+                <NuxtImg
+                  src="/images/trucks.webp"
+                  alt="Customer App"
+                  class="customer-app__image"
+                  format="webp"
+                  quality="80"
                 />
               </div>
             </div>
             <p class="laptop-description">
               {{ t("customerPage.management.description") }}
             </p>
-            <img
-              src="~/assets/laptop-customer.png"
+            <NuxtImg
+              src="/images/laptop-customer.webp"
               :alt="t('customerPage.management.interfaceAlt')"
               class="laptop-image"
+              loading="lazy"
             />
           </div>
         </div>
@@ -167,81 +182,88 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import { computed } from "vue";
+import { useSeo } from "~/composables/useSeo";
+import { useHead } from "nuxt/app";
 
 const { t } = useI18n();
+const { getSeoConfig } = useSeo();
+const seo = getSeoConfig("customer");
+
+useHead({
+  title: seo.title,
+  meta: [
+    { name: "description", content: seo.description },
+    { property: "og:title", content: seo.title },
+    { property: "og:description", content: seo.description },
+    { property: "og:image", content: "/images/coube-og-image.jpg" },
+  ],
+});
 
 const valueItems = computed(() => [
   {
-    title: t("customerPage.value.items.1.title"),
+    title: "customerPage.value.items.1.title",
     points: [
-      t("customerPage.value.items.1.point1"),
-      t("customerPage.value.items.1.point2"),
+      "customerPage.value.items.1.point1",
+      "customerPage.value.items.1.point2",
     ],
   },
   {
-    title: t("customerPage.value.items.2.title"),
+    title: "customerPage.value.items.2.title",
     points: [
-      t("customerPage.value.items.2.point1"),
-      t("customerPage.value.items.2.point2"),
+      "customerPage.value.items.2.point1",
+      "customerPage.value.items.2.point2",
     ],
   },
   {
-    title: t("customerPage.value.items.3.title"),
+    title: "customerPage.value.items.3.title",
     points: [
-      t("customerPage.value.items.3.point1"),
-      t("customerPage.value.items.3.point2"),
+      "customerPage.value.items.3.point1",
+      "customerPage.value.items.3.point2",
     ],
   },
   {
-    title: t("customerPage.value.items.4.title"),
+    title: "customerPage.value.items.4.title",
     points: [
-      t("customerPage.value.items.4.point1"),
-      t("customerPage.value.items.4.point2"),
+      "customerPage.value.items.4.point1",
+      "customerPage.value.items.4.point2",
     ],
   },
   {
-    title: t("customerPage.value.items.5.title"),
+    title: "customerPage.value.items.5.title",
     points: [
-      t("customerPage.value.items.5.point1"),
-      t("customerPage.value.items.5.point2"),
+      "customerPage.value.items.5.point1",
+      "customerPage.value.items.5.point2",
     ],
   },
   {
-    title: t("customerPage.value.items.6.title"),
+    title: "customerPage.value.items.6.title",
     points: [
-      t("customerPage.value.items.6.point1"),
-      t("customerPage.value.items.6.point2"),
+      "customerPage.value.items.6.point1",
+      "customerPage.value.items.6.point2",
     ],
   },
   {
-    title: t("customerPage.value.items.7.title"),
+    title: "customerPage.value.items.7.title",
     points: [
-      t("customerPage.value.items.7.point1"),
-      t("customerPage.value.items.7.point2"),
+      "customerPage.value.items.7.point1",
+      "customerPage.value.items.7.point2",
     ],
   },
   {
-    title: t("customerPage.value.items.8.title"),
+    title: "customerPage.value.items.8.title",
     points: [
-      t("customerPage.value.items.8.point1"),
-      t("customerPage.value.items.8.point2"),
+      "customerPage.value.items.8.point1",
+      "customerPage.value.items.8.point2",
     ],
   },
   {
-    title: t("customerPage.value.items.9.title"),
+    title: "customerPage.value.items.9.title",
     points: [
-      t("customerPage.value.items.9.point1"),
-      t("customerPage.value.items.9.point2"),
-    ],
-  },
-  {
-    title: t("customerPage.value.items.10.title"),
-    points: [
-      t("customerPage.value.items.10.point1"),
-      t("customerPage.value.items.10.point2"),
+      "customerPage.value.items.9.point1",
+      "customerPage.value.items.9.point2",
     ],
   },
 ]);

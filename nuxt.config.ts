@@ -16,7 +16,15 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ["@pinia/nuxt", "@nuxtjs/i18n"],
+  modules: ["@pinia/nuxt", "@nuxtjs/i18n", "@nuxt/image"],
+  image: {
+    provider: "ipx",
+    providers: {
+      ipx: {
+        dir: "~/assets",
+      },
+    },
+  },
   i18n: {
     locales: [
       {

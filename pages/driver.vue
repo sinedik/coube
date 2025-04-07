@@ -13,24 +13,33 @@
             </p>
           </div>
           <div class="banner-image-mobile">
-            <img
-              src="~/assets/carrier.png"
+            <NuxtImg
+              src="/images/carrier.webp"
               :alt="t('homePage.banner.title')"
               class="banner-image"
+              loading="eager"
+              format="webp"
+              quality="80"
             />
             <div class="platform-buttons-mobile">
               <p class="platform-title">{{ t("homePage.banner.platform") }}</p>
               <div class="buttons-row">
                 <a href="#" class="platform-button">
-                  <img
-                    src="~/assets/play-orange.svg"
+                  <NuxtImg
+                    src="/images/play-orange.svg"
                     :alt="t('homePage.banner.video')"
+                    loading="lazy"
+                    format="webp"
+                    quality="80"
                   />
                 </a>
                 <a href="#" class="platform-button">
-                  <img
-                    src="~/assets/play-orange.svg"
+                  <NuxtImg
+                    src="/images/play-orange.svg"
                     :alt="t('homePage.banner.video')"
+                    loading="lazy"
+                    format="webp"
+                    quality="80"
                   />
                 </a>
               </div>
@@ -40,15 +49,21 @@
             <p class="download-title">{{ t("homePage.driver.downloadApp") }}</p>
             <div class="store-buttons">
               <a href="#" class="store-button">
-                <img
-                  src="~/assets/Apple.svg"
+                <NuxtImg
+                  src="/images/Apple.svg"
                   :alt="t('homePage.driver.appStore')"
+                  loading="lazy"
+                  format="webp"
+                  quality="80"
                 />
               </a>
               <a href="#" class="store-button">
-                <img
-                  src="~/assets/Google.svg"
+                <NuxtImg
+                  src="/images/Google.svg"
                   :alt="t('homePage.driver.googlePlay')"
+                  loading="lazy"
+                  format="webp"
+                  quality="80"
                 />
               </a>
             </div>
@@ -58,10 +73,13 @@
         <!-- Десктопная версия баннера -->
         <div class="banner-desktop">
           <div class="banner-image-container">
-            <img
-              src="~/assets/carrier.png"
+            <NuxtImg
+              src="/images/carrier.webp"
               :alt="t('homePage.banner.title')"
               class="banner-image"
+              loading="eager"
+              format="webp"
+              quality="80"
             />
           </div>
           <div class="banner-content-wrapper">
@@ -87,15 +105,21 @@
                     </p>
                     <div class="store-buttons">
                       <a href="#" class="store-button">
-                        <img
-                          src="~/assets/Apple.svg"
+                        <NuxtImg
+                          src="/images/Apple.svg"
                           :alt="t('homePage.driver.appStore')"
+                          loading="lazy"
+                          format="webp"
+                          quality="80"
                         />
                       </a>
                       <a href="#" class="store-button">
-                        <img
-                          src="~/assets/Google.svg"
+                        <NuxtImg
+                          src="/images/Google.svg"
                           :alt="t('homePage.driver.googlePlay')"
+                          loading="lazy"
+                          format="webp"
+                          quality="80"
                         />
                       </a>
                     </div>
@@ -110,9 +134,12 @@
                         target="_blank"
                         class="platform-button"
                       >
-                        <img
-                          src="~/assets/play-orange.svg"
+                        <NuxtImg
+                          src="/images/play-orange.svg"
                           :alt="t('homePage.banner.video')"
+                          loading="lazy"
+                          format="webp"
+                          quality="80"
                         />
                       </a>
                       <a
@@ -120,9 +147,12 @@
                         target="_blank"
                         class="platform-button"
                       >
-                        <img
-                          src="~/assets/play-orange.svg"
+                        <NuxtImg
+                          src="/images/play-orange.svg"
                           :alt="t('homePage.banner.video')"
+                          loading="lazy"
+                          format="webp"
+                          quality="80"
                         />
                       </a>
                     </div>
@@ -142,9 +172,12 @@
                 <h2 class="value-title">{{ t("driverPage.value.title") }}</h2>
               </div>
               <div class="value-image">
-                <img
-                  src="~/assets/trucks.png"
+                <NuxtImg
+                  src="/images/trucks.webp"
                   :alt="t('driverPage.value.trucksAlt')"
+                  loading="lazy"
+                  format="webp"
+                  quality="80"
                 />
               </div>
             </div>
@@ -175,10 +208,13 @@
 
       <section class="laptop-section desktop-only">
         <div class="container">
-          <img
-            src="~/assets/laptop-carrier.png"
+          <NuxtImg
+            src="/images/laptop-carrier.webp"
             :alt="t('driverPage.laptop.interfaceAlt')"
             class="laptop-image"
+            loading="eager"
+            format="webp"
+            quality="80"
           />
         </div>
       </section>
@@ -188,10 +224,13 @@
           <div class="driver-content">
             <div class="driver-info">
               <div class="driver-logo">
-                <img
-                  src="~/assets/logo-clear.svg"
+                <NuxtImg
+                  src="/images/logo-clear.svg"
                   alt="COUBE"
                   class="logo-image"
+                  loading="lazy"
+                  format="webp"
+                  quality="80"
                 />
               </div>
               <h2 class="driver-title">{{ t("homePage.driver.title") }}</h2>
@@ -200,48 +239,66 @@
               </p>
               <div class="app-links desktop-only">
                 <a href="#" class="app-link">
-                  <img
-                    src="~/assets/Apple.svg"
+                  <NuxtImg
+                    src="/images/Apple.svg"
                     :alt="t('homePage.driver.appStore')"
                     class="app-badge"
+                    loading="lazy"
+                    format="webp"
+                    quality="80"
                   />
                 </a>
                 <a href="#" class="app-link">
-                  <img
-                    src="~/assets/Google.svg"
+                  <NuxtImg
+                    src="/images/Google.svg"
                     :alt="t('homePage.driver.googlePlay')"
                     class="app-badge"
+                    loading="lazy"
+                    format="webp"
+                    quality="80"
                   />
                 </a>
               </div>
             </div>
             <div class="driver-phones desktop-only">
-              <img
-                src="~/assets/phones.png"
+              <NuxtImg
+                src="/images/phones.webp"
                 :alt="t('homePage.driver.appImage')"
                 class="phones-image"
+                loading="lazy"
+                format="webp"
+                quality="80"
               />
             </div>
             <div class="driver-phones mobile-only">
-              <img
-                src="~/assets/phones.png"
+              <NuxtImg
+                src="/images/phones.webp"
                 :alt="t('homePage.driver.appImage')"
                 class="phones-image"
+                loading="lazy"
+                format="webp"
+                quality="80"
               />
             </div>
             <div class="app-links mobile-only">
               <a href="#" class="app-link">
-                <img
-                  src="~/assets/Apple.svg"
+                <NuxtImg
+                  src="/images/Apple.svg"
                   :alt="t('homePage.driver.appStore')"
                   class="app-badge"
+                  loading="lazy"
+                  format="webp"
+                  quality="80"
                 />
               </a>
               <a href="#" class="app-link">
-                <img
-                  src="~/assets/Google.svg"
+                <NuxtImg
+                  src="/images/Google.svg"
                   :alt="t('homePage.driver.googlePlay')"
                   class="app-badge"
+                  loading="lazy"
+                  format="webp"
+                  quality="80"
                 />
               </a>
             </div>
@@ -252,11 +309,25 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import { computed } from "vue";
+import { useSeo } from "~/composables/useSeo";
+import { useHead } from "nuxt/app";
 
 const { t } = useI18n();
+const { getSeoConfig } = useSeo();
+const seo = getSeoConfig("driver");
+
+useHead({
+  title: seo.title,
+  meta: [
+    { name: "description", content: seo.description },
+    { property: "og:title", content: seo.title },
+    { property: "og:description", content: seo.description },
+    { property: "og:image", content: "/images/coube-og-image.jpg" },
+  ],
+});
 
 const valueItems = computed(() => [
   {

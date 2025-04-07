@@ -6,10 +6,12 @@
         <div class="footer__logo-container">
           <div class="footer__logo-wrapper">
             <NuxtLinkLocale to="/">
-              <img
-                src="~/assets/logo.svg"
+              <NuxtImg
+                src="/images/logo.svg"
                 :alt="t('footer.logo.alt')"
                 class="footer__logo"
+                format="webp"
+                quality="80"
               />
             </NuxtLinkLocale>
             <span class="footer__platform">{{
@@ -20,10 +22,12 @@
 
         <!-- Блок Astana Hub -->
         <div class="footer__astana-hub">
-          <img
-            src="~/assets/astana-hub.png"
+          <NuxtImg
+            src="/images/astana-hub.webp"
             :alt="t('footer.astanaHub.alt')"
             class="footer__astana-hub-logo"
+            format="webp"
+            quality="80"
           />
           <span class="footer__certificate">{{
             t("footer.astanaHub.certificate")
@@ -60,10 +64,12 @@
 
       <div class="footer__contacts">
         <a :href="`tel:${contacts.phone.raw}`" class="footer__contact-link">
-          <img
-            src="~/assets/phone.svg"
+          <NuxtImg
+            src="/images/phone.svg"
             :alt="t('footer.contacts.phone')"
             class="footer__contact-icon"
+            format="webp"
+            quality="80"
           />
           <span>{{ contacts.phone.display }}</span>
         </a>
@@ -72,10 +78,12 @@
           class="footer__contact-link"
           target="_blank"
         >
-          <img
-            src="~/assets/whatsapp.svg"
+          <NuxtImg
+            src="/images/whatsapp.svg"
             :alt="t('footer.contacts.whatsapp')"
             class="footer__contact-icon"
+            format="webp"
+            quality="80"
           />
           <span>WhatsApp</span>
         </a>
@@ -84,10 +92,12 @@
           class="footer__contact-link"
           target="_blank"
         >
-          <img
-            src="~/assets/telegram.svg"
+          <NuxtImg
+            src="/images/telegram.svg"
             :alt="t('footer.contacts.telegram')"
             class="footer__contact-icon"
+            format="webp"
+            quality="80"
           />
           <span>Telegram</span>
         </a>
@@ -95,10 +105,12 @@
           :href="`mailto:${contacts.email.office}`"
           class="footer__contact-link"
         >
-          <img
-            src="~/assets/mail.svg"
+          <NuxtImg
+            src="/images/mail.svg"
             :alt="t('footer.contacts.email')"
             class="footer__contact-icon"
+            format="webp"
+            quality="80"
           />
           <span>{{ contacts.email.office }}</span>
         </a>
@@ -107,10 +119,12 @@
           class="footer__contact-link"
           target="_blank"
         >
-          <img
-            src="~/assets/instagram.svg"
+          <NuxtImg
+            src="/images/instagram.svg"
             :alt="t('footer.contacts.instagram')"
             class="footer__contact-icon"
+            format="webp"
+            quality="80"
           />
           <span>coube.kz</span>
         </a>
@@ -126,10 +140,12 @@
           }}</a>
           <p class="footer__app-title">{{ t("footer.docs.watchPlatform") }}</p>
           <a :href="contacts.social.youtube" target="_blank">
-            <img
-              src="~/assets/movie.svg"
+            <NuxtImg
+              src="/images/movie.svg"
               :alt="t('footer.docs.video')"
               class="footer__movie-icon"
+              format="webp"
+              quality="80"
             />
           </a>
         </div>
@@ -138,12 +154,19 @@
           <p class="footer__app-title">{{ t("footer.app.downloadDriver") }}</p>
           <div class="footer__app-buttons">
             <a href="#" class="footer__app-button">
-              <img src="~/assets/Apple.svg" :alt="t('footer.app.appStore')" />
+              <NuxtImg
+                src="/images/Apple.svg"
+                :alt="t('footer.app.appStore')"
+                format="webp"
+                quality="80"
+              />
             </a>
             <a href="#" class="footer__app-button">
-              <img
-                src="~/assets/Google.svg"
+              <NuxtImg
+                src="/images/Google.svg"
                 :alt="t('footer.app.googlePlay')"
+                format="webp"
+                quality="80"
               />
             </a>
           </div>

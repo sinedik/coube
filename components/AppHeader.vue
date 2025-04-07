@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header__logo">
         <NuxtLinkLocale to="/">
-          <img src="~/assets/logo.svg" :alt="t('header.logo.alt')" />
+          <NuxtImg src="/images/logo.svg" :alt="t('header.logo.alt')" />
         </NuxtLinkLocale>
       </div>
 
@@ -33,8 +33,8 @@
             target="_blank"
             :aria-label="t('header.social.whatsapp')"
           >
-            <img
-              src="~/assets/whatsapp.svg"
+            <NuxtImg
+              src="/images/whatsapp.svg"
               :alt="t('header.social.whatsapp')"
               class="header__social-icon"
             />
@@ -45,8 +45,8 @@
             target="_blank"
             :aria-label="t('header.social.telegram')"
           >
-            <img
-              src="~/assets/telegram.svg"
+            <NuxtImg
+              src="/images/telegram.svg"
               :alt="t('header.social.telegram')"
               class="header__social-icon"
             />
@@ -56,8 +56,8 @@
             class="header__phone"
             :aria-label="t('common.phone')"
           >
-            <img
-              src="~/assets/phone.svg"
+            <NuxtImg
+              src="/images/phone.svg"
               :alt="t('common.phone')"
               class="header__phone-icon"
             />
@@ -108,7 +108,7 @@
       <div class="mobile-nav__header">
         <div class="header__logo">
           <NuxtLinkLocale to="/">
-            <img src="~/assets/logo.svg" :alt="t('header.logo.alt')" />
+            <NuxtImg src="/images/logo.svg" :alt="t('header.logo.alt')" />
           </NuxtLinkLocale>
         </div>
 
@@ -141,8 +141,8 @@
             target="_blank"
             :aria-label="t('header.social.whatsapp')"
           >
-            <img
-              src="~/assets/whatsapp.svg"
+            <NuxtImg
+              src="/images/whatsapp.svg"
               :alt="t('header.social.whatsapp')"
               class="header__social-icon"
             />
@@ -153,8 +153,8 @@
             target="_blank"
             :aria-label="t('header.social.telegram')"
           >
-            <img
-              src="~/assets/telegram.svg"
+            <NuxtImg
+              src="/images/telegram.svg"
               :alt="t('header.social.telegram')"
               class="header__social-icon"
             />
@@ -164,8 +164,8 @@
             class="header__phone mobile-phone"
             :aria-label="t('common.phone')"
           >
-            <img
-              src="~/assets/phone.svg"
+            <NuxtImg
+              src="/images/phone.svg"
               :alt="t('common.phone')"
               class="header__phone-icon"
             />

@@ -23,15 +23,17 @@
             </a>
           </ClientOnly>
           <div class="astana-hub-logo desktop-only">
-            <img
-              src="~/assets/astana-hub.png"
+            <NuxtImg
+              src="/images/astana-hub.webp"
               :alt="t('footer.astanaHub.alt')"
+              loading="lazy"
             />
           </div>
           <div class="astana-hub-logo mobile-only">
-            <img
-              src="~/assets/astana-hub.png"
+            <NuxtImg
+              src="/images/astana-hub.webp"
               :alt="t('footer.astanaHub.alt')"
+              loading="lazy"
             />
           </div>
           <div class="platform-buttons-mobile">
@@ -42,9 +44,12 @@
                 target="_blank"
                 class="platform-button"
               >
-                <img
-                  src="~/assets/play-orange.svg"
-                  :alt="t('homePage.banner.video')"
+                <NuxtImg
+                  src="/images/play-orange.svg"
+                  alt="Play"
+                  class="hero__play-icon"
+                  format="webp"
+                  quality="80"
                 />
               </a>
               <a
@@ -52,9 +57,12 @@
                 target="_blank"
                 class="platform-button"
               >
-                <img
-                  src="~/assets/play-orange.svg"
-                  :alt="t('homePage.banner.video')"
+                <NuxtImg
+                  src="/images/play-orange.svg"
+                  alt="Play"
+                  class="hero__play-icon"
+                  format="webp"
+                  quality="80"
                 />
               </a>
             </div>
@@ -84,9 +92,12 @@
                     target="_blank"
                     class="platform-button"
                   >
-                    <img
-                      src="~/assets/play-orange.svg"
-                      :alt="t('homePage.banner.video')"
+                    <NuxtImg
+                      src="/images/play-orange.svg"
+                      alt="Play"
+                      class="hero__play-icon"
+                      format="webp"
+                      quality="80"
                     />
                   </a>
                   <a
@@ -94,9 +105,12 @@
                     target="_blank"
                     class="platform-button"
                   >
-                    <img
-                      src="~/assets/play-orange.svg"
-                      :alt="t('homePage.banner.video')"
+                    <NuxtImg
+                      src="/images/play-orange.svg"
+                      alt="Play"
+                      class="hero__play-icon"
+                      format="webp"
+                      quality="80"
                     />
                   </a>
                 </div>
@@ -114,10 +128,12 @@
             </div>
             <div class="about-image-block">
               <div class="about-image-container">
-                <img
-                  src="~/assets/trucks.png"
-                  :alt="t('homePage.about.title')"
-                  class="about-image"
+                <NuxtImg
+                  src="/images/trucks.webp"
+                  alt="Trucks"
+                  class="hero__image"
+                  format="webp"
+                  quality="80"
                 />
               </div>
             </div>
@@ -172,19 +188,19 @@
           >
             <div class="steps-column left">
               <div class="step-item left">
-                <div class="step-content">
+                <div class="step-content step customer-step">
                   <p>{{ customerSteps[0] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item left">
-                <div class="step-content">
+                <div class="step-content step customer-step">
                   <p>{{ customerSteps[2] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item left">
-                <div class="step-content">
+                <div class="step-content step customer-step">
                   <p>{{ customerSteps[4] }}</p>
                 </div>
               </div>
@@ -210,19 +226,19 @@
             <div class="steps-column right">
               <div class="step-spacer"></div>
               <div class="step-item right">
-                <div class="step-content">
+                <div class="step-content step customer-step">
                   <p>{{ customerSteps[1] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item right">
-                <div class="step-content">
+                <div class="step-content step customer-step">
                   <p>{{ customerSteps[3] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item right">
-                <div class="step-content">
+                <div class="step-content step customer-step">
                   <p>{{ customerSteps[5] }}</p>
                 </div>
               </div>
@@ -252,19 +268,19 @@
           >
             <div class="steps-column left">
               <div class="step-item left">
-                <div class="step-content">
+                <div class="step-content step executor-step">
                   <p>{{ executorSteps[0] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item left">
-                <div class="step-content">
+                <div class="step-content step executor-step">
                   <p>{{ executorSteps[2] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item left">
-                <div class="step-content">
+                <div class="step-content step executor-step">
                   <p>{{ executorSteps[4] }}</p>
                 </div>
               </div>
@@ -290,13 +306,13 @@
             <div class="steps-column right">
               <div class="step-spacer"></div>
               <div class="step-item right">
-                <div class="step-content">
+                <div class="step-content step executor-step">
                   <p>{{ executorSteps[1] }}</p>
                 </div>
               </div>
               <div class="step-spacer"></div>
               <div class="step-item right">
-                <div class="step-content">
+                <div class="step-content step executor-step">
                   <p>{{ executorSteps[3] }}</p>
                 </div>
               </div>
@@ -338,9 +354,10 @@
                   target="_blank"
                   class="app-link"
                 >
-                  <img
-                    src="~/assets/Apple.svg"
+                  <NuxtImg
+                    src="/images/Apple.svg"
                     :alt="t('homePage.driver.appStore')"
+                    loading="lazy"
                   />
                 </a>
                 <a
@@ -348,18 +365,21 @@
                   target="_blank"
                   class="app-link"
                 >
-                  <img
-                    src="~/assets/Google.svg"
+                  <NuxtImg
+                    src="/images/Google.svg"
                     :alt="t('homePage.driver.googlePlay')"
+                    loading="lazy"
                   />
                 </a>
               </div>
             </div>
             <div class="drivers-image">
-              <img
-                src="~/assets/phones.png"
-                :alt="t('homePage.driver.appImage')"
-                class="app-preview-img"
+              <NuxtImg
+                src="/images/phones.webp"
+                alt="Phones"
+                class="hero__phones"
+                format="webp"
+                quality="80"
               />
             </div>
           </div>
@@ -369,196 +389,140 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount, nextTick, watch } from "vue";
 import { useI18n } from "vue-i18n";
-import { ref, onMounted } from "vue";
+import { useSeo } from "~/composables/useSeo";
+import { useHead } from "nuxt/app";
 
-export default {
-  name: "IndexPage",
-  setup() {
-    const { t } = useI18n();
-    return { t };
-  },
-  data() {
-    return {
-      activeRole: "customer",
-      customerStepsDots: [],
-      executorStepsDots: [],
-      customerFirstDotPosition: 0,
-      customerLastDotPosition: 0,
-      executorFirstDotPosition: 0,
-      executorLastDotPosition: 0,
-      videoModalVisible: false,
-      isMobile: false,
-      bannerVideo: new URL("~/assets/banner-trucks.mp4", import.meta.url).href,
-      bannerPoster: new URL("~/assets/banner.png", import.meta.url).href,
-    };
-  },
-  computed: {
-    features() {
-      return [
-        this.t("homePage.about.features.0"),
-        this.t("homePage.about.features.1"),
-        this.t("homePage.about.features.2"),
-        this.t("homePage.about.features.3"),
-        this.t("homePage.about.features.4"),
-        this.t("homePage.about.features.5"),
-      ];
-    },
-    customerSteps() {
-      return [
-        this.t("homePage.steps.customer.0"),
-        this.t("homePage.steps.customer.1"),
-        this.t("homePage.steps.customer.2"),
-        this.t("homePage.steps.customer.3"),
-        this.t("homePage.steps.customer.4"),
-        this.t("homePage.steps.customer.5"),
-      ];
-    },
-    executorSteps() {
-      return [
-        this.t("homePage.steps.executor.0"),
-        this.t("homePage.steps.executor.1"),
-        this.t("homePage.steps.executor.2"),
-        this.t("homePage.steps.executor.3"),
-        this.t("homePage.steps.executor.4"),
-      ];
-    },
-  },
-  mounted() {
-    this.calculateTimelineDots();
-    window.addEventListener("resize", this.handleResize);
+const { t } = useI18n();
+const { getSeoConfig } = useSeo();
+const seo = getSeoConfig("home");
 
-    // Проверяем размер экрана
-    this.checkIfMobile();
-    window.addEventListener("resize", this.checkIfMobile);
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.handleResize);
-    window.removeEventListener("resize", this.checkIfMobile);
-  },
-  methods: {
-    checkIfMobile() {
-      this.isMobile = window.innerWidth <= 768;
-    },
-    setActiveRole(role) {
-      this.activeRole = role;
-      this.$nextTick(() => {
-        this.calculateTimelineDots();
-      });
-    },
-    handleResize() {
-      this.calculateTimelineDots();
-    },
-    calculateTimelineDots() {
-      this.$nextTick(() => {
-        // Расчет позиций точек для шагов клиента
-        if (this.activeRole === "customer") {
-          const customerLeftSteps = document.querySelectorAll(
-            ".steps-column.left .step-item"
-          );
-          const customerRightSteps = document.querySelectorAll(
-            ".steps-column.right .step-item"
-          );
+useHead({
+  title: seo.title,
+  meta: [
+    { name: "description", content: seo.description },
+    { property: "og:title", content: seo.title },
+    { property: "og:description", content: seo.description },
+    { property: "og:image", content: "/images/coube-og-image.jpg" },
+  ],
+});
 
-          this.customerStepsDots = [];
+const activeRole = ref("customer");
+const isMobile = ref(false);
+const customerStepsDots = ref<{ position: number }[]>([]);
+const executorStepsDots = ref<{ position: number }[]>([]);
+const customerFirstDotPosition = ref(0);
+const customerLastDotPosition = ref(0);
+const executorFirstDotPosition = ref(0);
+const executorLastDotPosition = ref(0);
+const videoModalVisible = ref(false);
+const bannerVideo = "/images/banner-trucks.mp4";
+const bannerPoster = "/images/banner.webp";
 
-          // Левые точки
-          customerLeftSteps.forEach((step) => {
-            const stepRect = step.getBoundingClientRect();
-            const containerRect = document
-              .querySelector(".steps-diagram")
-              .getBoundingClientRect();
-            const position =
-              stepRect.top + stepRect.height / 2 - containerRect.top;
+const features = [
+  t("homePage.about.features.0"),
+  t("homePage.about.features.1"),
+  t("homePage.about.features.2"),
+  t("homePage.about.features.3"),
+  t("homePage.about.features.4"),
+  t("homePage.about.features.5"),
+];
 
-            this.customerStepsDots.push({
-              position,
-            });
-          });
+const customerSteps = [
+  t("homePage.steps.customer.0"),
+  t("homePage.steps.customer.1"),
+  t("homePage.steps.customer.2"),
+  t("homePage.steps.customer.3"),
+  t("homePage.steps.customer.4"),
+  t("homePage.steps.customer.5"),
+];
 
-          // Правые точки
-          customerRightSteps.forEach((step) => {
-            const stepRect = step.getBoundingClientRect();
-            const containerRect = document
-              .querySelector(".steps-diagram")
-              .getBoundingClientRect();
-            const position =
-              stepRect.top + stepRect.height / 2 - containerRect.top;
+const executorSteps = [
+  t("homePage.steps.executor.0"),
+  t("homePage.steps.executor.1"),
+  t("homePage.steps.executor.2"),
+  t("homePage.steps.executor.3"),
+  t("homePage.steps.executor.4"),
+];
 
-            this.customerStepsDots.push({
-              position,
-            });
-          });
-
-          // Сортировка точек по позиции
-          this.customerStepsDots.sort((a, b) => a.position - b.position);
-
-          // Установка первой и последней позиции для линии
-          this.customerFirstDotPosition = this.customerStepsDots[0].position;
-          this.customerLastDotPosition =
-            this.customerStepsDots[this.customerStepsDots.length - 1].position;
-        }
-
-        // Расчет позиций точек для шагов исполнителя
-        if (this.activeRole === "executor") {
-          const executorLeftSteps = document.querySelectorAll(
-            ".steps-column.left .step-item"
-          );
-          const executorRightSteps = document.querySelectorAll(
-            ".steps-column.right .step-item"
-          );
-
-          this.executorStepsDots = [];
-
-          // Левые точки
-          executorLeftSteps.forEach((step) => {
-            const stepRect = step.getBoundingClientRect();
-            const containerRect = document
-              .querySelector(".steps-diagram")
-              .getBoundingClientRect();
-            const position =
-              stepRect.top + stepRect.height / 2 - containerRect.top;
-
-            this.executorStepsDots.push({
-              position,
-            });
-          });
-
-          // Правые точки
-          executorRightSteps.forEach((step) => {
-            const stepRect = step.getBoundingClientRect();
-            const containerRect = document
-              .querySelector(".steps-diagram")
-              .getBoundingClientRect();
-            const position =
-              stepRect.top + stepRect.height / 2 - containerRect.top;
-
-            this.executorStepsDots.push({
-              position,
-            });
-          });
-
-          // Сортировка точек по позиции
-          this.executorStepsDots.sort((a, b) => a.position - b.position);
-
-          // Установка первой и последней позиции для линии
-          this.executorFirstDotPosition = this.executorStepsDots[0].position;
-          this.executorLastDotPosition =
-            this.executorStepsDots[this.executorStepsDots.length - 1].position;
-        }
-      });
-    },
-    openVideoModal() {
-      this.videoModalVisible = true;
-      document.body.classList.add("modal-open");
-    },
-    closeVideoModal() {
-      this.videoModalVisible = false;
-      document.body.classList.remove("modal-open");
-    },
-  },
+const setActiveRole = (role: string) => {
+  activeRole.value = role;
+  nextTick(() => {
+    calculateStepsPositions();
+  });
 };
+
+const checkIsMobile = () => {
+  isMobile.value = window.innerWidth <= 768;
+};
+
+const calculateStepsPositions = () => {
+  const stepsDiagram = document.querySelector(".steps-diagram");
+  if (!stepsDiagram) return;
+
+  const customerSteps = stepsDiagram.querySelectorAll(".customer-step");
+  const executorSteps = stepsDiagram.querySelectorAll(".executor-step");
+  const customerDots: { position: number }[] = [];
+  const executorDots: { position: number }[] = [];
+
+  if (activeRole.value === "customer") {
+    customerSteps.forEach((step) => {
+      const rect = step.getBoundingClientRect();
+      const diagramRect = stepsDiagram.getBoundingClientRect();
+      const position = rect.top - diagramRect.top + rect.height / 2;
+      customerDots.push({ position });
+    });
+
+    customerStepsDots.value = customerDots.sort(
+      (a, b) => a.position - b.position
+    );
+    if (customerDots.length > 0) {
+      customerFirstDotPosition.value = customerDots[0].position;
+      customerLastDotPosition.value =
+        customerDots[customerDots.length - 1].position;
+    }
+  } else if (activeRole.value === "executor") {
+    executorSteps.forEach((step) => {
+      const rect = step.getBoundingClientRect();
+      const diagramRect = stepsDiagram.getBoundingClientRect();
+      const position = rect.top - diagramRect.top + rect.height / 2;
+      executorDots.push({ position });
+    });
+
+    executorStepsDots.value = executorDots.sort(
+      (a, b) => a.position - b.position
+    );
+    if (executorDots.length > 0) {
+      executorFirstDotPosition.value = executorDots[0].position;
+      executorLastDotPosition.value =
+        executorDots[executorDots.length - 1].position;
+    }
+  }
+};
+
+onMounted(() => {
+  checkIsMobile();
+  window.addEventListener("resize", checkIsMobile);
+  nextTick(() => {
+    calculateStepsPositions();
+  });
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkIsMobile);
+});
+
+function openVideoModal() {
+  videoModalVisible.value = true;
+  document.body.classList.add("modal-open");
+}
+
+function closeVideoModal() {
+  videoModalVisible.value = false;
+  document.body.classList.remove("modal-open");
+}
 </script>
 
 <style lang="scss" scoped>

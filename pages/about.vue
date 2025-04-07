@@ -3,10 +3,12 @@
     <div class="main-container">
       <section class="banner-section">
         <div class="banner-image-container">
-          <img
-            src="~/assets/trucks-highway.png"
-            :alt="t('aboutPage.banner.imageAlt')"
+          <NuxtImg
+            src="/images/trucks-highway.webp"
+            alt="About Hero"
             class="banner-image"
+            format="webp"
+            quality="100"
           />
         </div>
         <div class="banner-content-wrapper">
@@ -28,9 +30,9 @@
         <div class="container">
           <div class="mission-header">
             <h2 class="mission-title">{{ t("aboutPage.mission.title") }}</h2>
-            <a href="https://platform.coube.kz/signin" class="demo-button">{{
+            <!-- <a href="https://platform.coube.kz/signin" class="demo-button">{{
               t("aboutPage.mission.requestDemo")
-            }}</a>
+            }}</a> -->
           </div>
           <div class="mission-content">
             <div class="mission-info">
@@ -39,10 +41,12 @@
               </p>
             </div>
             <div class="mission-image">
-              <img
-                src="~/assets/demo.png"
-                :alt="t('aboutPage.mission.interfaceAlt')"
+              <NuxtImg
+                src="/images/demo.webp"
+                alt="About Team"
                 class="interface-image"
+                format="webp"
+                quality="80"
               />
             </div>
           </div>
@@ -54,9 +58,11 @@
           <div class="values-header">
             <h2 class="values-title">{{ t("aboutPage.values.title") }}</h2>
             <div class="values-image">
-              <img
-                src="~/assets/trucks.png"
-                :alt="t('aboutPage.values.trucksAlt')"
+              <NuxtImg
+                src="/images/trucks.webp"
+                alt="About Values"
+                format="webp"
+                quality="80"
               />
             </div>
           </div>
@@ -98,7 +104,11 @@
                     target="_blank"
                     class="social-link"
                   >
-                    <img src="~/assets/tiktok.png" alt="TikTok" />
+                    <NuxtImg
+                      src="/images/tiktok.webp"
+                      alt="TikTok"
+                      loading="lazy"
+                    />
                     <span>TikTok</span>
                   </a>
                   <a
@@ -106,7 +116,11 @@
                     target="_blank"
                     class="social-link"
                   >
-                    <img src="~/assets/facebook.png" alt="Facebook" />
+                    <NuxtImg
+                      src="/images/facebook.webp"
+                      alt="Facebook"
+                      loading="lazy"
+                    />
                     <span>Facebook</span>
                   </a>
                   <a
@@ -114,7 +128,7 @@
                     target="_blank"
                     class="social-link"
                   >
-                    <img src="~/assets/x.png" alt="X-COM" />
+                    <NuxtImg src="/images/x.webp" alt="X-COM" loading="lazy" />
                     <span>X-COM</span>
                   </a>
                 </div>
@@ -124,9 +138,10 @@
                     target="_blank"
                     class="social-link"
                   >
-                    <img
-                      src="~/assets/yandex.png"
+                    <NuxtImg
+                      src="/images/yandex.webp"
                       :alt="t('aboutPage.social.yandexMaps')"
+                      loading="lazy"
                     />
                     <span>{{ t("aboutPage.social.yandexMaps") }}</span>
                   </a>
@@ -135,7 +150,11 @@
                     target="_blank"
                     class="social-link"
                   >
-                    <img src="~/assets/2gis.png" alt="2ГИС" />
+                    <NuxtImg
+                      src="/images/2gis.webp"
+                      alt="2ГИС"
+                      loading="lazy"
+                    />
                     <span>2ГИС</span>
                   </a>
                 </div>
@@ -145,9 +164,10 @@
                     target="_blank"
                     class="social-link"
                   >
-                    <img
-                      src="~/assets/telegram.png"
+                    <NuxtImg
+                      src="/images/telegram.webp"
                       :alt="t('aboutPage.social.telegramChannel')"
+                      loading="lazy"
                     />
                     <span>{{ t("aboutPage.social.telegramChannel") }}</span>
                   </a>
@@ -156,7 +176,11 @@
                     target="_blank"
                     class="social-link"
                   >
-                    <img src="~/assets/youtube.png" alt="Youtube" />
+                    <NuxtImg
+                      src="/images/youtube.webp"
+                      alt="Youtube"
+                      loading="lazy"
+                    />
                     <span>Youtube</span>
                   </a>
                 </div>
@@ -166,7 +190,11 @@
                     target="_blank"
                     class="social-link"
                   >
-                    <img src="~/assets/linkedin.png" alt="LinkedIn" />
+                    <NuxtImg
+                      src="/images/linkedin.webp"
+                      alt="LinkedIn"
+                      loading="lazy"
+                    />
                     <span>LinkedIn</span>
                   </a>
                   <a
@@ -174,7 +202,11 @@
                     target="_blank"
                     class="social-link"
                   >
-                    <img src="~/assets/instagram.png" alt="Instagram" />
+                    <NuxtImg
+                      src="/images/instagram.webp"
+                      alt="Instagram"
+                      loading="lazy"
+                    />
                     <span>Instagram</span>
                   </a>
                 </div>
@@ -187,16 +219,44 @@
   </div>
 </template>
 
-<script setup>
-import { useContactsStore } from "../stores/contactsStore";
+<script setup lang="ts">
 import { useI18n } from "vue-i18n";
-import { computed } from "vue";
-import "swiper/css";
+import { useSeo } from "~/composables/useSeo";
+import { useHead } from "#app";
 
-const contacts = useContactsStore();
 const { t } = useI18n();
+const { getSeoConfig } = useSeo();
+const seo = getSeoConfig("about");
 
-const valueItems = computed(() => [
+useHead({
+  title: seo.title,
+  meta: [
+    {
+      name: "description",
+      content: seo.description,
+    },
+    {
+      property: "og:title",
+      content: seo.title,
+    },
+    {
+      property: "og:description",
+      content: seo.description,
+    },
+    {
+      property: "og:image",
+      content: "https://coube.kz/og-image.jpg",
+    },
+  ],
+});
+
+interface ValueItem {
+  number: number;
+  title: string;
+  points: string[];
+}
+
+const valueItems: ValueItem[] = [
   {
     number: 1,
     title: t("aboutPage.values.items.1.title"),
@@ -245,23 +305,25 @@ const valueItems = computed(() => [
       t("aboutPage.values.items.6.point2"),
     ],
   },
-]);
-
-const socialLinks = [
-  {
-    icon: "telegram.png",
-    text: "Telegram\nканал",
-    link: contacts.social.telegram.channel,
-  },
-  { icon: "youtube.png", text: "Youtube", link: contacts.social.youtube },
-  { icon: "tiktok.png", text: "TikTok", link: contacts.social.tiktok },
-  { icon: "instagram.png", text: "Instagram", link: contacts.social.instagram },
-  { icon: "facebook.png", text: "Facebook", link: contacts.social.facebook },
-  { icon: "x.png", text: "X-COM", link: contacts.social.twitter },
-  { icon: "linkedin.png", text: "LinkedIn", link: contacts.social.linkedin },
-  { icon: "2gis.png", text: "2ГИС", link: contacts.location._2gis },
-  { icon: "yandex.png", text: "Карта", link: contacts.location.yandex },
 ];
+
+const contacts = {
+  social: {
+    tiktok: "https://tiktok.com/@coube.kz",
+    facebook: "https://facebook.com/coube.kz",
+    twitter: "https://twitter.com/coube_kz",
+    telegram: {
+      channel: "https://t.me/coube_kz",
+    },
+    youtube: "https://youtube.com/@coube.kz",
+    linkedin: "https://linkedin.com/company/coube-kz",
+    instagram: "https://instagram.com/coube.kz",
+  },
+  location: {
+    yandex: "https://yandex.kz/maps/-/CCUQvQHXhD",
+    _2gis: "https://2gis.kz/almaty/firm/70000001036520179",
+  },
+};
 </script>
 
 <style lang="scss" scoped>

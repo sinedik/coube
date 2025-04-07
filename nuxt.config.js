@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-03-13",
-  modules: ["@nuxtjs/i18n", "@pinia/nuxt"],
+  modules: ["@nuxtjs/i18n", "@pinia/nuxt", "@nuxt/image"],
 
   i18n: {
     lazy: false,
