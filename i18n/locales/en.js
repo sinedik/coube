@@ -12,6 +12,7 @@ export default {
     mobileMenu: "Mobile menu",
     close: "Close",
     contactUs: "Contact us",
+    loading: "Loading...",
   },
   header: {
     logo: {
@@ -46,8 +47,10 @@ export default {
     docs: {
       userAgreement: "User Agreement",
       privacyPolicy: "Privacy Policy",
+      publicOffer: "Public Offer",
       watchPlatform: "Explore the platform",
       video: "Video",
+      allDocuments: "Documents and Agreements",
     },
     app: {
       downloadDriver: "Download driver app",
@@ -309,6 +312,22 @@ export default {
       title: "We are on social media",
       yandexMaps: "Yandex Maps",
       telegramChannel: "Telegram channel",
+    },
+  },
+  docsPage: {
+    banner: {
+      title: "Documents and Agreements",
+    },
+    title: "Official COUBE Documents",
+    description: "Review the official documents of our platform",
+    download: "Download",
+    documents: {
+      userAgreementDescription:
+        "Basic rules and terms of use of the COUBE platform for all users",
+      privacyPolicyDescription:
+        "Rules for processing and protecting personal data of platform users",
+      publicOfferDescription:
+        "Public offer agreement for services through the COUBE platform",
     },
   },
 };

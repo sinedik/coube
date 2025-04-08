@@ -132,14 +132,15 @@
 
       <div class="footer__right">
         <div class="footer__docs">
-          <a href="#" class="footer__doc-link">{{
-            t("footer.docs.userAgreement")
-          }}</a>
-          <a href="#" class="footer__doc-link">{{
-            t("footer.docs.privacyPolicy")
-          }}</a>
+          <a
+            @click="navigateToDocuments"
+            class="footer__doc-link cursor-pointer"
+          >
+            {{ t("footer.docs.allDocuments") }}
+          </a>
+
           <p class="footer__app-title">{{ t("footer.docs.watchPlatform") }}</p>
-          <a :href="contacts.social.youtube" target="_blank">
+          <a href="https://youtu.be/d_spUV3ya0U" target="_blank">
             <NuxtImg
               src="/images/movie.svg"
               :alt="t('footer.docs.video')"
@@ -341,6 +342,38 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("resize", moveCopyright);
 });
+
+// Словарь ID документов
+const documentIds = {
+  agreement: {
+    en: "fac56922-3a86-4db3-ae36-971e06eb0f1d",
+    ru: "8b9b897e-cb69-45f8-be2f-7a3bef7e42d8",
+    kk: "8b9b897e-cb69-45f8-be2f-7a3bef7e42d8", // Используем русский для казахского, если нет казахской версии
+  },
+  privacy_policy: {
+    en: "c76f9caa-123e-479f-b7bf-1ff81976290d",
+    ru: "922d4718-6d5b-4cf8-87ee-a85ec275a26b",
+    kk: "922d4718-6d5b-4cf8-87ee-a85ec275a26b", // Используем русский для казахского
+  },
+  PUBLIC_OFFER: {
+    en: "c638d9a1-bc94-4422-9b38-f730dba4b492",
+    ru: "2a8055aa-e22c-4a7d-ab45-ec040b5b69a9",
+    kk: "2a8055aa-e22c-4a7d-ab45-ec040b5b69a9", // Используем русский для казахского
+  },
+};
+
+// Функция для получения ссылки на документ в зависимости от языка
+const getDocumentLink = (documentType) => {
+  const currentLocale = locale.value;
+  const documentId =
+    documentIds[documentType][currentLocale] || documentIds[documentType]["en"]; // Если нет документа для текущего языка, используем английский
+  return `https://stage-platform.coube.kz/api/v1/files/download/${documentId}`;
+};
+
+// Функция перехода на страницу документов
+const navigateToDocuments = () => {
+  router.push(localePath("/docs"));
+};
 </script>
 
 <style lang="scss" scoped>

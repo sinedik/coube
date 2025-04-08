@@ -24,16 +24,11 @@
             <div class="platform-buttons-mobile">
               <p class="platform-title">{{ t("homePage.banner.platform") }}</p>
               <div class="buttons-row">
-                <a href="#" class="platform-button">
-                  <NuxtImg
-                    src="/images/play-orange.svg"
-                    :alt="t('homePage.banner.video')"
-                    loading="lazy"
-                    format="webp"
-                    quality="80"
-                  />
-                </a>
-                <a href="#" class="platform-button">
+                <a
+                  href="https://youtu.be/d_spUV3ya0U"
+                  target="_blank"
+                  class="platform-button"
+                >
                   <NuxtImg
                     src="/images/play-orange.svg"
                     :alt="t('homePage.banner.video')"
@@ -130,20 +125,7 @@
                     </p>
                     <div class="platform-buttons">
                       <a
-                        href="https://www.youtube.com/@coube_logistics"
-                        target="_blank"
-                        class="platform-button"
-                      >
-                        <NuxtImg
-                          src="/images/play-orange.svg"
-                          :alt="t('homePage.banner.video')"
-                          loading="lazy"
-                          format="webp"
-                          quality="80"
-                        />
-                      </a>
-                      <a
-                        href="https://www.youtube.com/@coube_logistics"
+                        href="https://youtu.be/d_spUV3ya0U"
                         target="_blank"
                         class="platform-button"
                       >

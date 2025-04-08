@@ -12,6 +12,7 @@ export default {
     mobileMenu: "Мобильді мәзір",
     close: "Жабу",
     contactUs: "Бізбен байланысу",
+    loading: "Жүктелуде...",
   },
   header: {
     logo: {
@@ -46,8 +47,10 @@ export default {
     docs: {
       userAgreement: "Пайдаланушы келісімі",
       privacyPolicy: "Құпиялылық саясаты",
-      watchPlatform: "Платформамен танысыңыз",
+      publicOffer: "Жария ұсыныс",
+      watchPlatform: "Платформаны зерттеңіз",
       video: "Бейне",
+      allDocuments: "Құжаттар мен келісімдер",
     },
     app: {
       downloadDriver: "Жүргізушіге арналған қосымшаны жүктеңіз",
@@ -310,6 +313,22 @@ export default {
       title: "Біз әлеуметтік желілердеміз",
       yandexMaps: "Яндекс карталар",
       telegramChannel: "Telegram арнасы",
+    },
+  },
+  docsPage: {
+    banner: {
+      title: "Құжаттар мен келісімдер",
+    },
+    title: "COUBE ресми құжаттары",
+    description: "Біздің платформаның ресми құжаттарымен танысыңыз",
+    download: "Жүктеу",
+    documents: {
+      userAgreementDescription:
+        "Барлық пайдаланушыларға арналған COUBE платформасын пайдаланудың негізгі ережелері мен шарттары",
+      privacyPolicyDescription:
+        "Платформа пайдаланушыларының жеке деректерін өңдеу және қорғау ережелері",
+      publicOfferDescription:
+        "COUBE платформасы арқылы қызметтерді көрсетуге арналған жария ұсыныс шарты",
     },
   },
 };

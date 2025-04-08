@@ -1,5 +1,10 @@
 import { useI18n } from "vue-i18n";
 
+// Определяем типы страниц для типобезопасности
+export type Page = "home" | "customer" | "driver" | "about" | "docs";
+
+export type DocumentType = "agreement" | "privacy_policy" | "PUBLIC_OFFER";
+
 export const useSeo = () => {
   const { locale } = useI18n();
 
@@ -141,37 +146,59 @@ export const useSeo = () => {
         h3: ["Our technologies", "Innovations in logistics"],
       },
     },
+    docs: {
+      ru: {
+        title: "COUBE — Документы и соглашения",
+        description:
+          "Соглашения, политика обработки данных и другие официальные документы COUBE.",
+        h1: "Документы и соглашения",
+        h2: "Официальные документы COUBE",
+      },
+      kz: {
+        title: "COUBE — Құжаттар мен келісімдер",
+        description:
+          "COUBE келісімдері, деректерді өңдеу саясаты және басқа ресми құжаттар.",
+        h1: "Құжаттар мен келісімдер",
+        h2: "COUBE ресми құжаттары",
+      },
+      en: {
+        title: "COUBE — Documents and Agreements",
+        description:
+          "Agreements, data processing policy, and other official COUBE documents.",
+        h1: "Documents and Agreements",
+        h2: "Official COUBE Documents",
+      },
+    },
   };
 
-  const getSeoConfig = (page: keyof typeof seoConfig) => {
-    return seoConfig[page][
-      locale.value as keyof (typeof seoConfig)[typeof page]
-    ];
+  const getSeoConfig = (page: Page) => {
+    return seoConfig[page][locale.value];
   };
 
-  const getSchemaOrg = (page: keyof typeof seoConfig) => {
-    const baseSchema = {
+  const getSchemaOrg = (page: Page) => {
+    // Базовая схема организации
+    const baseOrg = {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "COUBE",
       url: "https://coube.kz",
-      logo: "https://coube.kz/images/logo-clear.svg",
-      description: "Цифровой агрегатор грузоперевозок в Казахстане",
+      logo: "https://coube.kz/images/coube-logo.png",
+      description: getSeoConfig(page).description,
       sameAs: [
-        "https://tiktok.com/@coube.kz",
-        "https://facebook.com/coube.kz",
-        "https://twitter.com/coube_kz",
-        "https://t.me/coube_kz",
-        "https://youtube.com/@coube.kz",
-        "https://linkedin.com/company/coube-kz",
+        "https://facebook.com/coube",
         "https://instagram.com/coube.kz",
+        "https://t.me/coube",
       ],
     };
 
-    const pageSchemas = {
-      index: {
-        ...baseSchema,
+    // Схемы для разных страниц
+    const pageSchemas: Record<Page, any> = {
+      home: {
+        "@context": "https://schema.org",
         "@type": "WebSite",
+        name: getSeoConfig("home").title,
+        url: "https://coube.kz",
+        description: getSeoConfig("home").description,
         potentialAction: {
           "@type": "SearchAction",
           target: "https://coube.kz/search?q={search_term_string}",
@@ -179,29 +206,43 @@ export const useSeo = () => {
         },
       },
       customer: {
-        ...baseSchema,
+        "@context": "https://schema.org",
         "@type": "Service",
-        serviceType: "Freight Transportation",
-        provider: {
-          "@type": "Organization",
-          name: "COUBE",
-          description: "Платформа для поиска надежных перевозчиков",
+        serviceType: "Грузоперевозки",
+        name: getSeoConfig("customer").title,
+        description: getSeoConfig("customer").description,
+        provider: baseOrg,
+        areaServed: {
+          "@type": "Country",
+          name: "Казахстан",
         },
       },
       driver: {
-        ...baseSchema,
+        "@context": "https://schema.org",
         "@type": "Service",
-        serviceType: "Freight Transportation",
-        provider: {
-          "@type": "Organization",
-          name: "COUBE",
-          description: "Платформа для перевозчиков",
+        serviceType: "Поиск заказов для перевозчиков",
+        name: getSeoConfig("driver").title,
+        description: getSeoConfig("driver").description,
+        provider: baseOrg,
+        areaServed: {
+          "@type": "Country",
+          name: "Казахстан",
         },
       },
       about: {
-        ...baseSchema,
+        "@context": "https://schema.org",
         "@type": "AboutPage",
-        description: "Узнайте о компании COUBE и нашей миссии",
+        name: getSeoConfig("about").title,
+        description: getSeoConfig("about").description,
+        publisher: baseOrg,
+        mainEntity: baseOrg,
+      },
+      docs: {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Документы COUBE",
+        description: "Официальные документы и политики платформы COUBE",
+        publisher: baseOrg,
       },
     };
 
@@ -210,11 +251,11 @@ export const useSeo = () => {
 
   // Функция для создания Open Graph тегов
   const getOpenGraphTags = (
-    page: keyof SeoConfigs,
+    page: Page,
     seoConfig: { title: string; description: string }
   ) => {
     const baseUrl = "https://coube.kz";
-    const pageUrl = page === "index" ? baseUrl : `${baseUrl}/${page}`;
+    const pageUrl = page === "home" ? baseUrl : `${baseUrl}/${page}`;
 
     return [
       { property: "og:title", content: seoConfig.title },

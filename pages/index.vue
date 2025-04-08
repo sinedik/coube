@@ -40,20 +40,7 @@
             <p class="platform-title">{{ t("homePage.banner.platform") }}</p>
             <div class="buttons-row">
               <a
-                href="https://www.youtube.com/@coube_logistics"
-                target="_blank"
-                class="platform-button"
-              >
-                <NuxtImg
-                  src="/images/play-orange.svg"
-                  alt="Play"
-                  class="hero__play-icon"
-                  format="webp"
-                  quality="80"
-                />
-              </a>
-              <a
-                href="https://www.youtube.com/@coube_logistics"
+                href="https://youtu.be/d_spUV3ya0U"
                 target="_blank"
                 class="platform-button"
               >
@@ -88,20 +75,7 @@
                 </p>
                 <div class="platform-buttons">
                   <a
-                    href="https://www.youtube.com/@coube_logistics"
-                    target="_blank"
-                    class="platform-button"
-                  >
-                    <NuxtImg
-                      src="/images/play-orange.svg"
-                      alt="Play"
-                      class="hero__play-icon"
-                      format="webp"
-                      quality="80"
-                    />
-                  </a>
-                  <a
-                    href="https://www.youtube.com/@coube_logistics"
+                    href="https://youtu.be/d_spUV3ya0U"
                     target="_blank"
                     class="platform-button"
                   >
