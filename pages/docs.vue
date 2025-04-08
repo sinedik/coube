@@ -42,9 +42,8 @@
                     :href="getDocumentDownloadUrl(doc.id)"
                     target="_blank"
                     class="docs-item-button"
-                    :download="doc.fileName"
                   >
-                    {{ t("docsPage.download") }}
+                    {{ t("docsPage.view") }}
                   </a>
                 </div>
               </div>

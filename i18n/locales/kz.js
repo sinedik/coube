@@ -322,6 +322,7 @@ export default {
     title: "COUBE ресми құжаттары",
     description: "Біздің платформаның ресми құжаттарымен танысыңыз",
     download: "Жүктеу",
+    view: "Қарау",
     documents: {
       userAgreementDescription:
         "Барлық пайдаланушыларға арналған COUBE платформасын пайдаланудың негізгі ережелері мен шарттары",

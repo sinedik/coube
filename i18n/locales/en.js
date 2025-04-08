@@ -321,6 +321,7 @@ export default {
     title: "Official COUBE Documents",
     description: "Review the official documents of our platform",
     download: "Download",
+    view: "View",
     documents: {
       userAgreementDescription:
         "Basic rules and terms of use of the COUBE platform for all users",
