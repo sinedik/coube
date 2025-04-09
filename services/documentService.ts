@@ -147,7 +147,7 @@ class DocumentApiClient {
    * Получить URL для скачивания документа
    */
   getDownloadUrl(id: string): string {
-    return `${this.baseUrl}/files/download/${id}`;
+    return `${this.baseUrl}/files/preview/${id}`;
   }
 }
 
