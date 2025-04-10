@@ -25,7 +25,7 @@
               <p class="platform-title">{{ t("homePage.banner.platform") }}</p>
               <div class="buttons-row">
                 <a
-                  href="https://youtu.be/d_spUV3ya0U"
+                  :href="t('common.video.url')"
                   target="_blank"
                   class="platform-button"
                 >
@@ -125,7 +125,7 @@
                     </p>
                     <div class="platform-buttons">
                       <a
-                        href="https://youtu.be/d_spUV3ya0U"
+                        :href="t('common.video.url')"
                         target="_blank"
                         class="platform-button"
                       >

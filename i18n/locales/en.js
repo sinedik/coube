@@ -13,6 +13,9 @@ export default {
     close: "Close",
     contactUs: "Contact us",
     loading: "Loading...",
+    video: {
+      url: "https://www.youtube.com/watch?v=__yxy5u_7ZY",
+    },
   },
   header: {
     logo: {

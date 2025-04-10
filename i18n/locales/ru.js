@@ -13,6 +13,9 @@ export default {
     close: "Закрыть",
     contactUs: "Связаться с нами",
     loading: "Загрузка...",
+    video: {
+      url: "https://www.youtube.com/watch?v=d_spUV3ya0U",
+    },
   },
   header: {
     logo: {

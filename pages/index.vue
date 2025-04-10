@@ -5,8 +5,9 @@
         <div class="banner-image-container">
           <ClientOnly>
             <a
-              href="https://www.youtube.com/channel/UCnw5IujP_Pz0a7DnMJ2Zrxw"
+              :href="t('common.video.url')"
               target="_blank"
+              class="banner__video-link"
             >
               <VideoPlayer
                 :video-url="bannerVideo"
@@ -40,7 +41,7 @@
             <p class="platform-title">{{ t("homePage.banner.platform") }}</p>
             <div class="buttons-row">
               <a
-                href="https://youtu.be/d_spUV3ya0U"
+                :href="t('common.video.url')"
                 target="_blank"
                 class="platform-button"
               >
@@ -75,7 +76,7 @@
                 </p>
                 <div class="platform-buttons">
                   <a
-                    href="https://youtu.be/d_spUV3ya0U"
+                    :href="t('common.video.url')"
                     target="_blank"
                     class="platform-button"
                   >

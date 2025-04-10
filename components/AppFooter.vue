@@ -140,7 +140,7 @@
           </a>
 
           <p class="footer__app-title">{{ t("footer.docs.watchPlatform") }}</p>
-          <a href="https://youtu.be/d_spUV3ya0U" target="_blank">
+          <a :href="t('common.video.url')" target="_blank">
             <NuxtImg
               src="/images/movie.svg"
               :alt="t('footer.docs.video')"

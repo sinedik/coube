@@ -13,6 +13,9 @@ export default {
     close: "Жабу",
     contactUs: "Бізбен байланысу",
     loading: "Жүктелуде...",
+    video: {
+      url: "https://www.youtube.com/watch?v=w1RMagDNSUo",
+    },
   },
   header: {
     logo: {
