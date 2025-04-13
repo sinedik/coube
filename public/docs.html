@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Официальные документы COUBE</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+      }
+      .logo {
+        max-width: 150px;
+        margin-bottom: 15px;
+      }
+      h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      p {
+        margin-bottom: 20px;
+      }
+      .docs-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .docs-item {
+        display: flex;
+        background: #f9f9f9;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+      .docs-item-icon {
+        margin-right: 20px;
+      }
+      .docs-item-icon img {
+        width: 40px;
+        height: auto;
+      }
+      .docs-item-content {
+        flex: 1;
+      }
+      .docs-item-title {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+      .docs-item-description {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+      }
+      .docs-item-actions {
+        display: flex;
+        align-items: center;
+      }
+      .docs-item-button {
+        display: inline-block;
+        background: #4361ee;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background 0.3s;
+      }
+      .docs-item-button:hover {
+        background: #3048b6;
+      }
+      footer {
+        margin-top: 50px;
+        text-align: center;
+        font-size: 14px;
+        color: #888;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+      }
+      @media (max-width: 768px) {
+        .docs-item {
+          flex-direction: column;
+        }
+        .docs-item-icon {
+          margin-right: 0;
+          margin-bottom: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="/images/logo-clear.svg" alt="COUBE" class="logo" />
+      <h1>Официальные документы COUBE</h1>
+      <p>Ознакомьтесь с официальными документами нашей платформы</p>
+    </header>
+
+    <div class="docs-list">
+      <!-- Пользовательское соглашение RU -->
+      <div class="docs-item">
+        <div class="docs-item-icon">
+          <img src="/images/pdf.png" alt="PDF документ" />
+        </div>
+        <div class="docs-item-content">
+          <h3 class="docs-item-title">Пользовательское соглашение</h3>
+          <p class="docs-item-description">
+            Правила использования платформы COUBE для заказчиков и перевозчиков
+          </p>
+        </div>
+        <div class="docs-item-actions">
+          <a href="agreement-ru.html" class="docs-item-button"> Читать </a>
+        </div>
+      </div>
+
+      <!-- Политика конфиденциальности RU -->
+      <div class="docs-item">
+        <div class="docs-item-icon">
+          <img src="/images/pdf.png" alt="PDF документ" />
+        </div>
+        <div class="docs-item-content">
+          <h3 class="docs-item-title">Политика конфиденциальности</h3>
+          <p class="docs-item-description">
+            Правила обработки и защиты персональных данных пользователей
+          </p>
+        </div>
+        <div class="docs-item-actions">
+          <a href="privacy-policy-ru.html" class="docs-item-button"> Читать </a>
+        </div>
+      </div>
+
+      <!-- Публичная оферта RU -->
+      <div class="docs-item">
+        <div class="docs-item-icon">
+          <img src="/images/pdf.png" alt="PDF документ" />
+        </div>
+        <div class="docs-item-content">
+          <h3 class="docs-item-title">Публичная оферта</h3>
+          <p class="docs-item-description">
+            Договор оферты для клиентов платформы COUBE
+          </p>
+        </div>
+        <div class="docs-item-actions">
+          <a href="public-offer-ru.html" class="docs-item-button"> Читать </a>
+        </div>
+      </div>
+
+      <!-- Согласие на обработку персональных данных RU -->
+      <div class="docs-item">
+        <div class="docs-item-icon">
+          <img src="/images/pdf.png" alt="PDF документ" />
+        </div>
+        <div class="docs-item-content">
+          <h3 class="docs-item-title">
+            Согласие на обработку персональных данных
+          </h3>
+          <p class="docs-item-description">
+            Согласие на обработку персональных данных пользователей платформы
+          </p>
+        </div>
+        <div class="docs-item-actions">
+          <a href="personal-data-ru.html" class="docs-item-button"> Читать </a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2023-2024 COUBE. Все права защищены.</p>
+    </footer>
+  </body>
+</html>

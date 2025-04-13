@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COUBE Documents</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+        text-align: center;
+      }
+      .logo {
+        max-width: 150px;
+        margin-bottom: 30px;
+      }
+      h1 {
+        margin-bottom: 30px;
+      }
+      .language-selector {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 30px;
+        justify-content: center;
+      }
+      .language-button {
+        display: inline-block;
+        background: #4361ee;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background 0.3s;
+      }
+      .language-button:hover {
+        background: #3048b6;
+      }
+    </style>
+    <script>
+      // Функция для определения предпочитаемого языка браузера
+      function getBrowserLanguage() {
+        const language = navigator.language || navigator.userLanguage;
+        if (language) {
+          const languageCode = language.split("-")[0].toLowerCase();
+          if (languageCode === "ru") {
+            return "ru";
+          } else if (languageCode === "kk" || languageCode === "kz") {
+            return "kz";
+          } else {
+            return "en";
+          }
+        }
+        return "ru"; // По умолчанию - русский
+      }
+
+      // Перенаправление на соответствующую страницу при загрузке
+      window.onload = function () {
+        const language = getBrowserLanguage();
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get("lang");
+
+        // Если язык указан в URL, используем его
+        if (langParam) {
+          if (langParam === "ru") {
+            window.location.href = "docs.html";
+          } else if (langParam === "en") {
+            window.location.href = "docs-en.html";
+          } else if (langParam === "kz") {
+            window.location.href = "docs-kz.html";
+          } else {
+            // Неизвестный язык, используем определенный из браузера
+            redirectByLanguage(language);
+          }
+        } else {
+          // Язык не указан в URL, используем определенный из браузера
+          redirectByLanguage(language);
+        }
+      };
+
+      function redirectByLanguage(language) {
+        if (language === "ru") {
+          window.location.href = "docs.html";
+        } else if (language === "en") {
+          window.location.href = "docs-en.html";
+        } else if (language === "kz") {
+          window.location.href = "docs-kz.html";
+        } else {
+          window.location.href = "docs.html"; // По умолчанию - русский
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <img src="/images/logo.svg" alt="COUBE" class="logo" />
+    <h1>COUBE Documents</h1>
+    <p>
+      Выберите язык документов / Choose document language / Құжат тілін таңдаңыз
+    </p>
+
+    <div class="language-selector">
+      <a href="docs.html" class="language-button">Русский</a>
+      <a href="docs-en.html" class="language-button">English</a>
+      <a href="docs-kz.html" class="language-button">Қазақша</a>
+    </div>
+  </body>
+</html>

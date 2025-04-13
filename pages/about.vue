@@ -157,6 +157,18 @@
                     />
                     <span>2ГИС</span>
                   </a>
+                  <a
+                    :href="contacts.location.google"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <NuxtImg
+                      src="/images/google-maps.png"
+                      alt="Google Maps"
+                      loading="lazy"
+                    />
+                    <span>Google Maps</span>
+                  </a>
                 </div>
                 <div class="social-links-row">
                   <a
@@ -334,6 +346,7 @@ const contacts = {
   location: {
     yandex: "https://yandex.kz/maps/-/CCUQvQHXhD",
     _2gis: "https://2gis.kz/almaty/firm/70000001036520179",
+    google: "https://maps.app.goo.gl/uRiT4mw8yCBeVBKGA",
   },
 };
 </script>
@@ -949,7 +962,7 @@ const contacts = {
 .social-links-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 24px;
   margin-bottom: 16px;
 }
 
@@ -1020,14 +1033,14 @@ const contacts = {
   .social-links-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 16px;
     align-items: flex-start;
   }
 
   .social-links-row {
     display: flex;
     justify-content: flex-start;
-    gap: 8px;
+    gap: 16px;
     width: 100%;
     margin-bottom: 0;
   }
