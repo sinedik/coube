@@ -56,7 +56,7 @@
             return "en";
           }
         }
-        return "ru"; // По умолчанию - русский
+        return "en"; // По умолчанию - английский
       }
 
       // Перенаправление на соответствующую страницу при загрузке
@@ -68,9 +68,9 @@
         // Если язык указан в URL, используем его
         if (langParam) {
           if (langParam === "ru") {
-            window.location.href = "docs.html";
+            window.location.href = "docs-ru.html";
           } else if (langParam === "en") {
-            window.location.href = "docs-en.html";
+            window.location.href = "docs.html";
           } else if (langParam === "kz") {
             window.location.href = "docs-kz.html";
           } else {
@@ -85,13 +85,13 @@
 
       function redirectByLanguage(language) {
         if (language === "ru") {
-          window.location.href = "docs.html";
+          window.location.href = "docs-ru.html";
         } else if (language === "en") {
-          window.location.href = "docs-en.html";
+          window.location.href = "docs.html";
         } else if (language === "kz") {
           window.location.href = "docs-kz.html";
         } else {
-          window.location.href = "docs.html"; // По умолчанию - русский
+          window.location.href = "docs.html"; // По умолчанию - английский
         }
       }
     </script>
@@ -104,8 +104,8 @@
     </p>
 
     <div class="language-selector">
-      <a href="docs.html" class="language-button">Русский</a>
-      <a href="docs-en.html" class="language-button">English</a>
+      <a href="docs.html" class="language-button">English</a>
+      <a href="docs-ru.html" class="language-button">Русский</a>
       <a href="docs-kz.html" class="language-button">Қазақша</a>
     </div>
   </body>
