@@ -335,17 +335,17 @@ const contacts = {
   social: {
     tiktok: "https://tiktok.com/@coube.kz",
     facebook: "https://facebook.com/coube.kz",
-    twitter: "https://twitter.com/coube_kz",
+    twitter: "https://x.com/coubekz",
     telegram: {
-      channel: "https://t.me/coube_kz",
+      channel: "https://t.me/coube_logistics_platform",
     },
-    youtube: "https://youtube.com/@coube.kz",
-    linkedin: "https://linkedin.com/company/coube-kz",
+    youtube: "https://youtube.com/@coube_logistics?si=Rl2ZXbAIr_oQditc",
+    linkedin: "https://www.linkedin.com/company/coube/",
     instagram: "https://instagram.com/coube.kz",
   },
   location: {
-    yandex: "https://yandex.kz/maps/-/CCUQvQHXhD",
-    _2gis: "https://2gis.kz/almaty/firm/70000001036520179",
+    yandex: "https://yandex.kz/maps/ru/-/CDwXEI8H",
+    _2gis: "https://go.2gis.com/nbrkp",
     google: "https://maps.app.goo.gl/uRiT4mw8yCBeVBKGA",
   },
 };

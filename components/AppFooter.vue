@@ -154,7 +154,11 @@
         <div class="footer__app-container">
           <p class="footer__app-title">{{ t("footer.app.downloadDriver") }}</p>
           <div class="footer__app-buttons">
-            <a href="#" class="footer__app-button">
+            <a
+              href="https://apps.apple.com/us/app/coube-driver/id6743764010"
+              class="footer__app-button"
+              target="_blank"
+            >
               <NuxtImg
                 src="/images/Apple.svg"
                 :alt="t('footer.app.appStore')"
@@ -162,7 +166,11 @@
                 quality="80"
               />
             </a>
-            <a href="#" class="footer__app-button">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.coube&pcampaignid=web_share"
+              class="footer__app-button"
+              target="_blank"
+            >
               <NuxtImg
                 src="/images/Google.svg"
                 :alt="t('footer.app.googlePlay')"

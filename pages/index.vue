@@ -325,7 +325,7 @@
               </p>
               <div class="app-links">
                 <a
-                  href="https://apps.apple.com/app/id1552181846"
+                  href="https://apps.apple.com/us/app/coube-driver/id6743764010"
                   target="_blank"
                   class="app-link"
                 >
@@ -336,7 +336,7 @@
                   />
                 </a>
                 <a
-                  href="https://play.google.com/store/apps/details?id=kz.coube.driver"
+                  href="https://play.google.com/store/apps/details?id=com.coube&pcampaignid=web_share"
                   target="_blank"
                   class="app-link"
                 >

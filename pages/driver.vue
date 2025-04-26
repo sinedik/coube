@@ -43,7 +43,10 @@
           <div class="mobile-app-buttons">
             <p class="download-title">{{ t("homePage.driver.downloadApp") }}</p>
             <div class="store-buttons">
-              <a href="#" class="store-button">
+              <a
+                href="https://apps.apple.com/us/app/coube-driver/id6743764010"
+                class="store-button"
+              >
                 <NuxtImg
                   src="/images/Apple.svg"
                   :alt="t('homePage.driver.appStore')"
@@ -52,7 +55,10 @@
                   quality="80"
                 />
               </a>
-              <a href="#" class="store-button">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.coube&pcampaignid=web_share"
+                class="store-button"
+              >
                 <NuxtImg
                   src="/images/Google.svg"
                   :alt="t('homePage.driver.googlePlay')"
@@ -99,7 +105,10 @@
                       {{ t("homePage.driver.downloadApp") }}
                     </p>
                     <div class="store-buttons">
-                      <a href="#" class="store-button">
+                      <a
+                        href="https://apps.apple.com/us/app/coube-driver/id6743764010"
+                        class="store-button"
+                      >
                         <NuxtImg
                           src="/images/Apple.svg"
                           :alt="t('homePage.driver.appStore')"
@@ -108,7 +117,10 @@
                           quality="80"
                         />
                       </a>
-                      <a href="#" class="store-button">
+                      <a
+                        href="https://play.google.com/store/apps/details?id=com.coube&pcampaignid=web_share"
+                        class="store-button"
+                      >
                         <NuxtImg
                           src="/images/Google.svg"
                           :alt="t('homePage.driver.googlePlay')"
@@ -220,7 +232,10 @@
                 {{ t("homePage.driver.description") }}
               </p>
               <div class="app-links desktop-only">
-                <a href="#" class="app-link">
+                <a
+                  href="https://apps.apple.com/us/app/coube-driver/id6743764010"
+                  class="app-link"
+                >
                   <NuxtImg
                     src="/images/Apple.svg"
                     :alt="t('homePage.driver.appStore')"
@@ -230,7 +245,10 @@
                     quality="80"
                   />
                 </a>
-                <a href="#" class="app-link">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.coube&pcampaignid=web_share"
+                  class="app-link"
+                >
                   <NuxtImg
                     src="/images/Google.svg"
                     :alt="t('homePage.driver.googlePlay')"
@@ -263,7 +281,10 @@
               />
             </div>
             <div class="app-links mobile-only">
-              <a href="#" class="app-link">
+              <a
+                href="https://apps.apple.com/us/app/coube-driver/id6743764010"
+                class="app-link"
+              >
                 <NuxtImg
                   src="/images/Apple.svg"
                   :alt="t('homePage.driver.appStore')"
@@ -273,7 +294,10 @@
                   quality="80"
                 />
               </a>
-              <a href="#" class="app-link">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.coube&pcampaignid=web_share"
+                class="app-link"
+              >
                 <NuxtImg
                   src="/images/Google.svg"
                   :alt="t('homePage.driver.googlePlay')"
