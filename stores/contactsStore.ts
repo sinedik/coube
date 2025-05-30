@@ -19,7 +19,7 @@ export const useContactsStore = defineStore("contacts", {
         group: "https://chat.whatsapp.com/DMfrOFSsMcQ2sBTMMCs3rv",
         direct: "https://wa.me/77074678336",
       },
-      youtube: "https://youtube.com/@coube_logistics",
+      youtube: "https://youtube.com/@coube_logistics?si=Rl2ZXbAIr_oQditc",
       telegram: {
         channel: "https://t.me/coube_logistics_platform",
         contact: "https://t.me/coube_logistics",

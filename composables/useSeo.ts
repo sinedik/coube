@@ -185,9 +185,13 @@ export const useSeo = () => {
       logo: "https://coube.kz/images/coube-logo.png",
       description: getSeoConfig(page).description,
       sameAs: [
-        "https://facebook.com/coube",
+        "https://facebook.com/coubekz",
         "https://instagram.com/coube.kz",
-        "https://t.me/coube",
+        "https://t.me/coube_logistics_platform",
+        "https://youtube.com/@coube_logistics?si=Rl2ZXbAIr_oQditc",
+        "https://x.com/coubekz",
+        "https://www.linkedin.com/company/coube/",
+        "https://www.tiktok.com/@coube.kz"
       ],
     };
 

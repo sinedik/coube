@@ -38,12 +38,12 @@
             />
           </div>
           <div class="platform-buttons-mobile">
-            <p class="platform-title">{{ t("homePage.banner.platform") }}</p>
             <div class="buttons-row">
               <a
                 :href="t('common.video.url')"
                 target="_blank"
                 class="platform-button"
+                :title="t('homePage.banner.videoTooltip')"
               >
                 <NuxtImg
                   src="/images/play-orange.svg"
@@ -71,14 +71,12 @@
                 >{{ t("homePage.banner.button") }}</a
               >
               <div class="platform-section">
-                <p class="platform-title">
-                  {{ t("homePage.banner.platform") }}
-                </p>
                 <div class="platform-buttons">
                   <a
                     :href="t('common.video.url')"
                     target="_blank"
                     class="platform-button"
+                    :title="t('homePage.banner.videoTooltip')"
                   >
                     <NuxtImg
                       src="/images/play-orange.svg"
@@ -698,34 +696,43 @@ function closeVideoModal() {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  position: relative;
 
   &:hover {
     background: rgba(255, 255, 255, 0.2);
+
+    &::after {
+      content: attr(title);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+    }
   }
 
   img {
     width: 24px;
     height: 24px;
-  }
-}
-.banner-button {
-  background-color: #ffa500;
-  color: #000;
-  border: none;
-  border-radius: 100px;
-  padding: 16px 40px;
-  width: 100%;
-  max-width: 240px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-block;
-  text-decoration: none;
-  text-align: center;
-
-  &:hover {
-    background-color: darken(#ffa500, 10%);
   }
 }
 
@@ -764,6 +771,41 @@ function closeVideoModal() {
       width: 20px;
       height: 20px;
     }
+
+    &:hover {
+      &::after {
+        bottom: auto;
+        top: calc(100% + 8px);
+      }
+
+      &::before {
+        bottom: auto;
+        top: calc(100% + 2px);
+        border-top: none;
+        border-bottom: 6px solid rgba(0, 0, 0, 0.8);
+      }
+    }
+  }
+}
+
+.banner-button {
+  background-color: #ffa500;
+  color: #000;
+  border: none;
+  border-radius: 100px;
+  padding: 16px 40px;
+  width: 100%;
+  max-width: 240px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    background-color: darken(#ffa500, 10%);
   }
 }
 

@@ -70,6 +70,7 @@ export default {
       button: "Connect",
       platform: "Explore the platform",
       video: "Watch video",
+      videoTooltip: "Explore the platform",
     },
     about: {
       title: "About us",

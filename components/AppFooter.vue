@@ -139,15 +139,14 @@
             {{ t("footer.docs.allDocuments") }}
           </a>
 
-          <p class="footer__app-title">{{ t("footer.docs.watchPlatform") }}</p>
-          <a :href="t('common.video.url')" target="_blank">
-            <NuxtImg
-              src="/images/movie.svg"
-              :alt="t('footer.docs.video')"
-              class="footer__movie-icon"
-              format="webp"
-              quality="80"
-            />
+          <a
+            class="footer__doc-link cursor-pointer"
+            :href="t('common.video.url')"
+            target="_blank"
+          >
+            <p class="footer__app-title">
+              {{ t("footer.docs.watchPlatform") }}
+            </p>
           </a>
         </div>
 

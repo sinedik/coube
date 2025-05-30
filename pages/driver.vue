@@ -22,12 +22,12 @@
               quality="80"
             />
             <div class="platform-buttons-mobile">
-              <p class="platform-title">{{ t("homePage.banner.platform") }}</p>
               <div class="buttons-row">
                 <a
                   :href="t('common.video.url')"
                   target="_blank"
                   class="platform-button"
+                  :title="t('homePage.banner.videoTooltip')"
                 >
                   <NuxtImg
                     src="/images/play-orange.svg"
@@ -132,14 +132,12 @@
                     </div>
                   </div>
                   <div class="platform-section">
-                    <p class="platform-title">
-                      {{ t("homePage.banner.platform") }}
-                    </p>
                     <div class="platform-buttons">
                       <a
                         :href="t('common.video.url')"
                         target="_blank"
                         class="platform-button"
+                        :title="t('homePage.banner.videoTooltip')"
                       >
                         <NuxtImg
                           src="/images/play-orange.svg"
@@ -642,9 +640,38 @@ const valueItems = computed(() => [
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  position: relative;
 
   &:hover {
     background: rgba(255, 255, 255, 0.2);
+
+    &::after {
+      content: attr(title);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+    }
   }
 
   img {
@@ -653,44 +680,127 @@ const valueItems = computed(() => [
   }
 }
 
-@media (max-width: 1024px) {
-  .banner-title {
-    font-size: 36px;
+.platform-buttons-mobile {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .platform-title {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   }
 
-  .banner-description {
-    font-size: 20px;
+  .buttons-row {
+    display: flex;
+    gap: 16px;
   }
 
-  .banner-buttons {
-    margin-top: 120px;
+  .platform-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      &::after {
+        bottom: auto;
+        top: calc(100% + 8px);
+      }
+
+      &::before {
+        bottom: auto;
+        top: calc(100% + 2px);
+        border-top: none;
+        border-bottom: 6px solid rgba(0, 0, 0, 0.8);
+      }
+    }
   }
 }
 
-@media (max-width: 768px) {
-  .banner-section {
+.mobile-app-buttons {
+  padding: 16px;
+  border-radius: 0 0 24px 24px;
+  margin-bottom: 24px;
+  order: 3;
+
+  .download-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #000;
+    text-align: center;
+  }
+
+  .store-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .store-button {
+    height: 45px;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+}
+
+.banner-button {
+  background-color: #f19e22;
+  color: #000;
+  border: none;
+  border-radius: 100px;
+  padding: 16px 40px;
+  width: 100%;
+  max-width: 240px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    background-color: darken(#f19e22, 10%);
+  }
+}
+
+@media (max-width: 460px) {
+  .value-header {
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  .value-description {
+    margin-bottom: 20px;
     margin-top: 0;
   }
-
-  .banner-mobile {
-    display: flex;
-  }
-
-  .banner-desktop {
-    display: none;
-  }
-
-  .banner-title {
-    font-size: 24px;
-    margin-bottom: 8px;
-    color: #000;
+  .driver-section {
+    background-color: transparent;
+    padding-top: 0;
   }
 
   .banner-description {
-    font-size: 14px;
-    margin-bottom: 24px;
-    color: #000;
-    opacity: 1;
+    margin-bottom: 0px;
+    margin-top: 16px;
   }
 }
 
@@ -1155,113 +1265,79 @@ const valueItems = computed(() => [
   }
 }
 
-.platform-buttons-mobile {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  .platform-title {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    margin: 0;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+@media (max-width: 1024px) {
+  .banner-title {
+    font-size: 36px;
   }
 
-  .buttons-row {
-    display: flex;
-    gap: 16px;
+  .banner-description {
+    font-size: 20px;
   }
 
-  .platform-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 20px;
-      height: 20px;
-    }
+  .banner-buttons {
+    margin-top: 120px;
   }
 }
 
-.mobile-app-buttons {
-  padding: 16px;
-  border-radius: 0 0 24px 24px;
-  margin-bottom: 24px;
-  order: 3;
+@media (max-width: 768px) {
+  .banner-section {
+    margin-top: 0;
+  }
 
-  .download-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 12px;
+  .banner-mobile {
+    display: flex;
+  }
+
+  .banner-desktop {
+    display: none;
+  }
+
+  .banner-title {
+    font-size: 24px;
+    margin-bottom: 8px;
     color: #000;
-    text-align: center;
   }
 
-  .store-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
+  .banner-description {
+    font-size: 14px;
+    margin-bottom: 24px;
+    color: #000;
+    opacity: 1;
   }
 
-  .store-button {
-    height: 45px;
-
-    img {
-      height: 100%;
-      width: auto;
-    }
+  .banner-buttons {
+    margin-top: 24px;
   }
-}
 
-.banner-button {
-  background-color: #f19e22;
-  color: #000;
-  border: none;
-  border-radius: 100px;
-  padding: 16px 40px;
-  width: 100%;
-  max-width: 240px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 0;
-  display: inline-block;
-  text-decoration: none;
-  text-align: center;
+  .platform-section {
+    display: none;
+  }
 
-  &:hover {
-    background-color: darken(#f19e22, 10%);
+  .banner-button {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px 0;
+    margin-top: 0;
   }
 }
 
 @media (max-width: 460px) {
-  .value-header {
-    align-items: flex-start;
-    margin-bottom: 16px;
-  }
-  .value-description {
-    margin-bottom: 20px;
-    margin-top: 0;
-  }
-  .driver-section {
-    background-color: transparent;
-    padding-top: 0;
+  .banner-content-wrapper {
+    padding: 24px 0px;
   }
 
   .banner-description {
     margin-bottom: 0px;
     margin-top: 16px;
+  }
+
+  .banner-buttons {
+    margin-top: 16px;
+  }
+
+  .platform-buttons-mobile {
+    bottom: 12px;
+    left: 12px;
   }
 }
 </style>
